@@ -88,7 +88,10 @@ docker compose up --build api
 ├── app/                    # Next.js App Router
 │   ├── globals.css         # design tokens + base layer (edit tokens here)
 │   ├── layout.tsx          # metadata, fonts, header/footer, skip link
-│   ├── page.tsx            # homepage
+│   ├── page.tsx            # home
+│   ├── about/ contact/ experience/ leadership/ teaching/
+│   ├── projects/           # index + [slug] case studies
+│   ├── api/contact/        # route handler used when the FastAPI service is absent
 │   └── design/             # internal style guide (noindex, not linked)
 ├── components/
 │   ├── layout/             # SiteHeader, SiteFooter
@@ -98,9 +101,12 @@ docker compose up --build api
 ├── content/                # ALL site copy, typed — edit here, not in JSX
 │   ├── types.ts            # the content model
 │   ├── profile.ts          # name, bio, contact, links
+│   ├── about.ts            # narrative bio + regulator context
 │   ├── identities.ts       # the five professional identities
 │   ├── projects.ts         # project catalogue
 │   ├── experience.ts       # roles
+│   ├── leadership.ts       # leadership and convening roles
+│   ├── teaching.ts         # subjects, clubs, mentorship
 │   ├── education.ts        # study + certifications
 │   ├── skills.ts           # skill groups
 │   └── metrics/            # measured results, extracted from the project repos
@@ -152,6 +158,32 @@ truth; `backend/data/projects.json` is generated from it by `npm run sync:projec
 so the two cannot drift. Run it after editing `content/projects.ts`. The contract
 test in `backend/tests/test_api.py` guards the field names, and
 `backend/app/schemas/project.py` must gain any field added to `content/types.ts`.
+
+---
+
+## Routes
+
+| Route              | What it holds                                                    |
+| ------------------ | ---------------------------------------------------------------- |
+| `/`                | Hero, quick stats, the five-identity switcher, featured projects |
+| `/projects`        | All projects, filterable by identity and by skill                |
+| `/projects/[slug]` | Case study per project — caveat first, then the figures          |
+| `/experience`      | Timeline of professional roles                                   |
+| `/leadership`      | Student government, convening, community and media roles         |
+| `/teaching`        | Subjects taught, clubs led, mentorship                           |
+| `/about`           | Narrative bio, regulator context, education, CV download         |
+| `/contact`         | Form posting to the backend, plus every direct route             |
+| `/design`          | Internal style guide (noindex, not linked)                       |
+
+The header is sticky, marks the active route with `aria-current="page"`, and
+collapses below `lg` into a disclosure menu that closes on Escape and returns
+focus to its toggle.
+
+**Contact submissions** go to the FastAPI service when
+`NEXT_PUBLIC_API_BASE_URL` is set, and to `app/api/contact/route.ts` otherwise.
+Both validate identically, share the honeypot and the per-IP hourly limit, and
+**log rather than send** unless SMTP is configured. Change one and change the
+other.
 
 ---
 

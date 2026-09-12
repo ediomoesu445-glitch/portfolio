@@ -179,3 +179,39 @@ export interface Testimonial {
  * unverified numbers must never reach the published site looking like results.
  */
 export type Todo = `TODO(${string})`;
+
+export interface TeachingApproach {
+  title: string;
+  detail: string;
+}
+
+export interface TeachingSubject {
+  name: string;
+  detail: string;
+}
+
+export interface TeachingClub {
+  name: string;
+  role: string;
+  summary: string;
+}
+
+export interface TeachingContent {
+  intro: string;
+  approach: TeachingApproach[];
+  subjects: TeachingSubject[];
+  clubs: TeachingClub[];
+  mentorship: string[];
+}
+
+export interface LeadershipRole {
+  org: string;
+  role: string;
+  /** Already-formatted period, or a TODO sentinel. */
+  period: string;
+  /** The scale of the role — who was represented, how many attended. */
+  scope?: string;
+  summary: string;
+  outcomes: string[];
+  identities: IdentityId[];
+}

@@ -1,4 +1,5 @@
 export { BeforeAfterSlider } from "./BeforeAfterSlider";
+export { Button, ButtonLink } from "./Button";
 export { Card } from "./Card";
 export { Container } from "./Container";
 export { Heading, Overline } from "./Heading";
