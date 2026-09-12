@@ -1,0 +1,9 @@
+# Runtime
+fastapi>=0.118,<1.0
+uvicorn[standard]>=0.38,<1.0
+pydantic>=2.12,<3.0
+pydantic-settings>=2.12,<3.0
+email-validator>=2.2,<3.0
+
+# Phase 6 adds the ML demo dependencies here (torch / onnxruntime / pillow).
+# They are deliberately omitted for now to keep the image small.

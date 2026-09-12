@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "regulatory-revenue-forecasting",
+    "title": "TODO(content): regulatory revenue forecasting",
+    "tagline": "TODO(content): one-line description of the forecasting work",
+    "identities": ["data-scientist"],
+    "summary": "TODO(content): 2-4 sentences — what the system forecasts, for whom, and why the regulator needed it.",
+    "problem": "TODO(content)",
+    "approach": "TODO(content)",
+    "outcome": "TODO(content)",
+    "stack": ["Python", "pandas", "TODO(content): modelling library"],
+    "metrics": [
+      { "label": "Forecast error (MAPE)", "value": "TODO(metric)" },
+      { "label": "Horizon", "value": "TODO(metric)" }
+    ],
+    "links": [],
+    "media": [],
+    "status": "in-progress",
+    "date": "TODO(date)",
+    "featured": true,
+    "confidentialityNote": "TODO(content): note here if the underlying data cannot be shown publicly."
+  },
+  {
+    "slug": "anomaly-fraud-detection",
+    "title": "TODO(content): anomaly & fraud detection",
+    "tagline": "TODO(content): one-line description",
+    "identities": ["data-scientist", "ai-engineer"],
+    "summary": "TODO(content): 2-4 sentences — the detection problem, the signal, and how findings were reviewed.",
+    "stack": ["Python", "scikit-learn", "TODO(content)"],
+    "metrics": [
+      { "label": "Precision @ review capacity", "value": "TODO(metric)" },
+      { "label": "Cases surfaced", "value": "TODO(metric)" }
+    ],
+    "links": [],
+    "media": [],
+    "status": "in-progress",
+    "date": "TODO(date)",
+    "featured": true
+  },
+  {
+    "slug": "computer-vision-service",
+    "title": "TODO(content): computer-vision service",
+    "tagline": "TODO(content): one-line description",
+    "identities": ["ai-engineer"],
+    "summary": "TODO(content): 2-4 sentences — the vision task, the model, and how it is served.",
+    "stack": ["Python", "PyTorch", "FastAPI", "Docker"],
+    "metrics": [
+      { "label": "Accuracy", "value": "TODO(metric)" },
+      { "label": "p95 latency", "value": "TODO(metric)" }
+    ],
+    "links": [],
+    "media": [],
+    "status": "in-progress",
+    "date": "TODO(date)",
+    "featured": true
+  }
+]

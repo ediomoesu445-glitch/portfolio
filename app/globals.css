@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* Class-based dark mode so we can offer an explicit toggle in addition to
+   honouring the OS preference (see components/theme/ThemeProvider.tsx). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   DESIGN TOKENS
+   Raw values live here as CSS custom properties; Tailwind utilities are
+   generated from them in the @theme block below. Change a value once and it
+   propagates through every component. Phase 1 refines these.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Surfaces */
+  --bg: #faf9f6;
+  --bg-subtle: #f1f0ea;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+
+  /* Text */
+  --ink: #11151a;
+  --ink-muted: #4a5361;
+  --ink-subtle: #6b7684;
+  --ink-inverse: #f7f8fa;
+
+  /* Lines */
+  --line: #e4e2db;
+  --line-strong: #cfccc2;
+
+  /* Brand accent */
+  --accent: #0f766e;
+  --accent-hover: #0b5f58;
+  --accent-soft: #d8efeb;
+  --accent-ink: #ffffff;
+
+  /* One hue per professional identity — used for section chrome, chart series
+     and filter chips so each identity stays visually traceable site-wide. */
+  --identity-data: #2563eb;
+  --identity-ai: #7c3aed;
+  --identity-educator: #059669;
+  --identity-leader: #d97706;
+  --identity-pm: #e11d48;
+
+  /* Feedback */
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --focus: #2563eb;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 rgb(17 21 26 / 0.05);
+  --shadow-md: 0 4px 16px -4px rgb(17 21 26 / 0.1);
+  --shadow-lg: 0 24px 48px -12px rgb(17 21 26 / 0.18);
+}
+
+.dark {
+  --bg: #0a0d11;
+  --bg-subtle: #10141a;
+  --surface: #13181f;
+  --surface-raised: #1a2028;
+
+  --ink: #edeff2;
+  --ink-muted: #a3adba;
+  --ink-subtle: #78838f;
+  --ink-inverse: #11151a;
+
+  --line: #222a33;
+  --line-strong: #323c47;
+
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-soft: #0f2e2b;
+  --accent-ink: #06201d;
+
+  --identity-data: #60a5fa;
+  --identity-ai: #a78bfa;
+  --identity-educator: #34d399;
+  --identity-leader: #fbbf24;
+  --identity-pm: #fb7185;
+
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --focus: #60a5fa;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 16px -4px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 24px 48px -12px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  /* Colors */
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-ink-inverse: var(--ink-inverse);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+
+  --color-identity-data: var(--identity-data);
+  --color-identity-ai: var(--identity-ai);
+  --color-identity-educator: var(--identity-educator);
+  --color-identity-leader: var(--identity-leader);
+  --color-identity-pm: var(--identity-pm);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+
+  /* Typography — families come from next/font in app/layout.tsx */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Type scale (additions to Tailwind's defaults) */
+  --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.035em;
+  --text-headline: clamp(2rem, 1.35rem + 2.6vw, 3.25rem);
+  --text-headline--line-height: 1.08;
+  --text-headline--letter-spacing: -0.025em;
+  --text-title: clamp(1.375rem, 1.15rem + 0.9vw, 1.875rem);
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.015em;
+  --text-overline: 0.75rem;
+  --text-overline--line-height: 1.2;
+  --text-overline--letter-spacing: 0.14em;
+
+  /* Radii */
+  --radius-card: 0.875rem;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-elev-sm: var(--shadow-sm);
+  --shadow-elev-md: var(--shadow-md);
+  --shadow-elev-lg: var(--shadow-lg);
+
+  /* Layout */
+  --container-content: 72rem;
+  --container-prose: 44rem;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a heading. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Honour the OS "reduce motion" setting for every animation on the site,
+     including Framer Motion's, which reads the same media query. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Fail-safe: scroll-reveal wrappers are rendered at opacity:0 for the
+     animation. If JavaScript never runs, show them immediately rather than
+     serving a blank page. */
+  html:not(.js) [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+}
+
+@utility container-content {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--container-content);
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}

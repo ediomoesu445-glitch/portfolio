@@ -1,0 +1,19 @@
+# Runs the FastAPI service on http://localhost:8000.
+# The Next.js frontend is run separately with `npm run dev` during development.
+services:
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      ENVIRONMENT: development
+      CORS_ORIGINS: http://localhost:3000
+    env_file:
+      - path: ./backend/.env
+        required: false
+    volumes:
+      # Live reload while developing against the container.
+      - ./backend/app:/srv/app:ro
+      - ./backend/data:/srv/data:ro
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

@@ -1,0 +1,6 @@
+.next/
+node_modules/
+public/
+backend/
+*.lock
+package-lock.json
