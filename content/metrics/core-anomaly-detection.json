@@ -1,0 +1,353 @@
+{
+  "source": "github.com/ediomoesu445-glitch/CORE-ANOMALY-DETECTION-DEMO \u2014 *.csv",
+  "models": [
+    {
+      "model": "Logistic Regression",
+      "trainTimeS": 34.99,
+      "accuracy": 0.5899,
+      "fdr": 0.5225,
+      "far": 0.1401,
+      "precision": 0.9372,
+      "f1": 0.6709,
+      "rocAuc": 0.7079,
+      "mcc": 0.3077
+    },
+    {
+      "model": "Random Forest",
+      "trainTimeS": 111.96,
+      "accuracy": 0.664,
+      "fdr": 0.584,
+      "far": 0.0163,
+      "precision": 0.9931,
+      "f1": 0.7355,
+      "rocAuc": 0.8126,
+      "mcc": 0.455
+    },
+    {
+      "model": "LightGBM",
+      "trainTimeS": 40.51,
+      "accuracy": 0.7235,
+      "fdr": 0.6577,
+      "far": 0.0132,
+      "precision": 0.995,
+      "f1": 0.7919,
+      "rocAuc": 0.8497,
+      "mcc": 0.5164
+    },
+    {
+      "model": "MLP Neural Network",
+      "trainTimeS": 193.77,
+      "accuracy": 0.7416,
+      "fdr": 0.6799,
+      "far": 0.0116,
+      "precision": 0.9958,
+      "f1": 0.808,
+      "rocAuc": 0.8578,
+      "mcc": 0.5369
+    }
+  ],
+  "perFaultFdr": [
+    {
+      "fault": 1,
+      "logisticRegression": 0.8482,
+      "randomForest": 0.8277,
+      "lightgbm": 0.8296,
+      "mlp": 0.8293,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 2,
+      "logisticRegression": 0.8364,
+      "randomForest": 0.8213,
+      "lightgbm": 0.8242,
+      "mlp": 0.8258,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 3,
+      "logisticRegression": 0.1567,
+      "randomForest": 0.0155,
+      "lightgbm": 0.0122,
+      "mlp": 0.0115,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 4,
+      "logisticRegression": 0.7968,
+      "randomForest": 0.8421,
+      "lightgbm": 0.8424,
+      "mlp": 0.8423,
+      "bestModel": "LightGBM",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 5,
+      "logisticRegression": 0.8481,
+      "randomForest": 0.4293,
+      "lightgbm": 0.8353,
+      "mlp": 0.8359,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 6,
+      "logisticRegression": 0.8431,
+      "randomForest": 0.8331,
+      "lightgbm": 0.8334,
+      "mlp": 0.8335,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 7,
+      "logisticRegression": 0.8533,
+      "randomForest": 0.8321,
+      "lightgbm": 0.8329,
+      "mlp": 0.8329,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 8,
+      "logisticRegression": 0.4366,
+      "randomForest": 0.8006,
+      "lightgbm": 0.8066,
+      "mlp": 0.8087,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 9,
+      "logisticRegression": 0.1415,
+      "randomForest": 0.018,
+      "lightgbm": 0.014,
+      "mlp": 0.0139,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 10,
+      "logisticRegression": 0.1636,
+      "randomForest": 0.445,
+      "lightgbm": 0.6546,
+      "mlp": 0.7322,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 11,
+      "logisticRegression": 0.3118,
+      "randomForest": 0.6998,
+      "lightgbm": 0.7172,
+      "mlp": 0.7186,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 12,
+      "logisticRegression": 0.5777,
+      "randomForest": 0.8155,
+      "lightgbm": 0.8237,
+      "mlp": 0.8211,
+      "bestModel": "LightGBM",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 13,
+      "logisticRegression": 0.6055,
+      "randomForest": 0.7826,
+      "lightgbm": 0.7839,
+      "mlp": 0.7874,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 14,
+      "logisticRegression": 0.2599,
+      "randomForest": 0.8364,
+      "lightgbm": 0.8369,
+      "mlp": 0.8368,
+      "bestModel": "LightGBM",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 15,
+      "logisticRegression": 0.1361,
+      "randomForest": 0.0174,
+      "lightgbm": 0.0143,
+      "mlp": 0.0158,
+      "bestModel": "Logistic Regression",
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 16,
+      "logisticRegression": 0.3098,
+      "randomForest": 0.2888,
+      "lightgbm": 0.6507,
+      "mlp": 0.7516,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 17,
+      "logisticRegression": 0.7367,
+      "randomForest": 0.7772,
+      "lightgbm": 0.7917,
+      "mlp": 0.7977,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 18,
+      "logisticRegression": 0.7692,
+      "randomForest": 0.7859,
+      "lightgbm": 0.7873,
+      "mlp": 0.7891,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 19,
+      "logisticRegression": 0.1707,
+      "randomForest": 0.3052,
+      "lightgbm": 0.6524,
+      "mlp": 0.7559,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 20,
+      "logisticRegression": 0.636,
+      "randomForest": 0.4872,
+      "lightgbm": 0.5953,
+      "mlp": 0.7434,
+      "bestModel": "MLP Neural Network",
+      "difficulty": "Medium"
+    }
+  ],
+  "mspcPerFault": [
+    {
+      "fault": 1,
+      "mspcFdr": 0.8288,
+      "f1": 0.9064,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 2,
+      "mspcFdr": 0.8249,
+      "f1": 0.904,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 3,
+      "mspcFdr": 0.0213,
+      "f1": 0.0417,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 4,
+      "mspcFdr": 0.8437,
+      "f1": 0.9152,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 5,
+      "mspcFdr": 0.2344,
+      "f1": 0.3798,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 6,
+      "mspcFdr": 0.8342,
+      "f1": 0.9096,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 7,
+      "mspcFdr": 0.8333,
+      "f1": 0.9091,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 8,
+      "mspcFdr": 0.8096,
+      "f1": 0.8948,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 9,
+      "mspcFdr": 0.0206,
+      "f1": 0.0403,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 10,
+      "mspcFdr": 0.3539,
+      "f1": 0.5228,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 11,
+      "mspcFdr": 0.6525,
+      "f1": 0.7897,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 12,
+      "mspcFdr": 0.8223,
+      "f1": 0.9025,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 13,
+      "mspcFdr": 0.7877,
+      "f1": 0.8812,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 14,
+      "mspcFdr": 0.8376,
+      "f1": 0.9116,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 15,
+      "mspcFdr": 0.0205,
+      "f1": 0.0403,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 16,
+      "mspcFdr": 0.2446,
+      "f1": 0.3931,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 17,
+      "mspcFdr": 0.7752,
+      "f1": 0.8733,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 18,
+      "mspcFdr": 0.7888,
+      "f1": 0.8819,
+      "difficulty": "Medium"
+    },
+    {
+      "fault": 19,
+      "mspcFdr": 0.1576,
+      "f1": 0.2723,
+      "difficulty": "Hard"
+    },
+    {
+      "fault": 20,
+      "mspcFdr": 0.4665,
+      "f1": 0.6362,
+      "difficulty": "Hard"
+    }
+  ]
+}

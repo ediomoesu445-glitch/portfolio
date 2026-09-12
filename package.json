@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,css,md,json}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,css,md,json}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,css,md,json}\"",
+    "sync:projects": "node scripts/export-projects.mts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

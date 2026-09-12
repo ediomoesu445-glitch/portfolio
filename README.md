@@ -100,13 +100,18 @@ docker compose up --build api
 │   ├── projects.ts         # project catalogue
 │   ├── experience.ts       # roles
 │   ├── education.ts        # study + certifications
-│   └── skills.ts           # skill groups
+│   ├── skills.ts           # skill groups
+│   └── metrics/            # measured results, extracted from the project repos
 ├── lib/
 │   ├── api.ts              # typed client for the FastAPI service (with fallback)
 │   ├── content.ts          # TODO-sentinel helpers, date formatting
 │   ├── site.ts             # site metadata + nav
 │   └── utils.ts            # cn()
-├── public/                 # images, media, CV
+├── public/
+│   ├── images/projects/    # figures lifted from the source repos
+│   └── media/              # demo reels (MP4 + WebM)
+├── scripts/
+│   └── export-projects.mts # /content -> backend/data/projects.json
 ├── backend/                # FastAPI service
 │   ├── app/
 │   │   ├── main.py         # app, CORS, router mounting
@@ -140,10 +145,34 @@ metrics: [{ label: "Forecast error (MAPE)", value: "TODO(metric)" }];
 Replace the sentinel with the real figure once it is measured, and add `method`
 to record how it was derived.
 
-**2. The backend mirrors the content model.** `backend/app/schemas/project.py`
-and `backend/data/projects.json` must stay in step with `content/types.ts` and
-`content/projects.ts`. The contract test in `backend/tests/test_api.py` guards
-the field names.
+**2. The backend mirrors the content model.** `/content` is the single source of
+truth; `backend/data/projects.json` is generated from it by `npm run sync:projects`,
+so the two cannot drift. Run it after editing `content/projects.ts`. The contract
+test in `backend/tests/test_api.py` guards the field names, and
+`backend/app/schemas/project.py` must gain any field added to `content/types.ts`.
+
+---
+
+## Where the project numbers come from
+
+Every figure in `content/projects.ts` is transcribed from a committed result file
+in the corresponding source repository — never estimated, never rounded up:
+
+| Project                     | Source of truth                                                            |
+| --------------------------- | -------------------------------------------------------------------------- |
+| Ghost Transaction Detection | `reports/REPORT.md`                                                        |
+| Pipeline Defect Detection   | `reports/results.csv`, `cv_results.csv`, `robustness.csv`, `benchmark.csv` |
+| CORE Anomaly Detection      | `tep_model_summary.csv`, `tep_per_fault_fdr.csv`, `mspc_per_fault.csv`     |
+| Energy Asset Digital Twin   | `models/<well>/manifest.json`                                              |
+
+The machine-readable extracts live in `content/metrics/` and are what the charts
+render. Figures in `public/images/projects/` were copied from each repo's
+`reports/figures/`, `assets/` or `screenshots/` directory.
+
+**No datasets, model binaries or secrets were copied into this project**, and none
+should be. Each project entry also carries a `caveat` — the scope limit a reader
+should see beside the numbers — and an `attribution` where a dataset licence
+requires one.
 
 ---
 

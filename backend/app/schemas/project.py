@@ -60,7 +60,12 @@ class Project(BaseModel):
     media: list[ProjectMedia] = Field(default_factory=list)
     status: ProjectStatus
     date: str
+    started: str | None = None
     featured: bool = False
     confidentiality_note: str | None = Field(default=None, alias="confidentialityNote")
+    #: Scope or validity limits shown next to the metrics, not in small print.
+    caveat: str | None = None
+    #: Dataset attribution, where the licence requires it.
+    attribution: str | None = None
 
     model_config = {"populate_by_name": True}

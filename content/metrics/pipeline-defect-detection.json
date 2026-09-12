@@ -1,0 +1,238 @@
+{
+  "source": "github.com/ediomoesu445-glitch/AI-Powered-Pipeline-Defect-Detection-System \u2014 reports/",
+  "backbone": "resnet18_primary",
+  "headline": {
+    "testAccuracy": 0.9963,
+    "macroF1": 0.9963,
+    "testImages": 270
+  },
+  "perClass": [
+    {
+      "class": "crazing",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    },
+    {
+      "class": "inclusion",
+      "precision": 0.9783,
+      "recall": 1.0,
+      "f1": 0.989,
+      "support": 45
+    },
+    {
+      "class": "patches",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    },
+    {
+      "class": "pitted_surface",
+      "precision": 1.0,
+      "recall": 0.9778,
+      "f1": 0.9888,
+      "support": 45
+    },
+    {
+      "class": "rolled-in_scale",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    },
+    {
+      "class": "scratches",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    }
+  ],
+  "crossValidation": [
+    {
+      "fold": 1,
+      "valAccuracy": 0.9935,
+      "macroF1": 0.9935
+    },
+    {
+      "fold": 2,
+      "valAccuracy": 1.0,
+      "macroF1": 1.0
+    },
+    {
+      "fold": 3,
+      "valAccuracy": 1.0,
+      "macroF1": 1.0
+    },
+    {
+      "fold": 4,
+      "valAccuracy": 1.0,
+      "macroF1": 1.0
+    },
+    {
+      "fold": 5,
+      "valAccuracy": 1.0,
+      "macroF1": 1.0
+    }
+  ],
+  "crossValidationSummary": {
+    "valAccuracy": "0.9987+-0.0029",
+    "macroF1": "0.9987+-0.0029"
+  },
+  "robustness": [
+    {
+      "corruption": "clean",
+      "severity": "none",
+      "accuracy": 0.9963,
+      "macroF1": 0.9963
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": "mild",
+      "accuracy": 0.6519,
+      "macroF1": 0.5651
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": "moderate",
+      "accuracy": 0.463,
+      "macroF1": 0.3857
+    },
+    {
+      "corruption": "motion_blur",
+      "severity": "severe",
+      "accuracy": 0.3037,
+      "macroF1": 0.2077
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": "mild",
+      "accuracy": 0.9593,
+      "macroF1": 0.9593
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": "moderate",
+      "accuracy": 0.4296,
+      "macroF1": 0.3675
+    },
+    {
+      "corruption": "gaussian_noise",
+      "severity": "severe",
+      "accuracy": 0.2852,
+      "macroF1": 0.1888
+    },
+    {
+      "corruption": "low_light",
+      "severity": "mild",
+      "accuracy": 0.9778,
+      "macroF1": 0.9778
+    },
+    {
+      "corruption": "low_light",
+      "severity": "moderate",
+      "accuracy": 0.8963,
+      "macroF1": 0.9009
+    },
+    {
+      "corruption": "low_light",
+      "severity": "severe",
+      "accuracy": 0.5963,
+      "macroF1": 0.5635
+    },
+    {
+      "corruption": "overexposure",
+      "severity": "mild",
+      "accuracy": 0.9037,
+      "macroF1": 0.9037
+    },
+    {
+      "corruption": "overexposure",
+      "severity": "moderate",
+      "accuracy": 0.5778,
+      "macroF1": 0.5552
+    },
+    {
+      "corruption": "overexposure",
+      "severity": "severe",
+      "accuracy": 0.1963,
+      "macroF1": 0.1029
+    },
+    {
+      "corruption": "jpeg_compression",
+      "severity": "mild",
+      "accuracy": 0.9963,
+      "macroF1": 0.9963
+    },
+    {
+      "corruption": "jpeg_compression",
+      "severity": "moderate",
+      "accuracy": 0.9704,
+      "macroF1": 0.9699
+    },
+    {
+      "corruption": "jpeg_compression",
+      "severity": "severe",
+      "accuracy": 0.6852,
+      "macroF1": 0.6636
+    },
+    {
+      "corruption": "rain_streak",
+      "severity": "mild",
+      "accuracy": 0.9741,
+      "macroF1": 0.974
+    },
+    {
+      "corruption": "rain_streak",
+      "severity": "moderate",
+      "accuracy": 0.7074,
+      "macroF1": 0.6948
+    },
+    {
+      "corruption": "rain_streak",
+      "severity": "severe",
+      "accuracy": 0.5741,
+      "macroF1": 0.5396
+    },
+    {
+      "corruption": "defocus_blur",
+      "severity": "mild",
+      "accuracy": 0.9815,
+      "macroF1": 0.9814
+    },
+    {
+      "corruption": "defocus_blur",
+      "severity": "moderate",
+      "accuracy": 0.7481,
+      "macroF1": 0.7387
+    },
+    {
+      "corruption": "defocus_blur",
+      "severity": "severe",
+      "accuracy": 0.3667,
+      "macroF1": 0.2867
+    }
+  ],
+  "backbones": [
+    {
+      "backbone": "resnet18",
+      "testAccuracy": 0.9963,
+      "macroF1": 0.9963,
+      "paramCount": 11179590,
+      "modelSizeMb": 42.72,
+      "cpuLatencyMs": 162.27,
+      "trainTimeMin": 245.61
+    },
+    {
+      "backbone": "mobilenetv3_small_100",
+      "testAccuracy": 1.0,
+      "macroF1": 1.0,
+      "paramCount": 1524006,
+      "modelSizeMb": 5.94,
+      "cpuLatencyMs": 210.76,
+      "trainTimeMin": 149.0
+    }
+  ]
+}

@@ -48,7 +48,11 @@ export interface ProjectLink {
 
 export interface ProjectMedia {
   kind: "image" | "video" | "lottie";
-  /** Path under /public, or an absolute URL. */
+  /**
+   * Path under /public, or an absolute URL. May also be a TODO sentinel for
+   * media that is planned but not yet captured — components must check
+   * `isTodo(media.src)` before passing it to next/image.
+   */
   src: string;
   /** WebM companion for <video>; MP4 goes in `src`. */
   srcWebm?: string;
@@ -75,11 +79,21 @@ export interface Project {
   links: ProjectLink[];
   media?: ProjectMedia[];
   status: ProjectStatus;
-  /** ISO date (YYYY-MM) used for ordering. */
+  /** ISO date (YYYY-MM) of most recent work; used for ordering. */
   date: string;
+  /** ISO date (YYYY-MM) the work began, for displaying a period. */
+  started?: string;
   featured?: boolean;
   /** Set when the work involves material that cannot be published. */
   confidentialityNote?: string;
+  /**
+   * Scope or validity limits a reader should see before the numbers — e.g. a
+   * result measured on a synthetic proxy rather than the real target. Shown
+   * next to the metrics, not hidden in small print.
+   */
+  caveat?: string;
+  /** Dataset attribution, where the licence requires it. */
+  attribution?: string;
 }
 
 export interface ExperienceItem {

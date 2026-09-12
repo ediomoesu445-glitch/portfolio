@@ -1,0 +1,453 @@
+{
+  "source": "github.com/ediomoesu445-glitch/energy-asset-digital-twin \u2014 models/*/manifest.json",
+  "target": "BORE_OIL_VOL",
+  "note": "Read skill, not R2. A persistence baseline scores R2 0.86-0.92 on every well.",
+  "dataAttribution": "Derived from the Equinor Volve dataset (Equinor Energy AS, ExxonMobil Exploration and Production Norway AS, Bayerngas Norge AS), published under non-commercial CC BY-NC-SA-style terms.",
+  "wells": [
+    {
+      "wellId": "15/9-F-11",
+      "splitDate": "2016-01-29",
+      "nTrain": 932,
+      "nTest": 233,
+      "bestOneStep": null,
+      "bestMultiStep": "lstm",
+      "oneStep": [
+        {
+          "model": "persistence",
+          "mae": 21.99,
+          "rmse": 58.86,
+          "r2": 0.9091,
+          "skill": 0.0
+        },
+        {
+          "model": "lstm",
+          "mae": 34.14,
+          "rmse": 67.18,
+          "r2": 0.8816,
+          "skill": -0.3026
+        },
+        {
+          "model": "arps",
+          "mae": 293.37,
+          "rmse": 329.77,
+          "r2": -1.8525,
+          "skill": -30.3846
+        },
+        {
+          "model": "xgboost",
+          "mae": 401.14,
+          "rmse": 439.81,
+          "r2": -4.0737,
+          "skill": -54.8235
+        },
+        {
+          "model": "prophet",
+          "mae": 739.76,
+          "rmse": 930.21,
+          "r2": -21.6968,
+          "skill": -248.7237
+        }
+      ],
+      "multiStep": [
+        {
+          "model": "lstm",
+          "mae": 182.36,
+          "rmse": 252.28,
+          "r2": -0.7991,
+          "skill": 0.0906
+        },
+        {
+          "model": "last_value",
+          "mae": 169.88,
+          "rmse": 264.55,
+          "r2": -0.9782,
+          "skill": 0.0
+        },
+        {
+          "model": "xgboost",
+          "mae": 177.97,
+          "rmse": 271.56,
+          "r2": -1.0845,
+          "skill": -0.0537
+        },
+        {
+          "model": "arps",
+          "mae": 228.1,
+          "rmse": 276.9,
+          "r2": -1.1673,
+          "skill": -0.0956
+        },
+        {
+          "model": "arima",
+          "mae": 236.85,
+          "rmse": 306.56,
+          "r2": -1.6564,
+          "skill": -0.3428
+        },
+        {
+          "model": "prophet",
+          "mae": 641.88,
+          "rmse": 825.48,
+          "r2": -18.2612,
+          "skill": -8.7365
+        }
+      ]
+    },
+    {
+      "wellId": "15/9-F-12",
+      "splitDate": "2015-01-16",
+      "nTrain": 2445,
+      "nTest": 611,
+      "bestOneStep": "xgboost",
+      "bestMultiStep": "xgboost",
+      "oneStep": [
+        {
+          "model": "xgboost",
+          "mae": 39.35,
+          "rmse": 56.96,
+          "r2": 0.9386,
+          "skill": 0.4894
+        },
+        {
+          "model": "persistence",
+          "mae": 20.94,
+          "rmse": 79.72,
+          "r2": 0.8797,
+          "skill": 0.0
+        },
+        {
+          "model": "lstm",
+          "mae": 153.25,
+          "rmse": 222.36,
+          "r2": 0.064,
+          "skill": -6.7809
+        },
+        {
+          "model": "arps",
+          "mae": 173.2,
+          "rmse": 227.21,
+          "r2": 0.0227,
+          "skill": -7.1243
+        },
+        {
+          "model": "prophet",
+          "mae": 346.7,
+          "rmse": 406.16,
+          "r2": -2.1228,
+          "skill": -24.9608
+        }
+      ],
+      "multiStep": [
+        {
+          "model": "xgboost",
+          "mae": 77.65,
+          "rmse": 121.72,
+          "r2": 0.6372,
+          "skill": 0.0069
+        },
+        {
+          "model": "last_value",
+          "mae": 77.4,
+          "rmse": 122.14,
+          "r2": 0.6347,
+          "skill": 0.0
+        },
+        {
+          "model": "arima",
+          "mae": 82.18,
+          "rmse": 123.47,
+          "r2": 0.6267,
+          "skill": -0.0219
+        },
+        {
+          "model": "arps",
+          "mae": 157.7,
+          "rmse": 208.53,
+          "r2": -0.0649,
+          "skill": -1.9151
+        },
+        {
+          "model": "prophet",
+          "mae": 371.66,
+          "rmse": 418.37,
+          "r2": -3.2863,
+          "skill": -10.7333
+        },
+        {
+          "model": "lstm",
+          "mae": 1455.16,
+          "rmse": 2566.16,
+          "r2": -160.2605,
+          "skill": -440.4334
+        }
+      ]
+    },
+    {
+      "wellId": "15/9-F-14",
+      "splitDate": "2015-01-16",
+      "nTrain": 2445,
+      "nTest": 611,
+      "bestOneStep": "lstm",
+      "bestMultiStep": "arima",
+      "oneStep": [
+        {
+          "model": "lstm",
+          "mae": 9.9,
+          "rmse": 23.0,
+          "r2": 0.9158,
+          "skill": 0.0091
+        },
+        {
+          "model": "persistence",
+          "mae": 8.3,
+          "rmse": 23.1,
+          "r2": 0.9151,
+          "skill": 0.0
+        },
+        {
+          "model": "prophet",
+          "mae": 104.66,
+          "rmse": 128.74,
+          "r2": -1.638,
+          "skill": -30.0584
+        },
+        {
+          "model": "arps",
+          "mae": 159.67,
+          "rmse": 163.89,
+          "r2": -3.2751,
+          "skill": -49.3317
+        },
+        {
+          "model": "xgboost",
+          "mae": 139.96,
+          "rmse": 174.34,
+          "r2": -3.8379,
+          "skill": -55.9583
+        }
+      ],
+      "multiStep": [
+        {
+          "model": "arima",
+          "mae": 25.44,
+          "rmse": 39.87,
+          "r2": 0.6472,
+          "skill": 0.0063
+        },
+        {
+          "model": "last_value",
+          "mae": 26.06,
+          "rmse": 40.0,
+          "r2": 0.645,
+          "skill": 0.0
+        },
+        {
+          "model": "xgboost",
+          "mae": 47.1,
+          "rmse": 65.05,
+          "r2": 0.061,
+          "skill": -1.6447
+        },
+        {
+          "model": "lstm",
+          "mae": 61.74,
+          "rmse": 79.14,
+          "r2": -0.3898,
+          "skill": -2.9144
+        },
+        {
+          "model": "prophet",
+          "mae": 70.36,
+          "rmse": 91.03,
+          "r2": -0.839,
+          "skill": -4.1796
+        },
+        {
+          "model": "arps",
+          "mae": 140.43,
+          "rmse": 143.82,
+          "r2": -3.5903,
+          "skill": -11.9285
+        }
+      ]
+    },
+    {
+      "wellId": "15/9-F-15 D",
+      "splitDate": "2016-03-06",
+      "nTrain": 782,
+      "nTest": 196,
+      "bestOneStep": "xgboost",
+      "bestMultiStep": "prophet",
+      "oneStep": [
+        {
+          "model": "xgboost",
+          "mae": 8.98,
+          "rmse": 16.66,
+          "r2": 0.9592,
+          "skill": 0.7171
+        },
+        {
+          "model": "persistence",
+          "mae": 10.41,
+          "rmse": 31.32,
+          "r2": 0.8559,
+          "skill": 0.0
+        },
+        {
+          "model": "lstm",
+          "mae": 20.57,
+          "rmse": 37.0,
+          "r2": 0.7989,
+          "skill": -0.3955
+        },
+        {
+          "model": "prophet",
+          "mae": 41.14,
+          "rmse": 52.69,
+          "r2": 0.5922,
+          "skill": -1.8298
+        },
+        {
+          "model": "arps",
+          "mae": 84.46,
+          "rmse": 107.98,
+          "r2": -0.713,
+          "skill": -10.8861
+        }
+      ],
+      "multiStep": [
+        {
+          "model": "prophet",
+          "mae": 47.11,
+          "rmse": 57.69,
+          "r2": 0.4526,
+          "skill": 0.7264
+        },
+        {
+          "model": "arps",
+          "mae": 66.0,
+          "rmse": 92.97,
+          "r2": -0.4217,
+          "skill": 0.2894
+        },
+        {
+          "model": "arima",
+          "mae": 86.5,
+          "rmse": 94.56,
+          "r2": -0.4708,
+          "skill": 0.2649
+        },
+        {
+          "model": "xgboost",
+          "mae": 86.91,
+          "rmse": 106.32,
+          "r2": -0.8593,
+          "skill": 0.0707
+        },
+        {
+          "model": "last_value",
+          "mae": 89.92,
+          "rmse": 110.29,
+          "r2": -1.0008,
+          "skill": 0.0
+        },
+        {
+          "model": "lstm",
+          "mae": 216.28,
+          "rmse": 275.19,
+          "r2": -11.4565,
+          "skill": -5.2258
+        }
+      ]
+    },
+    {
+      "wellId": "15/9-F-1 C",
+      "splitDate": "2015-11-25",
+      "nTrain": 597,
+      "nTest": 149,
+      "bestOneStep": "xgboost",
+      "bestMultiStep": "arima",
+      "oneStep": [
+        {
+          "model": "xgboost",
+          "mae": 16.47,
+          "rmse": 29.54,
+          "r2": 0.9511,
+          "skill": 0.6597
+        },
+        {
+          "model": "persistence",
+          "mae": 20.73,
+          "rmse": 50.65,
+          "r2": 0.8562,
+          "skill": 0.0
+        },
+        {
+          "model": "lstm",
+          "mae": 49.32,
+          "rmse": 82.87,
+          "r2": 0.6151,
+          "skill": -1.677
+        },
+        {
+          "model": "arps",
+          "mae": 148.24,
+          "rmse": 166.09,
+          "r2": -0.5461,
+          "skill": -9.7539
+        },
+        {
+          "model": "prophet",
+          "mae": 114.81,
+          "rmse": 174.65,
+          "r2": -0.7096,
+          "skill": -10.8909
+        }
+      ],
+      "multiStep": [
+        {
+          "model": "arima",
+          "mae": 105.29,
+          "rmse": 151.77,
+          "r2": -0.4427,
+          "skill": 0.343
+        },
+        {
+          "model": "arps",
+          "mae": 144.67,
+          "rmse": 165.37,
+          "r2": -0.7128,
+          "skill": 0.22
+        },
+        {
+          "model": "prophet",
+          "mae": 111.04,
+          "rmse": 166.36,
+          "r2": -0.7336,
+          "skill": 0.2106
+        },
+        {
+          "model": "last_value",
+          "mae": 139.56,
+          "rmse": 187.24,
+          "r2": -1.196,
+          "skill": 0.0
+        },
+        {
+          "model": "xgboost",
+          "mae": 210.28,
+          "rmse": 277.3,
+          "r2": -3.8164,
+          "skill": -1.1933
+        },
+        {
+          "model": "lstm",
+          "mae": 723.95,
+          "rmse": 988.28,
+          "r2": -60.1767,
+          "skill": -26.8586
+        }
+      ]
+    }
+  ]
+}

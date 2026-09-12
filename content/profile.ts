@@ -24,7 +24,7 @@ export const profile: Profile = {
     },
     {
       label: "GitHub",
-      href: "https://github.com/ediomo-esu",
+      href: "https://github.com/ediomoesu445-glitch",
       icon: "Github",
       primary: true,
     },

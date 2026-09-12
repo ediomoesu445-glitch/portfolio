@@ -1,0 +1,95 @@
+{
+  "source": "github.com/ediomoesu445-glitch/ghost-transaction-detection — reports/REPORT.md",
+  "caveat": "Synthetic-proxy (PaySim) performance. An upper bound on method quality, not a claim about energy-sector data. The deployment target has no labels, so no precision or recall can ever be computed there.",
+  "testBaseRate": 0.007707,
+  "testRows": 552504,
+  "testPositives": 4258,
+  "supervised": [
+    {
+      "model": "XGBoost",
+      "prAucWithArtefact": 0.9995,
+      "prAucArtefactFree": 0.8619,
+      "drop": 0.1376,
+      "recallAtPrecision90": 0.7811,
+      "rPrecision": 0.8006
+    },
+    {
+      "model": "Random Forest",
+      "prAucWithArtefact": 0.9999,
+      "prAucArtefactFree": 0.8374,
+      "drop": 0.1625,
+      "recallAtPrecision90": 0.76,
+      "rPrecision": 0.7806
+    },
+    {
+      "model": "Logistic Regression",
+      "prAucWithArtefact": 0.9977,
+      "prAucArtefactFree": 0.7934,
+      "drop": 0.2043,
+      "recallAtPrecision90": 0.7053,
+      "rPrecision": 0.7421
+    }
+  ],
+  "unsupervised": [
+    {
+      "detector": "Autoencoder (reconstruction error)",
+      "prAuc": 0.5988,
+      "precisionAt1000": 0.997,
+      "recallAt1000": 0.2341,
+      "rPrecision": 0.4742
+    },
+    {
+      "detector": "Rule-based (explainable)",
+      "prAuc": 0.5006,
+      "precisionAt1000": 0.989,
+      "recallAt1000": 0.2323,
+      "rPrecision": 0.4984
+    },
+    {
+      "detector": "Local Outlier Factor",
+      "prAuc": 0.3426,
+      "precisionAt1000": 0.842,
+      "recallAt1000": 0.1977,
+      "rPrecision": 0.4702
+    },
+    {
+      "detector": "Isolation Forest",
+      "prAuc": 0.1739,
+      "precisionAt1000": 0.409,
+      "recallAt1000": 0.0961,
+      "rPrecision": 0.2118
+    }
+  ],
+  "artefactAblation": [
+    {
+      "detector": "Autoencoder (reconstruction error)",
+      "withArtefact": 0.9025,
+      "artefactFree": 0.5988,
+      "drop": 0.3037
+    },
+    {
+      "detector": "Rule-based (explainable)",
+      "withArtefact": 0.7145,
+      "artefactFree": 0.5006,
+      "drop": 0.2139
+    },
+    {
+      "detector": "Isolation Forest",
+      "withArtefact": 0.3092,
+      "artefactFree": 0.1739,
+      "drop": 0.1354
+    },
+    {
+      "detector": "Local Outlier Factor",
+      "withArtefact": 0.1529,
+      "artefactFree": 0.3426,
+      "drop": -0.1897,
+      "note": "Improved once the artefact was removed."
+    }
+  ],
+  "ghostDestinationRule": {
+    "precision": 0.9363,
+    "recall": 0.2951,
+    "note": "Label-free rule. The most transferable result, because the deployment target has no labels to train against."
+  }
+}
