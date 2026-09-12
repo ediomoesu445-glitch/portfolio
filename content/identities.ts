@@ -16,7 +16,7 @@ export const identities: Identity[] = [
       "Anomaly and fraud detection across transaction and metering records",
       "Analysis that turns raw filings into decisions finance teams can defend",
     ],
-    accentVar: "--color-identity-data",
+    code: "DS",
     icon: "LineChart",
   },
   {
@@ -30,7 +30,7 @@ export const identities: Identity[] = [
       "Training and inference pipelines that survive real data",
       "FastAPI services, containerised and documented",
     ],
-    accentVar: "--color-identity-ai",
+    code: "ML",
     icon: "BrainCircuit",
   },
   {
@@ -44,7 +44,7 @@ export const identities: Identity[] = [
       "Computational thinking taught as a transferable habit, not a syllabus",
       "One-to-one mentorship alongside classroom teaching",
     ],
-    accentVar: "--color-identity-educator",
+    code: "ED",
     icon: "GraduationCap",
   },
   {
@@ -58,7 +58,7 @@ export const identities: Identity[] = [
       "Convening conferences end to end",
       "Community organising and media leadership",
     ],
-    accentVar: "--color-identity-leader",
+    code: "LD",
     icon: "Users",
   },
   {
@@ -72,7 +72,7 @@ export const identities: Identity[] = [
       "Technical builds coordinated across contributors",
       "Stakeholder communication that keeps scope honest",
     ],
-    accentVar: "--color-identity-pm",
+    code: "PM",
     icon: "KanbanSquare",
   },
 ];

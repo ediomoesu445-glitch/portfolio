@@ -1,19 +1,20 @@
 /**
- * Runs before first paint to apply the stored theme, so there is no flash of
- * the wrong palette. Kept as a string because it must be inlined in <head>.
+ * Runs before first paint so the page never flashes the wrong theme.
+ *
+ * Dark is the default: the `light` class is added only when the visitor has
+ * explicitly chosen light. A visitor whose OS prefers light still gets dark
+ * unless they use the toggle — the site is a control room, and that is a
+ * deliberate identity choice rather than an oversight.
  */
 export const themeInitScript = `
 (function () {
-  // Signals that JavaScript is running. Scroll-reveal animations start from
-  // opacity:0, so without this flag a no-JS visitor (or a crawler that does
-  // not execute scripts) would see an empty page — see the html:not(.js)
-  // fallback in app/globals.css.
-  document.documentElement.classList.add('js');
+  var root = document.documentElement;
+  // Signals that JavaScript is running; entrance animations start hidden and
+  // the html:not(.js) rule in globals.css reveals them if it never does.
+  root.classList.add('js');
   try {
-    var stored = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (stored === 'dark' || (stored !== 'light' && prefersDark)) {
-      document.documentElement.classList.add('dark');
+    if (localStorage.getItem('theme') === 'light') {
+      root.classList.add('light');
     }
   } catch (e) {}
 })();

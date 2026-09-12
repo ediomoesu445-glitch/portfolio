@@ -1,40 +1,43 @@
-import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Heading, Overline } from "@/components/ui/Heading";
 import { Icon } from "@/components/ui/Icon";
-import { Reveal } from "@/components/ui/Reveal";
+import { Card } from "@/components/ui/Card";
+import { Pill } from "@/components/ui/Pill";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { identities } from "@/content/identities";
 import { profile } from "@/content/profile";
 
 /**
- * Phase 0 placeholder. It exists to prove the scaffold end to end — design
- * tokens, typed content, fonts, motion, accessibility — and is replaced by the
- * real homepage in Phase 1.
+ * Phase 2 homepage. The sections that present projects and experience arrive in
+ * later phases; what is here exercises the design system end to end.
  */
 export default function HomePage() {
   return (
     <>
-      <section className="border-line/60 border-b py-24 md:py-36">
-        <div className="container-content">
+      <section className="py-24 md:py-36">
+        <Container>
           <Reveal>
-            <p className="text-overline text-accent font-mono uppercase">
+            <Overline>
               {profile.location} · {profile.availability}
-            </p>
-            <h1 className="text-display text-ink mt-6 max-w-[16ch] font-semibold">
+            </Overline>
+            <Heading level={1} size="display" className="mt-6 max-w-[15ch]">
               {profile.name}
-            </h1>
-            <p className="text-ink-muted mt-6 max-w-prose text-lg leading-relaxed md:text-xl">
+            </Heading>
+            <p className="text-ink-muted mt-7 max-w-prose text-lg leading-relaxed md:text-xl">
               {profile.bio}
             </p>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <ul className="mt-10 flex flex-wrap items-center gap-4">
+          <Reveal delay={0.08}>
+            <ul className="mt-10 flex flex-wrap items-center gap-3">
               {profile.links.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="rounded-pill border-line text-ink-muted hover:border-accent hover:text-ink inline-flex items-center gap-2 border px-4 py-2 text-sm transition-colors"
+                    className="interactive rounded-card border-line text-ink-muted hover:text-ink inline-flex items-center gap-2 border px-4 py-2 text-sm"
                   >
                     <Icon name={link.icon} className="size-4" />
                     {link.label}
@@ -43,81 +46,71 @@ export default function HomePage() {
               ))}
             </ul>
           </Reveal>
-        </div>
+        </Container>
       </section>
 
       <Section
         id="identities"
         eyebrow="Five identities"
         title="One practitioner, five ways in"
-        description="Each identity has its own accent token, so a visitor can follow a single thread — data science, engineering, teaching, leadership, delivery — through the whole site."
+        description="Each identity carries a tag rather than a colour. Colour on this site means one of two things — a figure that is qualified, or a figure that is verified — so it is never spent on decoration."
       >
-        <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {identities.map((identity, index) => (
-            <li key={identity.id}>
-              <Reveal delay={index * 0.06}>
-                <article
-                  className="rounded-card border-line bg-surface shadow-elev-sm hover:shadow-elev-md h-full border p-6 transition-shadow"
-                  style={{
-                    borderTopColor: `var(${identity.accentVar})`,
-                    borderTopWidth: 3,
-                  }}
-                >
-                  <Icon
-                    name={identity.icon}
-                    className="size-6"
-                    style={{ color: `var(${identity.accentVar})` }}
-                  />
-                  <h3 className="text-title text-ink mt-4 font-semibold">
-                    {identity.label}
-                  </h3>
-                  <p className="text-ink-muted mt-3 text-sm leading-relaxed">
-                    {identity.summary}
-                  </p>
-                  <ul className="text-ink-subtle mt-5 space-y-2 text-sm">
-                    {identity.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-2">
-                        <span
-                          aria-hidden
-                          className="rounded-pill mt-2 size-1 shrink-0"
-                          style={{ backgroundColor: `var(${identity.accentVar})` }}
-                        />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            </li>
+        <RevealGroup
+          as="ul"
+          className="border-line bg-line grid gap-px border sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {identities.map((identity) => (
+            <RevealItem as="li" key={identity.id} className="bg-bg">
+              <article className="flex h-full flex-col p-6">
+                <div className="flex items-center justify-between gap-4">
+                  <Icon name={identity.icon} className="text-ink-muted size-5" />
+                  <Pill variant="code">{identity.code}</Pill>
+                </div>
+                <h3 className="text-title font-display text-ink mt-5 font-semibold">
+                  {identity.label}
+                </h3>
+                <p className="text-ink-muted mt-3 text-sm leading-relaxed">
+                  {identity.summary}
+                </p>
+                <ul className="border-line text-ink-subtle mt-5 space-y-2 border-t pt-5 text-sm">
+                  {identity.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-2.5">
+                      <span
+                        aria-hidden
+                        className="bg-line-strong mt-2 size-1 shrink-0"
+                      />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </RevealItem>
           ))}
-        </ul>
+        </RevealGroup>
       </Section>
 
       <Section
         id="work"
-        eyebrow="Scaffold status"
-        title="Phase 0 complete"
-        description="Framework, tokens, content model and backend service are in place. Content and design land in the phases that follow."
-        className="border-line/60 bg-bg-subtle border-t"
+        tone="subtle"
+        eyebrow="Build status"
+        title="Phase 2 complete"
+        description="Palette, type and primitives are in place. Project pages and the identity deep-dives follow."
       >
-        <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup as="ol" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { phase: "Phase 1", label: "Design system & homepage" },
-            { phase: "Phase 2", label: "Real project content" },
-            { phase: "Phase 3+", label: "Identity deep-dives" },
+            { phase: "Phase 3", label: "Project pages and charts" },
+            { phase: "Phase 4", label: "The four projects in full" },
+            { phase: "Phase 5", label: "Identity deep-dives" },
             { phase: "Phase 6", label: "Live ML demo endpoint" },
           ].map((item) => (
-            <li
-              key={item.phase}
-              className="rounded-card border-line-strong border border-dashed p-5"
-            >
-              <p className="text-ink-subtle font-mono text-xs tracking-widest uppercase">
-                {item.phase}
-              </p>
-              <p className="text-ink mt-2 text-sm">{item.label}</p>
-            </li>
+            <RevealItem as="li" key={item.phase}>
+              <Card className="h-full">
+                <Overline>{item.phase}</Overline>
+                <p className="text-ink mt-2 text-sm">{item.label}</p>
+              </Card>
+            </RevealItem>
           ))}
-        </ol>
+        </RevealGroup>
       </Section>
     </>
   );

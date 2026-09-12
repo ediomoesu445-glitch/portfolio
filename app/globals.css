@@ -1,96 +1,88 @@
 @import "tailwindcss";
 
-/* Class-based dark mode so we can offer an explicit toggle in addition to
-   honouring the OS preference (see components/theme/ThemeProvider.tsx). */
-@custom-variant dark (&:where(.dark, .dark *));
+/* Dark is the default. The `light` class is set only when the visitor asks for
+   it, so no explicit class means dark — see components/theme/theme-script.ts. */
+@custom-variant light (&:where(.light, .light *));
 
 /* ---------------------------------------------------------------------------
-   DESIGN TOKENS
-   Raw values live here as CSS custom properties; Tailwind utilities are
-   generated from them in the @theme block below. Change a value once and it
-   propagates through every component. Phase 1 refines these.
+   DESIGN TOKENS — "Control Room"
+
+   The palette follows ISA-101, the HMI standard used in process plants: a
+   desaturated grey field where saturated colour is reserved for exceptional
+   states. Colour is information here, never decoration.
+
+     alarm  (amber) — a figure that is qualified, or a live alarm state
+     normal (teal)  — a figure that is measured and verified; interactive state
+
+   Nothing else in the interface is allowed to be saturated. If a new element
+   seems to need a third hue, it almost certainly needs better hierarchy.
    --------------------------------------------------------------------------- */
 
 :root {
-  /* Surfaces */
-  --bg: #faf9f6;
-  --bg-subtle: #f1f0ea;
-  --surface: #ffffff;
-  --surface-raised: #ffffff;
+  /* Field and surfaces */
+  --bg: #14181c;
+  --bg-subtle: #101417;
+  --surface: #1c2228;
+  --surface-raised: #232b33;
 
-  /* Text */
-  --ink: #11151a;
-  --ink-muted: #4a5361;
-  --ink-subtle: #6b7684;
-  --ink-inverse: #f7f8fa;
+  /* Ink */
+  --ink: #e6eaee;
+  --ink-muted: #8c99a4;
+  --ink-subtle: #6b7883;
+  --ink-inverse: #14181c;
 
-  /* Lines */
-  --line: #e4e2db;
-  --line-strong: #cfccc2;
+  /* Rules */
+  --line: #2b333b;
+  --line-strong: #3a444e;
 
-  /* Brand accent */
-  --accent: #0f766e;
-  --accent-hover: #0b5f58;
-  --accent-soft: #d8efeb;
-  --accent-ink: #ffffff;
+  /* The only two saturated colours */
+  --alarm: #ffb020;
+  --alarm-soft: #372a11;
+  --alarm-ink: #14181c;
+  --normal: #46908c;
+  --normal-soft: #16302f;
+  --normal-ink: #08201f;
 
-  /* One hue per professional identity — used for section chrome, chart series
-     and filter chips so each identity stays visually traceable site-wide. */
-  --identity-data: #2563eb;
-  --identity-ai: #7c3aed;
-  --identity-educator: #059669;
-  --identity-leader: #d97706;
-  --identity-pm: #e11d48;
+  --focus: #5fb5b0;
 
-  /* Feedback */
-  --success: #059669;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --focus: #2563eb;
-
-  /* Elevation */
-  --shadow-sm: 0 1px 2px 0 rgb(17 21 26 / 0.05);
-  --shadow-md: 0 4px 16px -4px rgb(17 21 26 / 0.1);
-  --shadow-lg: 0 24px 48px -12px rgb(17 21 26 / 0.18);
+  /* Elevation — restrained; a control room is flat, not glassy. */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-md: 0 6px 20px -6px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.65);
 }
 
-.dark {
-  --bg: #0a0d11;
-  --bg-subtle: #10141a;
-  --surface: #13181f;
-  --surface-raised: #1a2028;
+/* ISA-101 light mode is grey, not white — a white field in a control room is
+   glare. The light theme keeps the same discipline at higher luminance. */
+.light {
+  --bg: #e9ebed;
+  --bg-subtle: #dfe2e5;
+  --surface: #f4f5f6;
+  --surface-raised: #ffffff;
 
-  --ink: #edeff2;
-  --ink-muted: #a3adba;
-  --ink-subtle: #78838f;
-  --ink-inverse: #11151a;
+  --ink: #161b20;
+  --ink-muted: #4d5760;
+  --ink-subtle: #6d7880;
+  --ink-inverse: #f4f5f6;
 
-  --line: #222a33;
-  --line-strong: #323c47;
+  --line: #cbd1d6;
+  --line-strong: #a9b2b9;
 
-  --accent: #2dd4bf;
-  --accent-hover: #5eead4;
-  --accent-soft: #0f2e2b;
-  --accent-ink: #06201d;
+  --alarm: #9a5b00;
+  --alarm-soft: #f7ecd9;
+  --alarm-ink: #ffffff;
+  --normal: #2c6b68;
+  --normal-soft: #dcebea;
+  --normal-ink: #ffffff;
 
-  --identity-data: #60a5fa;
-  --identity-ai: #a78bfa;
-  --identity-educator: #34d399;
-  --identity-leader: #fbbf24;
-  --identity-pm: #fb7185;
+  --focus: #2c6b68;
 
-  --success: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
-  --focus: #60a5fa;
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
-  --shadow-md: 0 4px 16px -4px rgb(0 0 0 / 0.5);
-  --shadow-lg: 0 24px 48px -12px rgb(0 0 0 / 0.6);
+  --shadow-sm: 0 1px 2px 0 rgb(22 27 32 / 0.06);
+  --shadow-md: 0 6px 20px -6px rgb(22 27 32 / 0.12);
+  --shadow-lg: 0 24px 48px -16px rgb(22 27 32 / 0.18);
 }
 
 @theme inline {
-  /* Colors */
+  /* Colours */
   --color-bg: var(--bg);
   --color-bg-subtle: var(--bg-subtle);
   --color-surface: var(--surface);
@@ -104,64 +96,78 @@
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-ink: var(--accent-ink);
-
-  --color-identity-data: var(--identity-data);
-  --color-identity-ai: var(--identity-ai);
-  --color-identity-educator: var(--identity-educator);
-  --color-identity-leader: var(--identity-leader);
-  --color-identity-pm: var(--identity-pm);
-
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
+  --color-alarm: var(--alarm);
+  --color-alarm-soft: var(--alarm-soft);
+  --color-alarm-ink: var(--alarm-ink);
+  --color-normal: var(--normal);
+  --color-normal-soft: var(--normal-soft);
+  --color-normal-ink: var(--normal-ink);
   --color-focus: var(--focus);
 
-  /* Typography — families come from next/font in app/layout.tsx */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  /* Typography — loaded in app/layout.tsx via next/font */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 
-  /* Type scale (additions to Tailwind's defaults) */
-  --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.035em;
-  --text-headline: clamp(2rem, 1.35rem + 2.6vw, 3.25rem);
-  --text-headline--line-height: 1.08;
-  --text-headline--letter-spacing: -0.025em;
-  --text-title: clamp(1.375rem, 1.15rem + 0.9vw, 1.875rem);
+  /* Type scale */
+  --text-display: clamp(2.75rem, 1.5rem + 5.4vw, 5.25rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.04em;
+  --text-headline: clamp(2rem, 1.35rem + 2.7vw, 3rem);
+  --text-headline--line-height: 1.04;
+  --text-headline--letter-spacing: -0.03em;
+  --text-title: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem);
   --text-title--line-height: 1.2;
-  --text-title--letter-spacing: -0.015em;
-  --text-overline: 0.75rem;
+  --text-title--letter-spacing: -0.02em;
+  --text-subtitle: 1.0625rem;
+  --text-subtitle--line-height: 1.4;
+  --text-subtitle--letter-spacing: -0.01em;
+  /* Instrument labels: mono, uppercase, widely tracked. */
+  --text-overline: 0.6875rem;
   --text-overline--line-height: 1.2;
-  --text-overline--letter-spacing: 0.14em;
+  --text-overline--letter-spacing: 0.16em;
 
-  /* Radii */
-  --radius-card: 0.875rem;
-  --radius-pill: 999px;
+  /* Radii — a control panel is squared off. One small radius, used sparingly. */
+  --radius-card: 2px;
+  --radius-pill: 2px;
 
-  /* Shadows */
   --shadow-elev-sm: var(--shadow-sm);
   --shadow-elev-md: var(--shadow-md);
   --shadow-elev-lg: var(--shadow-lg);
 
   /* Layout */
   --container-content: 72rem;
-  --container-prose: 44rem;
+  --container-prose: 42rem;
+  --container-wide: 88rem;
 
-  /* Motion */
+  /* Motion — three durations, two easings. Everything uses these. */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  /* Duration is overridden per instance by Marquee. */
+  --animate-marquee: marquee-scroll 42s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* The list is rendered twice, so half a turn is a seamless loop. */
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Offset anchor targets so the sticky header never covers a heading. */
     scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
   }
 
   body {
@@ -171,14 +177,19 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Numerals line up in columns wherever figures are compared. */
+  table,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
-    border-radius: 2px;
   }
 
-  /* Honour the OS "reduce motion" setting for every animation on the site,
-     including Framer Motion's, which reads the same media query. */
+  /* The global motion guard. Framer Motion reads the same query through
+     MotionConfig reducedMotion="user" in components/motion/MotionProvider. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -193,27 +204,39 @@
     }
   }
 
-  /* Fail-safe: scroll-reveal wrappers are rendered at opacity:0 for the
-     animation. If JavaScript never runs, show them immediately rather than
-     serving a blank page. */
+  ::selection {
+    background-color: var(--color-alarm);
+    color: var(--color-alarm-ink);
+  }
+}
+
+@layer components {
+  /* Fail-safe: entrance animations start at opacity 0. If JavaScript never
+     runs, show the content rather than serving a blank page. */
   html:not(.js) [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
   }
-
-  ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-accent-ink);
-  }
 }
 
-@utility container-content {
-  margin-inline: auto;
-  width: 100%;
-  max-width: var(--container-content);
-  padding-inline: 1.25rem;
+/* Motion durations as plain custom properties so both CSS transitions and
+   Framer Motion read the same numbers. */
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --duration-slow: 620ms;
+}
 
-  @media (width >= 48rem) {
-    padding-inline: 2rem;
+/* The standard hover treatment, applied by Card, Pill and interactive links.
+   One convention, defined once. */
+@utility interactive {
+  transition:
+    border-color var(--duration-fast) var(--ease-out-soft),
+    background-color var(--duration-fast) var(--ease-out-soft),
+    color var(--duration-fast) var(--ease-out-soft),
+    transform var(--duration-fast) var(--ease-out-soft);
+
+  &:hover {
+    border-color: var(--color-line-strong);
   }
 }

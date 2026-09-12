@@ -88,11 +88,13 @@ docker compose up --build api
 ├── app/                    # Next.js App Router
 │   ├── globals.css         # design tokens + base layer (edit tokens here)
 │   ├── layout.tsx          # metadata, fonts, header/footer, skip link
-│   └── page.tsx            # homepage
+│   ├── page.tsx            # homepage
+│   └── design/             # internal style guide (noindex, not linked)
 ├── components/
 │   ├── layout/             # SiteHeader, SiteFooter
-│   ├── theme/              # dark-mode toggle + no-flash init script
-│   └── ui/                 # Section, Reveal, Icon, TodoChip
+│   ├── motion/             # MotionProvider (global reduced-motion guard), tokens
+│   ├── theme/              # light-mode toggle + no-flash init script
+│   └── ui/                 # the design-system primitives
 ├── content/                # ALL site copy, typed — edit here, not in JSX
 │   ├── types.ts            # the content model
 │   ├── profile.ts          # name, bio, contact, links
@@ -150,6 +152,52 @@ truth; `backend/data/projects.json` is generated from it by `npm run sync:projec
 so the two cannot drift. Run it after editing `content/projects.ts`. The contract
 test in `backend/tests/test_api.py` guards the field names, and
 `backend/app/schemas/project.py` must gain any field added to `content/types.ts`.
+
+---
+
+## Design system
+
+**Control Room.** The palette follows ISA-101, the human-machine-interface
+standard used in process plants: a desaturated grey field where saturated
+colour is reserved for exceptional states. There are exactly two accents and
+both carry meaning:
+
+| Token           | Meaning                                                   |
+| --------------- | --------------------------------------------------------- |
+| `alarm` (amber) | a figure that is qualified, or a live alarm state         |
+| `normal` (teal) | a figure that is measured and verified; interactive state |
+
+Nothing else is allowed to be saturated. Identities are distinguished by an
+instrument tag (`DS`, `ML`, `ED`, `LD`, `PM`) and typography rather than by
+hue — five decorative colours would contradict the rule the palette rests on.
+
+**Dark is the default.** The `light` class is added to `<html>` only when the
+visitor asks for it, so no class means dark. Light mode is ISA grey rather than
+white, because a white field in a control room is glare.
+
+**Type.** Archivo for display and figures, IBM Plex Sans for body, IBM Plex Mono
+for data and instrument labels. Loaded via `next/font`, exposed as
+`font-display` / `font-sans` / `font-mono`.
+
+**Primitives** live in `components/ui` and are re-exported from
+`components/ui/index.ts`:
+
+`Container` · `Section` · `Heading` / `Overline` · `Pill` · `Card` · `Stat` ·
+`Timeline` / `TimelineItem` · `MediaFrame` · `BeforeAfterSlider` · `Marquee` ·
+`Reveal` / `RevealGroup` / `RevealItem` · `TodoChip` · `Icon`
+
+`Stat` is the signature element: it renders a figure together with whatever
+qualifies it — the superseded value struck through, and the caveat in amber.
+
+**Motion.** Three durations and two easings, defined once in
+`components/motion/motion-tokens.ts` and mirrored as CSS custom properties.
+`MotionConfig reducedMotion="user"` in `components/motion/MotionProvider.tsx`
+wraps the whole tree, so no component checks the preference itself; CSS
+transitions are covered by a `prefers-reduced-motion` block in `globals.css`.
+The shared hover treatment is the `interactive` utility.
+
+Run the dev server and open **/design** to see every primitive rendered against
+real content. The route is `noindex` and is not linked from the site.
 
 ---
 

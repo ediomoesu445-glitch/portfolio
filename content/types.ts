@@ -20,8 +20,13 @@ export interface Identity {
   summary: string;
   /** Two to four proof points shown under the identity. */
   highlights: string[];
-  /** Maps to the --color-identity-* design tokens. */
-  accentVar: `--color-identity-${string}`;
+  /**
+   * A short instrument tag, P&ID style. Identities are distinguished by code
+   * and typography rather than by colour: under this palette colour means an
+   * alarm or a verified reading, so spending five hues on decoration would
+   * break the rule the whole design rests on.
+   */
+  code: string;
   /** lucide-react icon name, resolved in the component layer. */
   icon: string;
 }

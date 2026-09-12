@@ -6,10 +6,10 @@ import { useSyncExternalStore } from "react";
 type Theme = "light" | "dark";
 
 /**
- * The `dark` class on <html> is the single source of truth — the inline script
- * in app/layout.tsx sets it before first paint. This component subscribes to
- * that class rather than mirroring it into React state, which keeps the button
- * correct even if the theme is changed from elsewhere.
+ * The `light` class on <html> is the single source of truth — the inline script
+ * in app/layout.tsx sets it before first paint. This subscribes to that class
+ * rather than mirroring it into React state, so the button stays correct even
+ * if the theme is changed elsewhere.
  */
 function subscribe(onStoreChange: () => void) {
   const observer = new MutationObserver(onStoreChange);
@@ -21,20 +21,20 @@ function subscribe(onStoreChange: () => void) {
 }
 
 function getSnapshot(): Theme {
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+  return document.documentElement.classList.contains("light") ? "light" : "dark";
 }
 
-/** No theme is known while rendering on the server. */
-function getServerSnapshot(): null {
-  return null;
+/** The server renders the default theme. */
+function getServerSnapshot(): Theme {
+  return "dark";
 }
 
 export function ThemeToggle() {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const next: Theme = theme === "light" ? "dark" : "light";
 
   function toggle() {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", next === "dark");
+    document.documentElement.classList.toggle("light", next === "light");
     try {
       localStorage.setItem("theme", next);
     } catch {
@@ -47,17 +47,13 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={
-        theme === null
-          ? "Toggle colour theme"
-          : `Switch to ${theme === "dark" ? "light" : "dark"} theme`
-      }
-      className="rounded-pill border-line text-ink-muted hover:border-line-strong hover:text-ink inline-flex size-9 items-center justify-center border transition-colors"
+      aria-label={`Switch to ${next} theme`}
+      className="interactive rounded-card border-line text-ink-muted hover:text-ink inline-flex size-9 items-center justify-center border"
     >
-      {theme === "dark" ? (
-        <Sun className="size-4" aria-hidden />
-      ) : (
+      {theme === "light" ? (
         <Moon className="size-4" aria-hidden />
+      ) : (
+        <Sun className="size-4" aria-hidden />
       )}
     </button>
   );
