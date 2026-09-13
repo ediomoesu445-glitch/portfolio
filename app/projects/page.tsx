@@ -3,6 +3,8 @@ import { ProjectsExplorer } from "@/components/projects/ProjectsExplorer";
 import { Section } from "@/components/ui/Section";
 import { projects } from "@/content/projects";
 
+const ordered = [...projects].sort((a, b) => a.order - b.order);
+
 export const metadata: Metadata = {
   title: "Projects",
   description:
@@ -17,7 +19,7 @@ export default function ProjectsPage() {
       title="Work"
       description="Four projects, all in energy. Each one reports the figure it can defend rather than the flattering one, and says plainly what it has not shown."
     >
-      <ProjectsExplorer projects={projects} />
+      <ProjectsExplorer projects={ordered} />
     </Section>
   );
 }

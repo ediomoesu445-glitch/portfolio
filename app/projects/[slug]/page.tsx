@@ -1,10 +1,12 @@
-import { ArrowUpRight, AlertTriangle } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { identityById } from "@/content/identities";
 import { projects } from "@/content/projects";
+import type { Project } from "@/content/types";
 import { formatPeriod, isTodo } from "@/lib/content";
+import { MotionAsset } from "@/components/projects/motion/MotionAsset";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
 import { MediaFrame } from "@/components/ui/MediaFrame";
@@ -12,6 +14,9 @@ import { Pill } from "@/components/ui/Pill";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Stat } from "@/components/ui/Stat";
+import { TodoChip } from "@/components/ui/TodoChip";
+
+const ordered = [...projects].sort((a, b) => a.order - b.order);
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -25,19 +30,59 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
-  return {
-    title: project.title,
-    description: project.tagline,
-  };
+  return { title: project.title, description: project.tagline };
 }
 
-/** Narrative sections, rendered only when they hold real content. */
-function narrative(project: (typeof projects)[number]) {
-  return [
-    { label: "The problem", body: project.problem },
-    { label: "Approach", body: project.approach },
-    { label: "Outcome", body: project.outcome },
-  ].filter((part): part is { label: string; body: string } => Boolean(part.body));
+/** Body copy, or a visible placeholder where it is still a TODO. */
+function Prose({ children }: { children?: string }) {
+  if (!children) return null;
+  if (isTodo(children)) return <TodoChip value={children} />;
+  return <p className="text-ink-muted text-[17px] leading-relaxed">{children}</p>;
+}
+
+function ProjectNav({ current }: { current: Project }) {
+  const index = ordered.findIndex((item) => item.slug === current.slug);
+  const previous = ordered[index - 1];
+  const next = ordered[index + 1];
+
+  return (
+    <nav
+      aria-label="Other case studies"
+      className="border-line bg-line grid gap-px border-t sm:grid-cols-2"
+    >
+      {previous ? (
+        <Link
+          href={`/projects/${previous.slug}`}
+          className="interactive group bg-bg hover:bg-surface p-8"
+        >
+          <span className="text-overline text-ink-subtle flex items-center gap-2 font-mono uppercase">
+            <ArrowLeft className="size-3.5" aria-hidden />
+            Previous
+          </span>
+          <span className="text-subtitle font-display text-ink mt-3 block font-semibold">
+            {previous.title}
+          </span>
+        </Link>
+      ) : (
+        <span className="bg-bg" />
+      )}
+
+      {next && (
+        <Link
+          href={`/projects/${next.slug}`}
+          className="interactive group bg-bg hover:bg-surface p-8 text-right"
+        >
+          <span className="text-overline text-ink-subtle flex items-center justify-end gap-2 font-mono uppercase">
+            Next
+            <ArrowRight className="size-3.5" aria-hidden />
+          </span>
+          <span className="text-subtitle font-display text-ink mt-3 block font-semibold">
+            {next.title}
+          </span>
+        </Link>
+      )}
+    </nav>
+  );
 }
 
 export default async function ProjectPage({
@@ -52,22 +97,25 @@ export default async function ProjectPage({
   const period = project.started
     ? formatPeriod(project.started, project.date)
     : project.date;
-  const images = project.media?.filter((item) => item.kind === "image") ?? [];
+  const gallery = project.media?.filter((item) => item.kind === "image") ?? [];
   const pending = project.media?.filter((item) => isTodo(item.src)) ?? [];
 
   return (
     <>
-      <section className="py-16 md:py-24">
+      {/* Hero ------------------------------------------------------------ */}
+      <section className="py-14 md:py-20">
         <Container>
           <Reveal>
             <Link
               href="/projects"
-              className="text-overline text-ink-subtle hover:text-ink font-mono uppercase"
+              className="text-overline text-ink-subtle hover:text-ink inline-flex items-center gap-2 font-mono uppercase"
             >
-              ← All projects
+              <ArrowLeft className="size-3.5" aria-hidden />
+              All projects
             </Link>
 
             <div className="mt-8 flex flex-wrap items-center gap-2">
+              <Pill variant="code">{String(project.order).padStart(2, "0")}</Pill>
               {project.identities.map((id) => (
                 <Pill key={id} variant="code">
                   {identityById[id].code} · {identityById[id].label}
@@ -80,7 +128,7 @@ export default async function ProjectPage({
             </Heading>
 
             <p className="text-ink-muted mt-5 max-w-prose text-lg leading-relaxed">
-              {project.summary}
+              {project.tagline}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -96,9 +144,19 @@ export default async function ProjectPage({
                   <ArrowUpRight className="size-4" aria-hidden />
                 </a>
               ))}
-              <span className="text-ink-subtle font-mono text-[13px]">{period}</span>
+              {isTodo(period) ? (
+                <TodoChip value={period} />
+              ) : (
+                <span className="text-ink-subtle font-mono text-[13px]">{period}</span>
+              )}
             </div>
           </Reveal>
+
+          {project.motionAsset && (
+            <Reveal delay={0.08} className="mt-12">
+              <MotionAsset id={project.motionAsset} />
+            </Reveal>
+          )}
         </Container>
       </section>
 
@@ -122,7 +180,86 @@ export default async function ProjectPage({
         </Container>
       )}
 
-      <Section eyebrow="Measured" title="Results" className="pt-16 md:pt-20">
+      {/* Objective ------------------------------------------------------- */}
+      <Section eyebrow="01" title="Objective" className="pt-16 md:pt-20">
+        <div className="max-w-prose">
+          <Prose>{project.objective}</Prose>
+          {project.problem && (
+            <div className="border-line mt-8 border-l pl-6">
+              <Overline>The problem</Overline>
+              <div className="mt-3">
+                <Prose>{project.problem}</Prose>
+              </div>
+            </div>
+          )}
+        </div>
+      </Section>
+
+      {/* Approach -------------------------------------------------------- */}
+      <Section eyebrow="02" title="Approach" tone="subtle">
+        <div className="max-w-prose">
+          <Prose>{project.approach}</Prose>
+        </div>
+      </Section>
+
+      {/* Method & tools -------------------------------------------------- */}
+      <Section eyebrow="03" title="Method & tools">
+        <div className="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
+          <div className="max-w-prose">
+            <Prose>{project.method}</Prose>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <Overline>Tools</Overline>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {project.stack.map((item) =>
+                  isTodo(item) ? (
+                    <li key={item}>
+                      <TodoChip value={item} />
+                    </li>
+                  ) : (
+                    <li key={item}>
+                      <Pill size="md">{item}</Pill>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+
+            {project.dataset && (
+              <div className="border-line border-t pt-6">
+                <Overline>Data</Overline>
+                <p className="text-ink mt-3 text-sm font-medium">
+                  {project.dataset.name}
+                </p>
+                {isTodo(project.dataset.source) ? (
+                  <div className="mt-2">
+                    <TodoChip value={project.dataset.source} />
+                  </div>
+                ) : (
+                  <p className="text-ink-muted mt-1 text-sm">
+                    {project.dataset.source}
+                  </p>
+                )}
+                {project.dataset.note &&
+                  (isTodo(project.dataset.note) ? (
+                    <div className="mt-3">
+                      <TodoChip value={project.dataset.note} />
+                    </div>
+                  ) : (
+                    <p className="text-ink-subtle mt-3 text-[13px] leading-relaxed">
+                      {project.dataset.note}
+                    </p>
+                  ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </Section>
+
+      {/* Results --------------------------------------------------------- */}
+      <Section eyebrow="04" title="Results" tone="subtle">
         <div className="border-line bg-line grid gap-px border sm:grid-cols-2 lg:grid-cols-4">
           {project.metrics.map((metric) => (
             <div key={metric.label} className="bg-bg p-6">
@@ -130,35 +267,30 @@ export default async function ProjectPage({
             </div>
           ))}
         </div>
+
+        {project.outcome && (
+          <div className="mt-10 max-w-prose">
+            <Prose>{project.outcome}</Prose>
+          </div>
+        )}
       </Section>
 
-      {narrative(project).length > 0 && (
-        <Section eyebrow="Case study" title="How it was built" tone="subtle">
-          <div className="grid gap-10 md:grid-cols-3">
-            {narrative(project).map((part) => (
-              <div key={part.label}>
-                <Overline>{part.label}</Overline>
-                <p className="text-ink-muted mt-3 text-[15px] leading-relaxed">
-                  {part.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
+      {/* Media gallery --------------------------------------------------- */}
+      {(gallery.length > 0 || pending.length > 0) && (
+        <Section eyebrow="05" title="Gallery">
+          {gallery.length > 0 && (
+            <div className="grid gap-8 md:grid-cols-2">
+              {gallery.map((media) => (
+                <MediaFrame
+                  key={media.src}
+                  media={media}
+                  aspect="4 / 3"
+                  caption={media.alt}
+                />
+              ))}
+            </div>
+          )}
 
-      {images.length > 0 && (
-        <Section eyebrow="Evidence" title="Figures">
-          <div className="grid gap-8 md:grid-cols-2">
-            {images.map((media) => (
-              <MediaFrame
-                key={media.src}
-                media={media}
-                aspect="4 / 3"
-                caption={media.alt}
-              />
-            ))}
-          </div>
           {pending.length > 0 && (
             <div className="mt-8 grid gap-8 md:grid-cols-2">
               {pending.map((media) => (
@@ -169,21 +301,33 @@ export default async function ProjectPage({
         </Section>
       )}
 
-      <Section eyebrow="Built with" title="Stack" tone="subtle">
-        <ul className="flex flex-wrap gap-2">
-          {project.stack.map((item) => (
-            <li key={item}>
-              <Pill size="md">{item}</Pill>
+      {/* What I'd do next ------------------------------------------------ */}
+      <Section eyebrow="06" title="What I would do next" tone="subtle">
+        <ol className="divide-line border-line max-w-prose divide-y border-y">
+          {project.nextSteps.map((step, index) => (
+            <li key={step} className="flex gap-5 py-5">
+              <span className="text-overline text-ink-subtle font-mono">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="flex-1">
+                {isTodo(step) ? (
+                  <TodoChip value={step} />
+                ) : (
+                  <p className="text-ink-muted text-[15px] leading-relaxed">{step}</p>
+                )}
+              </div>
             </li>
           ))}
-        </ul>
+        </ol>
 
         {project.attribution && (
-          <p className="border-line text-ink-subtle mt-10 max-w-prose border-t pt-6 text-[13px] leading-relaxed">
+          <p className="border-line text-ink-subtle mt-12 max-w-prose border-t pt-6 text-[13px] leading-relaxed">
             {project.attribution}
           </p>
         )}
       </Section>
+
+      <ProjectNav current={project} />
     </>
   );
 }

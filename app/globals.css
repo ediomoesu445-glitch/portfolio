@@ -148,6 +148,28 @@
   --animate-marquee: marquee-scroll 42s linear infinite;
 }
 
+/* Anomaly points on the case-study chart: appear as the line reaches them. */
+@keyframes anomaly-pop {
+  from {
+    opacity: 0;
+    r: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The slow breathing of a live tile on the dashboard mock. */
+@keyframes tile-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);

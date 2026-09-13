@@ -1,0 +1,78 @@
+{
+  "source": "github.com/ediomoesu445-glitch/energy-asset-digital-twin - models/15_9-F-9_A/anomaly/events.csv",
+  "well": "15/9-F-9 A",
+  "note": "The seven events that survived calibration on a held-out slice of normal drilling, out of a 19-day section of hole. All fall during genuine on-bottom rotary drilling.",
+  "totalDurationMin": 5.51,
+  "events": [
+    {
+      "eventId": 1,
+      "start": "2009-07-03 10:44:30+01:00",
+      "durationMin": 0.5,
+      "peakScore": 0.6667,
+      "meanScore": 0.6111,
+      "detectors": "spc",
+      "nDetectors": 1,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 2,
+      "start": "2009-07-03 10:47:20+01:00",
+      "durationMin": 0.67,
+      "peakScore": 0.6667,
+      "meanScore": 0.625,
+      "detectors": "spc",
+      "nDetectors": 1,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 3,
+      "start": "2009-07-03 12:15:20+01:00",
+      "durationMin": 0.5,
+      "peakScore": 0.6883,
+      "meanScore": 0.6322,
+      "detectors": "iforest+spc",
+      "nDetectors": 2,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 4,
+      "start": "2009-07-03 13:37:40+01:00",
+      "durationMin": 0.67,
+      "peakScore": 0.6667,
+      "meanScore": 0.625,
+      "detectors": "spc",
+      "nDetectors": 1,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 5,
+      "start": "2009-07-03 18:42:10+01:00",
+      "durationMin": 0.5,
+      "peakScore": 0.7589,
+      "meanScore": 0.6681,
+      "detectors": "spc",
+      "nDetectors": 1,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 6,
+      "start": "2009-07-04 08:31:00+01:00",
+      "durationMin": 0.5,
+      "peakScore": 0.6667,
+      "meanScore": 0.5556,
+      "detectors": "spc",
+      "nDetectors": 1,
+      "onBottomFrac": 1.0
+    },
+    {
+      "eventId": 7,
+      "start": "2009-07-07 21:37:40+01:00",
+      "durationMin": 2.17,
+      "peakScore": 0.6542,
+      "meanScore": 0.6089,
+      "detectors": "combined-score only",
+      "nDetectors": 0,
+      "onBottomFrac": 1.0
+    }
+  ]
+}

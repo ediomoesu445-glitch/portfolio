@@ -43,6 +43,10 @@ export interface ProjectMetric {
   value: string;
   /** How the figure was derived — shown on hover/expand for credibility. */
   method?: string;
+  /** A prior, misleading figure this one replaced. Rendered struck through. */
+  superseded?: string;
+  /** Why the figure is qualified. Rendered in the alarm accent. */
+  caveat?: string;
 }
 
 export interface ProjectLink {
@@ -67,8 +71,30 @@ export interface ProjectMedia {
   height?: number;
 }
 
+/**
+ * The bespoke animated asset a case study leads with. Each is a real React
+ * component in components/projects/motion/, driven by real data where real
+ * data exists and clearly labelled as illustrative where it does not.
+ */
+export type MotionAssetId =
+  | "anomaly-events"
+  | "anomaly-timeseries"
+  | "gradcam-slider"
+  | "transaction-graph"
+  | "dashboard-mock"
+  | "findings-chart";
+
+export interface ProjectDataset {
+  name: string;
+  source: string;
+  /** Why this data and not the deployment target's own. */
+  note?: string;
+}
+
 export interface Project {
   slug: string;
+  /** Display order on the projects index. */
+  order: number;
   title: string;
   /** One line, shown on cards. */
   tagline: string;
@@ -76,9 +102,18 @@ export interface Project {
   identities: IdentityId[];
   /** Longer description, 2-4 sentences, shown on the detail view. */
   summary: string;
+  /** What the work set out to achieve. Opens the case study. */
+  objective: string;
   problem?: string;
   approach?: string;
+  /** How it was actually done — the method, in method-and-tools terms. */
+  method?: string;
   outcome?: string;
+  /** Honest next steps. Statements of intent, never claimed as done. */
+  nextSteps: string[];
+  dataset?: ProjectDataset;
+  /** The animated asset this case study opens with. */
+  motionAsset?: MotionAssetId;
   stack: string[];
   metrics: ProjectMetric[];
   links: ProjectLink[];
@@ -109,6 +144,11 @@ export interface ExperienceItem {
   start: string;
   /** ISO YYYY-MM, or null while current. */
   end: string | null;
+  /**
+   * Marks an ongoing role that nonetheless has a known end date — a fixed-term
+   * placement, say. Without this, only `end: null` reads as current.
+   */
+  current?: boolean;
   identities: IdentityId[];
   summary: string;
   achievements: string[];
@@ -214,4 +254,39 @@ export interface LeadershipRole {
   summary: string;
   outcomes: string[];
   identities: IdentityId[];
+}
+
+/** A membership or programme, rather than a role with outcomes. */
+export interface Affiliation {
+  name: string;
+  detail?: string;
+}
+
+/**
+ * A "lens" — the home page seen through one professional identity.
+ *
+ * Selecting a lens rewrites the hero copy, the highlighted skills and the
+ * featured items. The choice lives in the URL (`?lens=educator`) so a single
+ * link can open the site already framed for the reader it is being sent to.
+ */
+export interface LensItem {
+  title: string;
+  org?: string;
+  detail?: string;
+  /** Internal route this item links to, when there is one. */
+  href?: string;
+}
+
+export interface Lens {
+  id: IdentityId;
+  /** The one-line positioning statement that replaces the hero copy. */
+  headline: string;
+  /** Two or three sentences under the headline. */
+  blurb: string;
+  /** The skills worth highlighting for this reader. */
+  skills: string[];
+  /** Project slugs to feature, in order. */
+  projects: string[];
+  /** CV material to surface — roles, credentials, memberships. */
+  credentials: LensItem[];
 }
