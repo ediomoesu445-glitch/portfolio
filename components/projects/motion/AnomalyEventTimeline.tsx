@@ -42,8 +42,8 @@ export function AnomalyEventTimeline() {
   const animate = inView && !prefersReducedMotion;
 
   return (
-    <figure ref={ref} className="border border-line bg-surface">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-3">
+    <figure ref={ref} className="border-line bg-surface border">
+      <div className="border-line flex flex-wrap items-center justify-between gap-3 border-b px-5 py-3">
         <Overline>Well {data.well} · surviving anomaly events</Overline>
         <div className="flex items-center gap-2">
           <Pill variant="alarm">{data.events.length} events</Pill>
@@ -116,10 +116,10 @@ export function AnomalyEventTimeline() {
         </ResponsiveContainer>
       </div>
 
-      <figcaption className="border-t border-line px-5 py-4 text-[13px] leading-relaxed text-ink-subtle">
-        {data.note} Marker size is event duration. The largest reads as a
-        connection — hookload dropping 107 to 70 kkgf as the string is set in
-        slips — an operational transition, not a fault.
+      <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
+        {data.note} Marker size is event duration. The largest reads as a connection —
+        hookload dropping 107 to 70 kkgf as the string is set in slips — an operational
+        transition, not a fault.
       </figcaption>
     </figure>
   );

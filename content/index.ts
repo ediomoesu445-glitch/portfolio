@@ -8,4 +8,5 @@ export { skillGroups, languages } from "./skills";
 export { teaching } from "./teaching";
 export { leadershipRoles, affiliations } from "./leadership";
 export { lenses, lensById, resolveLens } from "./lenses";
+export { researchFindings, researchStance } from "./research";
 export { about } from "./about";

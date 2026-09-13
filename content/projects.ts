@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: "Anomaly Detection & Predictive Maintenance for Energy Infrastructure",
     tagline:
       "Unsupervised detection on a real drilling log — and the calibration step that decided whether any of it meant anything.",
-    identities: ["data-scientist", "ai-engineer"],
+    identities: ["researcher", "data-scientist", "ai-engineer"],
     objective:
       "Flag early signs of equipment and process anomalies in oil and gas infrastructure, supporting a shift from reactive to predictive maintenance. Built alongside the Energy Asset Digital Twin on the same Volve dataset, so detection and monitoring share one view of the asset.",
     summary:
@@ -71,7 +71,8 @@ export const projects: Project[] = [
       {
         label: "Events surviving review",
         value: "7 events, 5.5 min",
-        method: "Across a 19-day section of hole, all during on-bottom rotary drilling.",
+        method:
+          "Across a 19-day section of hole, all during on-bottom rotary drilling.",
       },
       {
         label: "Channel coverage",
@@ -137,7 +138,7 @@ export const projects: Project[] = [
     title: "AI-Based Pipeline Defect Detection",
     tagline:
       "Six-class surface-defect classification with Grad-CAM, measured against simulated field-imaging conditions.",
-    identities: ["ai-engineer"],
+    identities: ["researcher", "ai-engineer"],
     objective:
       "Detect and classify surface defects from inspection imagery, so the volume of footage a visual survey produces stops being the bottleneck. The point is triage: put the frames most likely to matter in front of an inspector first.",
     summary:
@@ -240,7 +241,7 @@ export const projects: Project[] = [
     title: "AI-Based Fraud & Ghost-Transaction Detection for Energy-Sector Finance",
     tagline:
       "Ranking reconciliation records so limited investigative capacity goes to the ones most worth opening.",
-    identities: ["data-scientist", "ai-engineer"],
+    identities: ["researcher", "data-scientist", "ai-engineer"],
     objective:
       "Detect fraudulent and ghost transactions in energy-sector financial flows — records that never corresponded to real economic activity. The output has to be reviewable by a finance or audit team, which rules out a model that cannot say why it flagged something.",
     summary:
@@ -336,7 +337,7 @@ export const projects: Project[] = [
     title: "Energy Asset Digital Twin & Monitoring Platform",
     tagline:
       "Production forecasting, drilling anomaly detection and a replay dashboard over one real field dataset.",
-    identities: ["data-scientist", "ai-engineer", "project-manager"],
+    identities: ["researcher", "data-scientist", "ai-engineer", "project-manager"],
     objective:
       "Prototype a near-real-time monitoring twin for energy assets, to cut the lag between what the field knows and what a decision-maker sees. Everything it produces is decision support for a person, never an automated verdict.",
     summary:
@@ -447,7 +448,7 @@ export const projects: Project[] = [
     title: "CORE — Anomaly Detection for Petroleum Process Facilities",
     tagline:
       "A two-tier screener and classifier watching 52 process variables across 20 fault types.",
-    identities: ["data-scientist", "ai-engineer"],
+    identities: ["researcher", "data-scientist", "ai-engineer"],
     objective:
       "Detect process faults early enough to act on, at a false-alarm rate an operator will tolerate. A detector that cries wolf gets switched off by the people it was built for, so the binding constraint is false alarms rather than accuracy.",
     summary:
@@ -558,7 +559,7 @@ export const projects: Project[] = [
     title: "Causes and Situational Prevention of Examination Malpractice",
     tagline:
       "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
-    identities: ["educator", "data-scientist"],
+    identities: ["researcher", "educator", "data-scientist"],
     objective:
       "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it — grounded in primary data from the people involved rather than in assertion.",
     summary:
@@ -608,7 +609,6 @@ export const projects: Project[] = [
     caveat:
       "Undergraduate research. The findings describe the sampled population and should not be generalised beyond it without replication.",
   },
-
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);

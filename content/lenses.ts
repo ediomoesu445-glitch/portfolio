@@ -13,6 +13,71 @@ import type { Lens } from "./types";
  */
 export const lenses: Lens[] = [
   {
+    id: "researcher",
+    headline:
+      "I find the thing that makes a result smaller, and then I publish the smaller result.",
+    blurb:
+      "Applied research across mathematics and statistical modelling, machine learning, computer vision and education — built on a mathematics degree and a survey-based thesis. Every project here produced a finding about method: an artefact that inflated a score, a threshold that meant nothing off its own split, a benchmark that did not predict the field. Four of the five made the headline number worse.",
+    skills: [
+      "Research design",
+      "Statistical modelling",
+      "Probability & hypothesis testing",
+      "Regression & time-series analysis",
+      "Survey design",
+      "Inferential statistics",
+      "Optimization & numerical analysis",
+      "Baseline and skill scoring",
+      "Threshold calibration",
+      "Leakage and artefact diagnostics",
+      "Robustness evaluation",
+      "Reproducible pipelines",
+    ],
+    projects: [
+      "ghost-transaction-detection",
+      "anomaly-detection-predictive-maintenance",
+      "pipeline-defect-detection",
+      "energy-asset-digital-twin",
+      "examination-malpractice-study",
+    ],
+    credentials: [
+      {
+        title: "Five methodological findings",
+        org: "Across every project on this site",
+        detail:
+          "An artefact worth 0.14 PR-AUC, a 110-fold calibration spread, a 31.80 pp lab-to-field gap, a forecast that lost to persistence, and an undergraduate study on examination malpractice.",
+        href: "/research",
+      },
+      {
+        title: "B.Sc. (Ed.) Mathematics & Education",
+        org: "University of Uyo · 2020–2025 · Second Class Upper",
+        detail:
+          "Thesis: causes and situational prevention of examination malpractice in school mathematics across Nsit Ibom LGA — instrument design, primary data collection and inferential testing.",
+        href: "/about",
+      },
+      {
+        title: "Mathematical foundations",
+        org: "Pure, applied and computational mathematics",
+        detail:
+          "Algebra, analysis, number theory, topology and logic, alongside numerical analysis, optimization, operations research, differential equations and cryptography.",
+        href: "/about",
+      },
+      {
+        title: "B.Sc. Computer Science (in progress)",
+        org: "University of the People · since Aug 2025",
+        detail:
+          "Algorithms and complexity, discrete mathematics and software engineering principles, studied alongside full-time work.",
+        href: "/about",
+      },
+      {
+        title: "Open to research roles",
+        org: "Scholarships · fellowships · applied research",
+        detail:
+          "In energy data analytics, energy-sector digitalisation and applied research, in Nigeria or internationally.",
+        href: "/contact",
+      },
+    ],
+  },
+  {
     id: "data-scientist",
     headline:
       "I turn regulatory and operational data into decisions a team can defend.",

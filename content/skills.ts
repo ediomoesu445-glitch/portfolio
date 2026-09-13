@@ -34,7 +34,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Statistical modelling",
-    identities: ["data-scientist", "educator"],
+    identities: ["researcher", "data-scientist", "educator"],
     items: [
       "Predictive analytics",
       "Probability",
@@ -46,7 +46,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Mathematical foundations",
-    identities: ["data-scientist", "educator"],
+    identities: ["researcher", "data-scientist", "educator"],
     items: [
       "Linear algebra",
       "Calculus & differential equations",

@@ -8,7 +8,12 @@
 
 /** The five professional identities the site is organised around. */
 export type IdentityId =
-  "data-scientist" | "ai-engineer" | "educator" | "leader" | "project-manager";
+  | "researcher"
+  | "data-scientist"
+  | "ai-engineer"
+  | "educator"
+  | "leader"
+  | "project-manager";
 
 export interface Identity {
   id: IdentityId;
@@ -289,4 +294,27 @@ export interface Lens {
   projects: string[];
   /** CV material to surface — roles, credentials, memberships. */
   credentials: LensItem[];
+}
+
+/**
+ * A methodological finding — something a project established about *method*,
+ * usually at the cost of a more flattering headline number.
+ */
+export interface ResearchFinding {
+  id: string;
+  /** The question the work was actually answering. */
+  question: string;
+  /** What was established, with the figures that establish it. */
+  finding: string;
+  /** Why it matters beyond this one project. */
+  soWhat: string;
+  /** Slug of the project it came from. */
+  project: string;
+  projectLabel: string;
+  headline: {
+    value: string;
+    /** The figure this one replaced, where there was one. */
+    superseded?: string;
+    label: string;
+  };
 }

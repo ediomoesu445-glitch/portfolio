@@ -6,6 +6,22 @@ import type { Identity } from "./types";
  */
 export const identities: Identity[] = [
   {
+    id: "researcher",
+    label: "Researcher",
+    title: "Researcher — Mathematics, Statistical Modelling, AI and Education",
+    summary:
+      "Applied research across mathematics and statistical modelling, machine learning and computer vision, and survey-based education research. Each project here produced a finding about method, not just a model.",
+    highlights: [
+      "Statistical modelling and hypothesis testing on a mathematics foundation",
+      "Diagnostics that catch a dataset artefact before it becomes a claim",
+      "Calibration and baselines treated as the result, not the preamble",
+      "Survey design, primary data collection and inferential testing",
+      "Negative results published rather than buried",
+    ],
+    code: "RS",
+    icon: "Microscope",
+  },
+  {
     id: "data-scientist",
     label: "Data Scientist",
     title: "Data Scientist — Energy & Regulatory Analytics",

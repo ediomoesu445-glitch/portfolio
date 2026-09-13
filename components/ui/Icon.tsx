@@ -8,6 +8,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Microscope,
   Phone,
   Users,
   type LucideProps,
@@ -27,6 +28,7 @@ const icons = {
   Linkedin,
   Mail,
   MapPin,
+  Microscope,
   Phone,
   Users,
 } as const;

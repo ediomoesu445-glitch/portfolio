@@ -5,6 +5,7 @@
     "title": "Anomaly Detection & Predictive Maintenance for Energy Infrastructure",
     "tagline": "Unsupervised detection on a real drilling log — and the calibration step that decided whether any of it meant anything.",
     "identities": [
+      "researcher",
       "data-scientist",
       "ai-engineer"
     ],
@@ -110,6 +111,7 @@
     "title": "AI-Based Pipeline Defect Detection",
     "tagline": "Six-class surface-defect classification with Grad-CAM, measured against simulated field-imaging conditions.",
     "identities": [
+      "researcher",
       "ai-engineer"
     ],
     "objective": "Detect and classify surface defects from inspection imagery, so the volume of footage a visual survey produces stops being the bottleneck. The point is triage: put the frames most likely to matter in front of an inspector first.",
@@ -212,6 +214,7 @@
     "title": "AI-Based Fraud & Ghost-Transaction Detection for Energy-Sector Finance",
     "tagline": "Ranking reconciliation records so limited investigative capacity goes to the ones most worth opening.",
     "identities": [
+      "researcher",
       "data-scientist",
       "ai-engineer"
     ],
@@ -308,6 +311,7 @@
     "title": "Energy Asset Digital Twin & Monitoring Platform",
     "tagline": "Production forecasting, drilling anomaly detection and a replay dashboard over one real field dataset.",
     "identities": [
+      "researcher",
       "data-scientist",
       "ai-engineer",
       "project-manager"
@@ -409,6 +413,7 @@
     "title": "CORE — Anomaly Detection for Petroleum Process Facilities",
     "tagline": "A two-tier screener and classifier watching 52 process variables across 20 fault types.",
     "identities": [
+      "researcher",
       "data-scientist",
       "ai-engineer"
     ],
@@ -512,6 +517,7 @@
     "title": "Causes and Situational Prevention of Examination Malpractice",
     "tagline": "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
     "identities": [
+      "researcher",
       "educator",
       "data-scientist"
     ],
