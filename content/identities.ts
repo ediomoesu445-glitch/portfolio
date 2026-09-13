@@ -1,7 +1,7 @@
 import type { Identity } from "./types";
 
 /**
- * The five identities the whole site is organised around. Order matters: it
+ * The six identities the whole site is organised around. Order matters: it
  * drives nav order, the identity switcher and the default project sort.
  */
 export const identities: Identity[] = [

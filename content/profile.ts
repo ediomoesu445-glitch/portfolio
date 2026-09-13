@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "Ediomo Ubong Esu",
   shortName: "Ediomo Esu",
   headline:
-    "Data Scientist · AI/ML & Backend Engineer · Educator · Emerging Leader · Project Manager",
+    "Researcher · Data Scientist · AI/ML & Backend Engineer · Educator · Emerging Leader · Project Manager",
   bio: [
     "Early-career data scientist with a foundation in mathematics, statistics and computing, applying machine learning, computer vision and statistical modelling to problems in Nigeria's oil and gas sector.",
     "I am currently serving a one-year NYSC placement at Nigeria's midstream and downstream petroleum regulator, rotating through the Finance & Accounts Directorate, and I have taught mathematics, physics and ICT at secondary level.",
