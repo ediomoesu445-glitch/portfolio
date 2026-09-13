@@ -1,53 +1,56 @@
 import type { TeachingContent } from "./types";
 
 /**
- * The educator identity. Subjects are drawn from Ediomo's own description of
- * the work; everything specific to a school, club or cohort is a TODO until
- * supplied, because none of it can be inferred.
+ * The educator identity, from the CV. Subjects, clubs and mentorship are real;
+ * cohort sizes and outcomes are marked TODO because they are the figures a
+ * school will actually ask about and they are not in the CV.
  */
 export const teaching: TeachingContent = {
   intro:
-    "I teach mathematics, ICT and computational thinking, and mentor students one to one alongside classroom work. The aim is not syllabus coverage — it is getting a student from a formula they can reproduce to reasoning they can apply somewhere the formula was never mentioned.",
+    "I taught mathematics and physics at secondary level, ran the ICT lab and the clubs that used it, and mentored students through their assessments. The aim is not syllabus coverage — it is getting a student from a formula they can reproduce to reasoning they can apply somewhere the formula was never mentioned.",
   approach: [
     {
       title: "Computational thinking as a habit",
       detail:
-        "Decomposition, pattern recognition and abstraction taught as transferable reasoning rather than as a unit to be examined and forgotten.",
+        "Coding fundamentals and robotics in the ICT and Science Clubs, taught as transferable reasoning rather than as a unit to be examined and forgotten.",
     },
     {
-      title: "Mathematics you can act on",
+      title: "Quantitative reasoning, not recall",
       detail:
-        "TODO(content): one or two sentences on how you teach mathematics — worked problems, modelling, exam technique, whatever is actually true.",
+        "Lesson materials built to strengthen quantitative reasoning across algebra, calculus, trigonometry and statistics — the parts students most often learn as procedure without meaning.",
     },
     {
-      title: "ICT with real tools",
-      detail: "TODO(content): what students actually build or use in your ICT lessons.",
+      title: "The lab has to work",
+      detail:
+        "Running the ICT lab and its equipment so that both classroom instruction and club activities could actually happen. Teaching technology with broken technology teaches the wrong lesson.",
     },
   ],
   subjects: [
     {
       name: "Mathematics",
-      detail: "TODO(content): levels taught, e.g. SS1-SS3, and exam boards",
+      detail:
+        "Secondary level — algebra, calculus, trigonometry and statistics, at Wells International School.",
     },
     {
-      name: "ICT",
-      detail: "TODO(content): levels taught and syllabus",
+      name: "Physics",
+      detail: "Secondary level, alongside mathematics.",
     },
     {
-      name: "Computational thinking",
-      detail: "TODO(content): setting — classroom, club, or workshop series",
+      name: "ICT & computational thinking",
+      detail:
+        "Coding fundamentals and robotics, delivered through the ICT and Science Clubs.",
     },
   ],
   clubs: [
     {
-      name: "TODO(content): club or society name",
-      role: "TODO(content): your role",
+      name: "ICT & Science Clubs",
+      role: "Head — Wells International School",
       summary:
-        "TODO(content): what the club did, how many students, and what came out of it.",
+        "Introduced students to coding fundamentals and robotics projects to build early computational-thinking skills, and kept the lab and equipment running for them. TODO(metric): how many students took part.",
     },
   ],
   mentorship: [
-    "TODO(content): who you mentor, and in what setting",
-    "TODO(content): an outcome you are willing to stand behind",
+    "Mentored students preparing for internal mathematics and science assessments, through structured practice sessions rather than ad-hoc revision.",
+    "TODO(content): an outcome you would stand behind — a result, a progression, a student who went on to something specific.",
   ],
 };

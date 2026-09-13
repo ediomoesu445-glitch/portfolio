@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { identityById } from "@/content/identities";
-import { leadershipRoles } from "@/content/leadership";
+import { affiliations, leadershipRoles } from "@/content/leadership";
 import { isTodo } from "@/lib/content";
 import { Card } from "@/components/ui/Card";
 import { Overline } from "@/components/ui/Heading";
@@ -72,6 +72,24 @@ export default function LeadershipPage() {
           </RevealItem>
         ))}
       </RevealGroup>
+
+      <div className="border-line mt-20 border-t pt-12">
+        <Overline>Memberships</Overline>
+        <ul className="mt-6 grid gap-6 md:grid-cols-3">
+          {affiliations.map((item) => (
+            <li key={item.name}>
+              <p className="text-subtitle font-display text-ink font-semibold">
+                {item.name}
+              </p>
+              {item.detail && (
+                <p className="text-ink-muted mt-2 text-sm leading-relaxed">
+                  {item.detail}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </Section>
   );
 }

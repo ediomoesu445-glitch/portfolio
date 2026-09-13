@@ -29,7 +29,7 @@ export default function ExperiencePage() {
               period={formatPeriod(role.start, role.end)}
               title={role.role}
               subtitle={`${role.org} · ${role.location}`}
-              current={role.end === null}
+              current={role.current ?? role.end === null}
               meta={
                 <div className="flex gap-1.5">
                   {role.identities.map((id) => (

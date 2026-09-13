@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { IdentitySwitcher } from "@/components/home/IdentitySwitcher";
-import { ProjectCard } from "@/components/projects/ProjectCard";
+import { Suspense } from "react";
+import { LensExperience, LensFallback } from "@/components/home/LensExperience";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Stat } from "@/components/ui/Stat";
-import { featuredProjects, projects } from "@/content/projects";
+import { projects } from "@/content/projects";
 import { profile } from "@/content/profile";
 
 /**
@@ -16,7 +16,7 @@ import { profile } from "@/content/profile";
  *
  * Four figures, each transcribed from a committed result file in the project
  * it comes from, and each carrying the note that makes it checkable. The first
- * one leads with what it replaced, because that is the point.
+ * leads with what it replaced, because that is the point.
  */
 const quickStats = [
   {
@@ -24,12 +24,12 @@ const quickStats = [
     value: "0.8619",
     superseded: "0.9995",
     caveat: "The higher figure measured the simulator, not fraud.",
-    method: "Ghost transaction detection · XGBoost, held-out test split.",
+    method: "Ghost-transaction detection · XGBoost, held-out test split.",
   },
   {
     label: "Alarm precision",
     value: "99.50%",
-    method: "CORE · LightGBM tier, at a 1.32% false-alarm rate.",
+    method: "Anomaly detection · LightGBM tier, at a 1.32% false-alarm rate.",
   },
   {
     label: "Lab-to-field accuracy drop",
@@ -46,8 +46,8 @@ const quickStats = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="border-line border-b py-24 md:py-36">
+      {/* Hero + lens ----------------------------------------------------- */}
+      <section className="border-line border-b py-20 md:py-28">
         <Container>
           <Reveal>
             <Overline>
@@ -58,17 +58,19 @@ export default function HomePage() {
             </Heading>
           </Reveal>
 
-          <Reveal delay={0.06}>
-            <p className="text-ink-muted mt-8 max-w-2xl text-xl leading-relaxed md:text-2xl">
-              I build analytics and machine-learning systems for the energy sector — and
-              publish the number I can defend, not the flattering one.
-            </p>
+          <Reveal delay={0.06} className="mt-8">
+            {/* useSearchParams needs a boundary on a statically rendered page;
+                the fallback renders the first lens so the server HTML is
+                complete and indexable. */}
+            <Suspense fallback={<LensFallback />}>
+              <LensExperience projects={projects} />
+            </Suspense>
           </Reveal>
 
           <Reveal delay={0.12}>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="border-line mt-12 flex flex-wrap items-center gap-3 border-t pt-10">
               <ButtonLink href="/projects" variant="primary">
-                See the work
+                All {projects.length} projects
                 <ArrowRight className="size-4" aria-hidden />
               </ButtonLink>
               <ButtonLink href="/about">About me</ButtonLink>
@@ -89,7 +91,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Quick stats */}
+      {/* Quick stats ----------------------------------------------------- */}
       <section className="border-line border-b">
         <Container>
           <RevealGroup className="bg-line grid gap-px sm:grid-cols-2 lg:grid-cols-4">
@@ -102,46 +104,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Identity switcher */}
-      <Section
-        id="identities"
-        divided={false}
-        eyebrow="Five identities"
-        title="One practitioner, five ways in"
-        description="Data science, engineering, teaching, leadership, delivery. Pick a thread and follow it through the work."
-      >
-        <Reveal>
-          <IdentitySwitcher projects={projects} />
-        </Reveal>
-      </Section>
-
-      {/* Featured projects */}
-      <Section
-        id="work"
-        tone="subtle"
-        eyebrow="Selected work"
-        title="Featured projects"
-        description="Four projects in energy — fraud and anomaly detection, computer vision for inspection, and production forecasting."
-      >
-        <RevealGroup as="ul" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <RevealItem as="li" key={project.slug}>
-              <ProjectCard project={project} />
-            </RevealItem>
-          ))}
-        </RevealGroup>
-
-        <div className="mt-10">
-          <ButtonLink href="/projects">
-            All {projects.length} projects
-            <ArrowRight className="size-4" aria-hidden />
-          </ButtonLink>
-        </div>
-      </Section>
-
-      {/* Contact */}
+      {/* Contact --------------------------------------------------------- */}
       <Section
         id="contact"
+        divided={false}
         eyebrow="Next"
         title="Open to remote roles and relocation"
         description="If any of this is the kind of work your team needs doing, I would like to hear about it."

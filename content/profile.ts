@@ -6,15 +6,14 @@ export const profile: Profile = {
   headline:
     "Data Scientist · AI/ML & Backend Engineer · Educator · Emerging Leader · Project Manager",
   bio: [
-    "I build analytics and machine-learning systems for the energy sector — forecasting, anomaly and fraud detection, and the APIs that put those models in front of the people who act on them.",
-    "I currently serve as a Data Scientist (NYSC placement) in the Finance & Accounts Directorate at Nigeria's midstream and downstream petroleum regulator, and I teach mathematics, ICT and computational thinking alongside that work.",
+    "Early-career data scientist with a foundation in mathematics, statistics and computing, applying machine learning, computer vision and statistical modelling to problems in Nigeria's oil and gas sector.",
+    "I am currently serving a one-year NYSC placement at Nigeria's midstream and downstream petroleum regulator, rotating through the Finance & Accounts Directorate, and I have taught mathematics, physics and ICT at secondary level.",
   ].join(" "),
   location: "Abuja, Nigeria",
   availability: "Open to remote roles and relocation",
   email: "ediomoesu445@gmail.com",
   phone: "+234 812 838 8445",
-  // TODO(content): add /public/ediomo-esu-cv.pdf, then uncomment.
-  // resumeUrl: "/ediomo-esu-cv.pdf",
+  resumeUrl: "/ediomo-esu-cv.pdf",
   links: [
     {
       label: "LinkedIn",

@@ -233,6 +233,52 @@ real content. The route is `noindex` and is not linked from the site.
 
 ---
 
+## The five-identity lens
+
+The home page can be read through any of five professional identities. The
+selected lens rewrites the hero line, the highlighted skills, the surfaced CV
+material and the featured projects, cross-fading between them with
+`AnimatePresence`.
+
+**The selection lives in the URL, not in component state:**
+
+```
+/?lens=data-scientist   /?lens=ai-engineer   /?lens=educator
+/?lens=leader           /?lens=project-manager
+```
+
+So a single link opens the site already framed for whoever it was sent to — a
+school, a fellowship panel, a programme office. Back and forward work, the view
+is shareable, and there is a copy-link button beside the tabs. An unknown or
+missing value falls back to the first lens rather than erroring.
+
+Lens content lives in `content/lenses.ts`. The switcher is a real tablist with
+roving tabindex and arrow-key navigation, wrapped in a `Suspense` boundary so
+the statically rendered page still ships complete, indexable HTML.
+
+---
+
+## Case-study motion assets
+
+Each case study opens with a bespoke animated asset in
+`components/projects/motion/`, resolved from the project's `motionAsset` field:
+
+| Asset                | Project                   | Driven by                                                                                                         |
+| -------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `anomaly-timeseries` | Anomaly detection         | A real TEP Fault 1 sensor trace; the line draws in and the dataset's own labelled fault points light up behind it |
+| `gradcam-slider`     | Pipeline defect detection | The real clean-versus-blurred input pair, as a wipe                                                               |
+| `transaction-graph`  | Ghost transactions        | A schematic of the ghost-destination pattern, labelled as a diagram rather than a result                          |
+| `dashboard-mock`     | Digital twin              | The real per-well skill scores, with tiles taking focus in turn                                                   |
+| `findings-chart`     | Thesis                    | A placeholder until the study's results table is supplied                                                         |
+
+Two rules these follow. Anything driven by real data says where the data came
+from, and anything that is an illustration says so in its caption — an animated
+graph that looks like output while showing none is a lie with good production
+values. All of them honour reduced motion through the global `MotionConfig`,
+and the looping ones stop when scrolled out of view.
+
+---
+
 ## Where the project numbers come from
 
 Every figure in `content/projects.ts` is transcribed from a committed result file
