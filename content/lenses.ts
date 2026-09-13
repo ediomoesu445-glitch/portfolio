@@ -33,6 +33,7 @@ export const lenses: Lens[] = [
     ],
     projects: [
       "anomaly-detection-predictive-maintenance",
+      "core-anomaly-detection",
       "ghost-transaction-detection",
       "energy-asset-digital-twin",
       "pipeline-defect-detection",
@@ -88,6 +89,7 @@ export const lenses: Lens[] = [
     ],
     projects: [
       "pipeline-defect-detection",
+      "core-anomaly-detection",
       "anomaly-detection-predictive-maintenance",
       "energy-asset-digital-twin",
       "ghost-transaction-detection",

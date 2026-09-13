@@ -442,65 +442,8 @@ export const projects: Project[] = [
 
   /* 5 ------------------------------------------------------------------ */
   {
-    slug: "examination-malpractice-study",
-    order: 5,
-    title: "Causes and Situational Prevention of Examination Malpractice",
-    tagline:
-      "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
-    identities: ["educator", "data-scientist"],
-    objective:
-      "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it — grounded in primary data from the people involved rather than in assertion.",
-    summary:
-      "An undergraduate research study combining instrument design, primary data collection and inferential testing to examine the causes of examination malpractice in school mathematics across Nsit Ibom Local Government Area, and the situational measures that might prevent it. Submitted for the B.Sc. (Ed.) Mathematics degree at the University of Uyo.",
-    problem:
-      "Examination malpractice is usually treated as a discipline problem to be punished after the fact. Situational prevention asks a different question: which features of the exam setting itself make malpractice easy, and which of those can be changed? TODO(content): add the framing your literature review actually used.",
-    approach:
-      "A survey study across schools in Nsit Ibom Local Government Area, Akwa Ibom State: an instrument designed for the population, primary data collected directly, and inferential tests applied to the hypotheses. TODO(content): sampling frame, sample size, and how the instrument was validated.",
-    method:
-      "TODO(content): instrument design, administration and response rate, then the specific tests applied (chi-square, t-test, ANOVA, correlation — whichever you actually ran) and the significance level.",
-    outcome:
-      "TODO(content): the findings, and the recommendations drawn from them. This is the section a reader will care about most.",
-    nextSteps: [
-      "TODO(content): what you would change about the study design if you ran it again.",
-      "TODO(content): whether any recommendation was adopted, or could be tested in practice.",
-    ],
-    stack: [
-      "Survey design",
-      "Inferential statistics",
-      "Hypothesis testing",
-      "TODO(content): analysis tool — SPSS, Excel, Python?",
-    ],
-    dataset: {
-      name: "Primary survey data",
-      source: "Schools in Nsit Ibom Local Government Area, Akwa Ibom State",
-      note: "Collected directly for the study. TODO(content): sampling frame and sample size, and whether the responses can be shared in aggregate.",
-    },
-    metrics: [
-      { label: "Respondents", value: "TODO(metric)" },
-      { label: "Instrument reliability", value: "TODO(metric)" },
-      { label: "Significance level", value: "TODO(metric)" },
-      { label: "Hypotheses tested", value: "TODO(metric)" },
-    ],
-    links: [],
-    motionAsset: "findings-chart",
-    media: [
-      {
-        kind: "image",
-        src: "TODO(media): a chart of the key findings, or a scan of a results table from the thesis",
-        alt: "Chart of the study's key findings.",
-      },
-    ],
-    status: "archived",
-    date: "2025-07",
-    started: "2024-09",
-    featured: false,
-    caveat:
-      "Undergraduate research. The findings describe the sampled population and should not be generalised beyond it without replication.",
-  },
-  /* 6 ------------------------------------------------------------------ */
-  {
     slug: "core-anomaly-detection",
-    order: 6,
+    order: 5,
     title: "CORE — Anomaly Detection for Petroleum Process Facilities",
     tagline:
       "A two-tier screener and classifier watching 52 process variables across 20 fault types.",
@@ -508,7 +451,7 @@ export const projects: Project[] = [
     objective:
       "Detect process faults early enough to act on, at a false-alarm rate an operator will tolerate. A detector that cries wolf gets switched off by the people it was built for, so the binding constraint is false alarms rather than accuracy.",
     summary:
-      "Fault detection for petroleum process facilities on the Tennessee Eastman Process benchmark. A PCA-MSPC screener flags any departure from normal operation without needing labels; a LightGBM classifier then confirms whether the departure is a real fault. Built separately from the Volve work, on a different dataset, and kept separate here for that reason.",
+      "Fault detection for petroleum process facilities on the Tennessee Eastman Process benchmark. A PCA-MSPC screener flags any departure from normal operation without needing labels; a LightGBM classifier then confirms whether the departure is a real fault. Built separately from the Volve work and on a different dataset, which is why it stands as its own project rather than folding into the drilling-log one.",
     problem:
       "Process plants generate continuous multivariate sensor data in which faults are rare, varied and easy to miss among normal operating drift. Unlike the drilling log, this benchmark has ground-truth labels — which is exactly what makes it useful for measuring whether a detection method works at all.",
     approach:
@@ -601,12 +544,71 @@ export const projects: Project[] = [
     status: "shipped",
     date: "2026-09",
     started: "2026-06",
-    featured: false,
+    featured: true,
     caveat:
       "Built on a simulation benchmark, not on data from a live facility. TEP is a standard proxy for process-plant behaviour; transfer to a specific plant would require re-fitting to that plant's normal operating envelope, and none of these figures should be read as performance on Nigerian infrastructure.",
     attribution:
       "Tennessee Eastman Process simulation data: Rieth, C.A., Amsel, B.D., Tran, R., & Cook, M.B. (2017), Harvard Dataverse. Not redistributed here.",
   },
+
+  /* 6 ------------------------------------------------------------------ */
+  {
+    slug: "examination-malpractice-study",
+    order: 6,
+    title: "Causes and Situational Prevention of Examination Malpractice",
+    tagline:
+      "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
+    identities: ["educator", "data-scientist"],
+    objective:
+      "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it — grounded in primary data from the people involved rather than in assertion.",
+    summary:
+      "An undergraduate research study combining instrument design, primary data collection and inferential testing to examine the causes of examination malpractice in school mathematics across Nsit Ibom Local Government Area, and the situational measures that might prevent it. Submitted for the B.Sc. (Ed.) Mathematics degree at the University of Uyo.",
+    problem:
+      "Examination malpractice is usually treated as a discipline problem to be punished after the fact. Situational prevention asks a different question: which features of the exam setting itself make malpractice easy, and which of those can be changed? TODO(content): add the framing your literature review actually used.",
+    approach:
+      "A survey study across schools in Nsit Ibom Local Government Area, Akwa Ibom State: an instrument designed for the population, primary data collected directly, and inferential tests applied to the hypotheses. TODO(content): sampling frame, sample size, and how the instrument was validated.",
+    method:
+      "TODO(content): instrument design, administration and response rate, then the specific tests applied (chi-square, t-test, ANOVA, correlation — whichever you actually ran) and the significance level.",
+    outcome:
+      "TODO(content): the findings, and the recommendations drawn from them. This is the section a reader will care about most.",
+    nextSteps: [
+      "TODO(content): what you would change about the study design if you ran it again.",
+      "TODO(content): whether any recommendation was adopted, or could be tested in practice.",
+    ],
+    stack: [
+      "Survey design",
+      "Inferential statistics",
+      "Hypothesis testing",
+      "TODO(content): analysis tool — SPSS, Excel, Python?",
+    ],
+    dataset: {
+      name: "Primary survey data",
+      source: "Schools in Nsit Ibom Local Government Area, Akwa Ibom State",
+      note: "Collected directly for the study. TODO(content): sampling frame and sample size, and whether the responses can be shared in aggregate.",
+    },
+    metrics: [
+      { label: "Respondents", value: "TODO(metric)" },
+      { label: "Instrument reliability", value: "TODO(metric)" },
+      { label: "Significance level", value: "TODO(metric)" },
+      { label: "Hypotheses tested", value: "TODO(metric)" },
+    ],
+    links: [],
+    motionAsset: "findings-chart",
+    media: [
+      {
+        kind: "image",
+        src: "TODO(media): a chart of the key findings, or a scan of a results table from the thesis",
+        alt: "Chart of the study's key findings.",
+      },
+    ],
+    status: "archived",
+    date: "2025-07",
+    started: "2024-09",
+    featured: false,
+    caveat:
+      "Undergraduate research. The findings describe the sampled population and should not be generalised beyond it without replication.",
+  },
+
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
