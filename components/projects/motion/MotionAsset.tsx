@@ -1,70 +1,81 @@
 import type { MotionAssetId } from "@/content/types";
 import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 import { Overline } from "@/components/ui/Heading";
-import { TodoChip } from "@/components/ui/TodoChip";
+import { AblationChart } from "./AblationChart";
 import { AnomalyEventTimeline } from "./AnomalyEventTimeline";
 import { AnomalyTimeSeries } from "./AnomalyTimeSeries";
 import { DashboardMock } from "./DashboardMock";
+import { FindingsChart } from "./FindingsChart";
 import { TransactionGraph } from "./TransactionGraph";
 
+const PIPELINE = "/media/pipeline-defect-detection";
+
 /**
- * The comparison the corruption study is actually about: the same input clean
- * and under severe motion blur.
+ * Two wipes for the defect classifier.
  *
- * The brief asks for a raw-versus-Grad-CAM wipe. The repository has Grad-CAM
- * overlays only inside composite figures, not as a standalone pair, so this
- * shows the pair that does exist and flags the export that would be needed.
+ * The first is the one that matters for explainability: the raw input against
+ * the Grad-CAM overlay, so a reader can see whether the model attended to the
+ * defect or to the background. The second is the robustness story — the same
+ * input clean and under severe motion blur.
+ *
+ * Both are real crops from the project's own committed figures.
  */
-function CorruptionSlider() {
+function GradCamSliders() {
   return (
-    <figure className="border-line bg-surface border">
-      <div className="border-line border-b px-5 py-3">
-        <Overline>Clean input · severe motion blur</Overline>
-      </div>
+    <div className="grid gap-6 lg:grid-cols-2">
+      <figure className="border-line bg-surface border">
+        <div className="border-line border-b px-5 py-3">
+          <Overline>Raw input · Grad-CAM overlay</Overline>
+        </div>
+        <div className="p-5">
+          <BeforeAfterSlider
+            aspect="1 / 1"
+            label="Reveal the Grad-CAM overlay"
+            before={{
+              src: `${PIPELINE}/gradcam-raw.png`,
+              alt: "A crazing defect on a steel surface, as the model receives it.",
+              label: "raw",
+            }}
+            after={{
+              src: `${PIPELINE}/gradcam-overlay.png`,
+              alt: "The same image with a Grad-CAM heatmap showing where the model attended.",
+              label: "Grad-CAM",
+            }}
+          />
+        </div>
+        <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
+          Drag the handle, or focus it and use the arrow keys. Classified as crazing at
+          0.95 confidence, with the heat over the defect rather than the background —
+          which is what the saliency check is for.
+        </figcaption>
+      </figure>
 
-      <div className="p-5">
-        <BeforeAfterSlider
-          aspect="1 / 1"
-          label="Reveal the motion-blurred input"
-          className="mx-auto max-w-md"
-          before={{
-            src: "/images/projects/pipeline-defect-detection/input-crazing-clean.jpg",
-            alt: "A crazing defect on a clean, sharply imaged steel surface.",
-            label: "clean",
-          }}
-          after={{
-            src: "/images/projects/pipeline-defect-detection/input-crazing-motion-blur-severe.png",
-            alt: "The same crazing defect under severe simulated motion blur.",
-            label: "motion blur, severe",
-          }}
-        />
-      </div>
-
-      <figcaption className="border-line space-y-3 border-t px-5 py-4">
-        <p className="text-ink-subtle text-[13px] leading-relaxed">
-          Drag the handle, or focus it and use the arrow keys. Accuracy across all
-          corrupted conditions falls to 67.83% from 99.63% clean.
-        </p>
-        <TodoChip value="TODO(media): export a raw ↔ Grad-CAM overlay pair from viz_gradcam.py for a second wipe" />
-      </figcaption>
-    </figure>
-  );
-}
-
-/** A placeholder until the thesis figures are supplied. */
-function FindingsChart() {
-  return (
-    <figure className="border-alarm/40 bg-alarm-soft/30 border border-dashed p-10 text-center">
-      <p aria-hidden className="text-alarm font-mono text-2xl">
-        ◌
-      </p>
-      <p className="text-ink-muted mt-4 text-sm">
-        An animated reveal of the study&rsquo;s key findings goes here.
-      </p>
-      <div className="mt-4 flex justify-center">
-        <TodoChip value="TODO(metric): supply the results table — per-hypothesis test statistics and the response counts to chart" />
-      </div>
-    </figure>
+      <figure className="border-line bg-surface border">
+        <div className="border-line border-b px-5 py-3">
+          <Overline>Clean input · severe motion blur</Overline>
+        </div>
+        <div className="p-5">
+          <BeforeAfterSlider
+            aspect="1 / 1"
+            label="Reveal the motion-blurred input"
+            before={{
+              src: `${PIPELINE}/input-crazing-clean.jpg`,
+              alt: "A crazing defect on a clean, sharply imaged steel surface.",
+              label: "clean",
+            }}
+            after={{
+              src: `${PIPELINE}/input-crazing-motion-blur-severe.png`,
+              alt: "The same crazing defect under severe simulated motion blur.",
+              label: "motion blur, severe",
+            }}
+          />
+        </div>
+        <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
+          The same input under one of the 21 simulated field conditions. Accuracy across
+          all of them falls to 67.83% from 99.63% clean.
+        </figcaption>
+      </figure>
+    </div>
   );
 }
 
@@ -76,9 +87,14 @@ export function MotionAsset({ id }: { id: MotionAssetId }) {
     case "anomaly-timeseries":
       return <AnomalyTimeSeries />;
     case "gradcam-slider":
-      return <CorruptionSlider />;
+      return <GradCamSliders />;
     case "transaction-graph":
-      return <TransactionGraph />;
+      return (
+        <div className="grid gap-6">
+          <AblationChart />
+          <TransactionGraph />
+        </div>
+      );
     case "dashboard-mock":
       return <DashboardMock />;
     case "findings-chart":

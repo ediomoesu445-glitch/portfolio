@@ -1,0 +1,114 @@
+{
+  "/media/anomaly-detection-predictive-maintenance/detector-score-distributions.png": {
+    "height": 393,
+    "width": 1693
+  },
+  "/media/anomaly-detection-predictive-maintenance/drilling-channels-flagged.png": {
+    "height": 1287,
+    "width": 1640
+  },
+  "/media/anomaly-detection-predictive-maintenance/reconstruction-error-distribution.png": {
+    "height": 494,
+    "width": 1528
+  },
+  "/media/anomaly-detection-predictive-maintenance/stuck-pipe-signature.png": {
+    "height": 867,
+    "width": 1641
+  },
+  "/media/anomaly-detection-predictive-maintenance/top-anomaly-event.png": {
+    "height": 1212,
+    "width": 1421
+  },
+  "/media/core-anomaly-detection/dashboard-overview.png": {
+    "height": 2000,
+    "width": 3200
+  },
+  "/media/core-anomaly-detection/live-simulation-alarm.png": {
+    "height": 2000,
+    "width": 3200
+  },
+  "/media/core-anomaly-detection/model-performance.png": {
+    "height": 2000,
+    "width": 3200
+  },
+  "/media/core-anomaly-detection/mspc-control-charts.png": {
+    "height": 1182,
+    "width": 2084
+  },
+  "/media/core-anomaly-detection/mspc-heatmap-all.png": {
+    "height": 734,
+    "width": 1931
+  },
+  "/media/energy-asset-digital-twin/anomaly-event.png": {
+    "height": 1212,
+    "width": 1421
+  },
+  "/media/energy-asset-digital-twin/dashboard-drilling-anomaly.png": {
+    "height": 1400,
+    "width": 1500
+  },
+  "/media/energy-asset-digital-twin/dashboard-field-overview.png": {
+    "height": 1400,
+    "width": 1500
+  },
+  "/media/energy-asset-digital-twin/forecast-f12.png": {
+    "height": 1088,
+    "width": 1529
+  },
+  "/media/ghost-transaction-detection/feature-importance.png": {
+    "height": 665,
+    "width": 1344
+  },
+  "/media/ghost-transaction-detection/ghost-destination-lift.png": {
+    "height": 635,
+    "width": 1732
+  },
+  "/media/ghost-transaction-detection/pr-curves-ablated.png": {
+    "height": 737,
+    "width": 1928
+  },
+  "/media/ghost-transaction-detection/pr-curves-test.png": {
+    "height": 737,
+    "width": 1928
+  },
+  "/media/ghost-transaction-detection/shap-beeswarm.png": {
+    "height": 800,
+    "width": 1266
+  },
+  "/media/pipeline-defect-detection/confusion-matrix.png": {
+    "height": 975,
+    "width": 1200
+  },
+  "/media/pipeline-defect-detection/gradcam-by-class.png": {
+    "height": 1600,
+    "width": 1067
+  },
+  "/media/pipeline-defect-detection/gradcam-failures.png": {
+    "height": 600,
+    "width": 1200
+  },
+  "/media/pipeline-defect-detection/gradcam-overlay.png": {
+    "height": 234,
+    "width": 234
+  },
+  "/media/pipeline-defect-detection/gradcam-raw.png": {
+    "height": 234,
+    "width": 235
+  },
+  "/media/pipeline-defect-detection/input-crazing-clean.jpg": {
+    "height": 200,
+    "width": 200
+  },
+  "/media/pipeline-defect-detection/input-crazing-motion-blur-severe.png": {
+    "height": 200,
+    "width": 200
+  },
+  "/media/pipeline-defect-detection/robustness-examples.png": {
+    "height": 800,
+    "width": 1600
+  },
+  "/media/pipeline-defect-detection/robustness-heatmap.png": {
+    "height": 900,
+    "width": 1050
+  }
+}

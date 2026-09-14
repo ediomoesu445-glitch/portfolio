@@ -4,7 +4,10 @@ import { about } from "@/content/about";
 import { education, certifications } from "@/content/education";
 import { profile } from "@/content/profile";
 import { formatPeriod, isTodo } from "@/lib/content";
+import { languages } from "@/content/skills";
 import { ButtonLink } from "@/components/ui/Button";
+import { Headshot } from "@/components/ui/Headshot";
+import { SkillBar } from "@/components/ui/SkillBar";
 import { Overline } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -21,6 +24,9 @@ export default function AboutPage() {
   return (
     <>
       <Section divided={false} eyebrow="About" title={about.lede}>
+        <div className="mb-12">
+          <Headshot size="lg" />
+        </div>
         <div className="grid gap-12 lg:grid-cols-[1fr_18rem] lg:gap-16">
           <Reveal className="max-w-prose space-y-6">
             {about.paragraphs.map((paragraph) =>
@@ -66,6 +72,22 @@ export default function AboutPage() {
                 </div>
               ))}
             </dl>
+
+            <div className="mt-10">
+              <Overline>Languages</Overline>
+              <div className="mt-4 space-y-4">
+                {languages.map((language, index) => (
+                  <SkillBar
+                    key={language.name}
+                    label={language.name}
+                    level={language.level}
+                    fraction={language.fraction}
+                    note={language.note}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
           </Reveal>
         </div>
       </Section>

@@ -1,5 +1,6 @@
 import { isTodo } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { CountUp } from "./CountUp";
 import { Overline } from "./Heading";
 import { TodoChip } from "./TodoChip";
 
@@ -55,14 +56,13 @@ export function Stat({
               {superseded}
             </span>
           )}
-          <span
+          <CountUp
+            value={value}
             className={cn(
               "font-display text-ink font-bold tracking-tight",
               valueSizes[size],
             )}
-          >
-            {value}
-          </span>
+          />
         </div>
       )}
 

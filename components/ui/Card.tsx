@@ -32,7 +32,8 @@ export function Card({
     "block rounded-card border border-line",
     tones[tone],
     padded && "p-6",
-    href && "interactive hover:bg-surface-raised",
+    href &&
+      "interactive hover:bg-surface-raised hover:-translate-y-0.5 hover:shadow-elev-md",
     className,
   );
 

@@ -51,6 +51,41 @@ def test_contact_accepts_valid_payload() -> None:
     assert response.json()["ok"] is True
 
 
-def test_ml_demo_is_not_implemented_yet() -> None:
-    response = client.post("/api/ml/predict", json={"features": {}})
-    assert response.status_code == 501
+def test_ml_demo_scores_a_ghost_destination() -> None:
+    """A destination that receives value and reports nothing should score high."""
+    response = client.post(
+        "/api/ml/predict",
+        json={
+            "amount": 181.0,
+            "oldBalanceOrig": 181.0,
+            "newBalanceOrig": 0.0,
+            "oldBalanceDest": 0.0,
+            "newBalanceDest": 0.0,
+            "type": "TRANSFER",
+        },
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["band"] == "high"
+    triggered = {s["name"] for s in body["signals"] if s["triggered"]}
+    assert "ghost_destination" in triggered
+    # The artefact is reported but must never contribute to the score.
+    excluded = {s["name"] for s in body["excluded"]}
+    assert excluded == {"is_full_drain"}
+    assert all(s["weight"] == 0.0 for s in body["excluded"])
+
+
+def test_ml_demo_scores_a_clean_transaction_low() -> None:
+    response = client.post(
+        "/api/ml/predict",
+        json={
+            "amount": 100.0,
+            "oldBalanceOrig": 500.0,
+            "newBalanceOrig": 400.0,
+            "oldBalanceDest": 200.0,
+            "newBalanceDest": 300.0,
+            "type": "PAYMENT",
+        },
+    )
+    assert response.status_code == 200
+    assert response.json()["band"] == "low"

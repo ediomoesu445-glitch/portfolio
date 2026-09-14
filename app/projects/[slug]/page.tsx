@@ -6,6 +6,7 @@ import { identityById } from "@/content/identities";
 import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { formatPeriod, isTodo } from "@/lib/content";
+import { MlDemo } from "@/components/projects/MlDemo";
 import { MotionAsset } from "@/components/projects/motion/MotionAsset";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
@@ -274,6 +275,19 @@ export default async function ProjectPage({
           </div>
         )}
       </Section>
+
+      {/* Live demo ------------------------------------------------------- */}
+      {project.slug === "ghost-transaction-detection" && (
+        <Section
+          eyebrow="Try it"
+          title="Score a transaction"
+          description="The explainable rule tier, running live. Not the trained model - this uses no labels, which is exactly why it is the part that transfers to a target that has none."
+        >
+          <Reveal>
+            <MlDemo />
+          </Reveal>
+        </Section>
+      )}
 
       {/* Media gallery --------------------------------------------------- */}
       {(gallery.length > 0 || pending.length > 0) && (

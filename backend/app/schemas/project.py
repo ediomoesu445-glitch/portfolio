@@ -9,6 +9,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 IdentityId = Literal[
+    "researcher",
     "data-scientist",
     "ai-engineer",
     "educator",
@@ -43,6 +44,8 @@ class ProjectMedia(BaseModel):
     src_webm: str | None = Field(default=None, alias="srcWebm")
     poster: str | None = None
     alt: str
+    #: For media not yet captured: the exact shot required.
+    shot: str | None = None
     width: int | None = None
     height: int | None = None
 

@@ -72,6 +72,12 @@ export interface ProjectMedia {
   srcWebm?: string;
   poster?: string;
   alt: string;
+  /**
+   * For media not yet captured: the exact shot required, including the target
+   * filename. Surfaced on the placeholder card and in the capture checklist,
+   * so a slot says what would fill it rather than just that it is empty.
+   */
+  shot?: string;
   width?: number;
   height?: number;
 }
@@ -205,6 +211,8 @@ export interface Profile {
   links: SocialLink[];
   /** Path to the CV under /public, when one is published. */
   resumeUrl?: string;
+  /** Professional headshot for the hero and about page. */
+  headshot?: { src: string; alt: string; shot?: string };
 }
 
 export interface Testimonial {

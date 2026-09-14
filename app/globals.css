@@ -146,6 +146,8 @@
 
   /* Duration is overridden per instance by Marquee. */
   --animate-marquee: marquee-scroll 42s linear infinite;
+  --animate-drift-slow: drift 48s linear infinite;
+  --animate-drift-slower: drift 77s linear infinite;
 }
 
 /* Anomaly points on the case-study chart: appear as the line reaches them. */
@@ -167,6 +169,16 @@
   }
   50% {
     opacity: 1;
+  }
+}
+
+/* Ambient hero traces. Two rates so they never visibly repeat together. */
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1200px);
   }
 }
 

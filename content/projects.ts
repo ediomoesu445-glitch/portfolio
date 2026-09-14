@@ -12,7 +12,7 @@ import type { Project } from "./types";
  * repository wins and the difference is flagged with a TODO, because the
  * repository is the part a reader can check.
  */
-const ASSETS = "/images/projects";
+const ASSETS = "/media";
 
 export const projects: Project[] = [
   /* 1 ------------------------------------------------------------------ */
@@ -117,8 +117,11 @@ export const projects: Project[] = [
       },
       {
         kind: "video",
-        src: "TODO(media): capture a ~30s recording of the dashboard jumping to a flagged drilling event",
-        alt: "Screen recording of the replay simulator seeking to a flagged drilling event.",
+        src: "TODO(media): /media/anomaly-detection-predictive-maintenance/demo.mp4",
+        srcWebm: "/media/anomaly-detection-predictive-maintenance/demo.webm",
+        poster: "/media/anomaly-detection-predictive-maintenance/demo-poster.jpg",
+        alt: "Screen recording of the drilling anomaly panel seeking to a flagged event.",
+        shot: "8-15s screen recording. Run the digital-twin dashboard, open the Drilling anomaly panel, and use the jump-to-event selector to seek to event 7 (2009-07-07 21:37, the 2.17-minute one). Capture the anomaly banner appearing and the channel traces redrawing around it. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/anomaly-detection-predictive-maintenance/.",
       },
     ],
     status: "shipped",
@@ -222,8 +225,11 @@ export const projects: Project[] = [
       },
       {
         kind: "video",
-        src: "TODO(media): capture a ~20s inference demo reel from the Gradio app — docs/SCREENSHOTS.md has the shot list",
-        alt: "Screen recording of the demo classifying an image and showing its Grad-CAM overlay.",
+        src: "TODO(media): /media/pipeline-defect-detection/demo.mp4",
+        srcWebm: "/media/pipeline-defect-detection/demo.webm",
+        poster: "/media/pipeline-defect-detection/demo-poster.jpg",
+        alt: "Screen recording of the demo classifying an image and rendering its Grad-CAM overlay.",
+        shot: "8-15s screen recording. Launch the Gradio app, drag in one of the six example images, and capture the moment the prediction and confidence appear alongside the Grad-CAM overlay. A crazing or scratches sample reads best. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/pipeline-defect-detection/.",
       },
     ],
     status: "in-progress",
@@ -318,8 +324,11 @@ export const projects: Project[] = [
       },
       {
         kind: "video",
-        src: "TODO(media): capture a ~20s recording of the Streamlit review queue (app.py)",
-        alt: "Screen recording of the analyst review queue, ranking transactions by fraud score.",
+        src: "TODO(media): /media/ghost-transaction-detection/demo.mp4",
+        srcWebm: "/media/ghost-transaction-detection/demo.webm",
+        poster: "/media/ghost-transaction-detection/demo-poster.jpg",
+        alt: "Screen recording of the analyst review queue, ranked by fraud score.",
+        shot: "8-15s screen recording. Run the Streamlit review queue, show the alert list sorted by score, then open the top record so the SHAP reason panel renders. The reasons panel is the point - make sure it is on screen. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/ghost-transaction-detection/.",
       },
     ],
     status: "research",
@@ -427,8 +436,11 @@ export const projects: Project[] = [
       },
       {
         kind: "video",
-        src: "TODO(media): capture a ~30s recording of the replay simulator jumping to an anomaly event",
-        alt: "Screen recording of the replay simulator seeking to a flagged drilling event.",
+        src: "TODO(media): /media/energy-asset-digital-twin/demo.mp4",
+        srcWebm: "/media/energy-asset-digital-twin/demo.webm",
+        poster: "/media/energy-asset-digital-twin/demo-poster.jpg",
+        alt: "Screen recording of the replay simulator streaming historical data through the dashboard.",
+        shot: "8-15s screen recording. Start the replay simulator on the field overview and let it run so the clock advances, the per-well tiles update and the health index moves. Steady state sells this one - no clicking. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/energy-asset-digital-twin/.",
       },
     ],
     status: "shipped",
@@ -538,8 +550,11 @@ export const projects: Project[] = [
       },
       {
         kind: "video",
-        src: "TODO(media): capture a ~30s recording of the live simulation replaying a fault until the alarm fires",
-        alt: "Screen recording of a fault scenario replaying until the detector raises an alarm.",
+        src: "TODO(media): /media/core-anomaly-detection/demo.mp4",
+        srcWebm: "/media/core-anomaly-detection/demo.webm",
+        poster: "/media/core-anomaly-detection/demo-poster.jpg",
+        alt: "Screen recording of a fault replaying until the detector raises an alarm.",
+        shot: "8-15s screen recording. Open the CORE live simulation, pick fault 1 or 4 (both detect reliably), and capture from normal operation through to the alarm indicator firing. Start a couple of seconds before onset so the change is visible. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/core-anomaly-detection/.",
       },
     ],
     status: "shipped",
@@ -598,8 +613,9 @@ export const projects: Project[] = [
     media: [
       {
         kind: "image",
-        src: "TODO(media): a chart of the key findings, or a scan of a results table from the thesis",
-        alt: "Chart of the study's key findings.",
+        src: "TODO(media): /media/examination-malpractice-study/findings-table.png",
+        alt: "The study results table, showing each hypothesis and its test statistic.",
+        shot: "A clean capture of the results table from the thesis - a screenshot of the typeset table, or a flat evenly lit scan. Crop to the table itself. Save as findings-table.png in /public/media/examination-malpractice-study/. Supplying the underlying numbers too would let the findings chart become real rather than a placeholder.",
       },
     ],
     status: "archived",

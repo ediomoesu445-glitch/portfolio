@@ -209,12 +209,12 @@ export default function DesignSystemPage() {
             aspect="1 / 1"
             label="Reveal the motion-blurred input"
             before={{
-              src: "/images/projects/pipeline-defect-detection/input-crazing-clean.jpg",
+              src: "/media/pipeline-defect-detection/input-crazing-clean.jpg",
               alt: "A crazing defect on a clean, sharply imaged steel surface.",
               label: "clean",
             }}
             after={{
-              src: "/images/projects/pipeline-defect-detection/input-crazing-motion-blur-severe.png",
+              src: "/media/pipeline-defect-detection/input-crazing-motion-blur-severe.png",
               alt: "The same crazing defect under severe simulated motion blur.",
               label: "motion blur, severe",
             }}

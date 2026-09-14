@@ -69,33 +69,36 @@
     "media": [
       {
         "kind": "image",
-        "src": "/images/projects/anomaly-detection-predictive-maintenance/drilling-channels-flagged.png",
+        "src": "/media/anomaly-detection-predictive-maintenance/drilling-channels-flagged.png",
         "alt": "Drilling channels over time with the surviving flagged events marked."
       },
       {
         "kind": "image",
-        "src": "/images/projects/anomaly-detection-predictive-maintenance/top-anomaly-event.png",
+        "src": "/media/anomaly-detection-predictive-maintenance/top-anomaly-event.png",
         "alt": "The highest-scoring event, shown against hookload, RPM and mud flow — a connection rather than a fault."
       },
       {
         "kind": "image",
-        "src": "/images/projects/anomaly-detection-predictive-maintenance/detector-score-distributions.png",
+        "src": "/media/anomaly-detection-predictive-maintenance/detector-score-distributions.png",
         "alt": "Score distributions for each detector, before and after threshold calibration."
       },
       {
         "kind": "image",
-        "src": "/images/projects/anomaly-detection-predictive-maintenance/reconstruction-error-distribution.png",
+        "src": "/media/anomaly-detection-predictive-maintenance/reconstruction-error-distribution.png",
         "alt": "Autoencoder reconstruction-error distribution on normal drilling."
       },
       {
         "kind": "image",
-        "src": "/images/projects/anomaly-detection-predictive-maintenance/stuck-pipe-signature.png",
+        "src": "/media/anomaly-detection-predictive-maintenance/stuck-pipe-signature.png",
         "alt": "The stuck-pipe heuristic signature across the drilling log."
       },
       {
         "kind": "video",
-        "src": "TODO(media): capture a ~30s recording of the dashboard jumping to a flagged drilling event",
-        "alt": "Screen recording of the replay simulator seeking to a flagged drilling event."
+        "src": "TODO(media): /media/anomaly-detection-predictive-maintenance/demo.mp4",
+        "srcWebm": "/media/anomaly-detection-predictive-maintenance/demo.webm",
+        "poster": "/media/anomaly-detection-predictive-maintenance/demo-poster.jpg",
+        "alt": "Screen recording of the drilling anomaly panel seeking to a flagged event.",
+        "shot": "8-15s screen recording. Run the digital-twin dashboard, open the Drilling anomaly panel, and use the jump-to-event selector to seek to event 7 (2009-07-07 21:37, the 2.17-minute one). Capture the anomaly banner appearing and the channel traces redrawing around it. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/anomaly-detection-predictive-maintenance/."
       }
     ],
     "status": "shipped",
@@ -173,33 +176,36 @@
     "media": [
       {
         "kind": "image",
-        "src": "/images/projects/pipeline-defect-detection/gradcam-by-class.png",
+        "src": "/media/pipeline-defect-detection/gradcam-by-class.png",
         "alt": "Grad-CAM saliency overlays for each of the six defect classes, showing where the model attends."
       },
       {
         "kind": "image",
-        "src": "/images/projects/pipeline-defect-detection/gradcam-failures.png",
+        "src": "/media/pipeline-defect-detection/gradcam-failures.png",
         "alt": "Grad-CAM overlays for misclassified images, showing where the model attended when it was wrong."
       },
       {
         "kind": "image",
-        "src": "/images/projects/pipeline-defect-detection/robustness-heatmap.png",
+        "src": "/media/pipeline-defect-detection/robustness-heatmap.png",
         "alt": "Heatmap of classification accuracy across seven corruption types at three severities."
       },
       {
         "kind": "image",
-        "src": "/images/projects/pipeline-defect-detection/confusion-matrix.png",
+        "src": "/media/pipeline-defect-detection/confusion-matrix.png",
         "alt": "Confusion matrix for the six defect classes on the held-out test set."
       },
       {
         "kind": "image",
-        "src": "/images/projects/pipeline-defect-detection/robustness-examples.png",
+        "src": "/media/pipeline-defect-detection/robustness-examples.png",
         "alt": "Example images under each simulated corruption, from mild to severe."
       },
       {
         "kind": "video",
-        "src": "TODO(media): capture a ~20s inference demo reel from the Gradio app — docs/SCREENSHOTS.md has the shot list",
-        "alt": "Screen recording of the demo classifying an image and showing its Grad-CAM overlay."
+        "src": "TODO(media): /media/pipeline-defect-detection/demo.mp4",
+        "srcWebm": "/media/pipeline-defect-detection/demo.webm",
+        "poster": "/media/pipeline-defect-detection/demo-poster.jpg",
+        "alt": "Screen recording of the demo classifying an image and rendering its Grad-CAM overlay.",
+        "shot": "8-15s screen recording. Launch the Gradio app, drag in one of the six example images, and capture the moment the prediction and confidence appear alongside the Grad-CAM overlay. A crazing or scratches sample reads best. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/pipeline-defect-detection/."
       }
     ],
     "status": "in-progress",
@@ -275,28 +281,31 @@
     "media": [
       {
         "kind": "image",
-        "src": "/images/projects/ghost-transaction-detection/pr-curves-ablated.png",
+        "src": "/media/ghost-transaction-detection/pr-curves-ablated.png",
         "alt": "Precision-recall curves for three models after the simulator artefact was removed."
       },
       {
         "kind": "image",
-        "src": "/images/projects/ghost-transaction-detection/ghost-destination-lift.png",
+        "src": "/media/ghost-transaction-detection/ghost-destination-lift.png",
         "alt": "Lift chart for the label-free ghost-destination rule against the base fraud rate."
       },
       {
         "kind": "image",
-        "src": "/images/projects/ghost-transaction-detection/shap-beeswarm.png",
+        "src": "/media/ghost-transaction-detection/shap-beeswarm.png",
         "alt": "SHAP beeswarm plot showing which features drive individual fraud scores."
       },
       {
         "kind": "image",
-        "src": "/images/projects/ghost-transaction-detection/feature-importance.png",
+        "src": "/media/ghost-transaction-detection/feature-importance.png",
         "alt": "XGBoost feature importance ranking for the artefact-free model."
       },
       {
         "kind": "video",
-        "src": "TODO(media): capture a ~20s recording of the Streamlit review queue (app.py)",
-        "alt": "Screen recording of the analyst review queue, ranking transactions by fraud score."
+        "src": "TODO(media): /media/ghost-transaction-detection/demo.mp4",
+        "srcWebm": "/media/ghost-transaction-detection/demo.webm",
+        "poster": "/media/ghost-transaction-detection/demo-poster.jpg",
+        "alt": "Screen recording of the analyst review queue, ranked by fraud score.",
+        "shot": "8-15s screen recording. Run the Streamlit review queue, show the alert list sorted by score, then open the top record so the SHAP reason panel renders. The reasons panel is the point - make sure it is on screen. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/ghost-transaction-detection/."
       }
     ],
     "status": "research",
@@ -376,28 +385,31 @@
     "media": [
       {
         "kind": "image",
-        "src": "/images/projects/energy-asset-digital-twin/dashboard-field-overview.png",
+        "src": "/media/energy-asset-digital-twin/dashboard-field-overview.png",
         "alt": "Field overview panel of the digital-twin dashboard, showing per-well production and condition indicators."
       },
       {
         "kind": "image",
-        "src": "/images/projects/energy-asset-digital-twin/forecast-f12.png",
+        "src": "/media/energy-asset-digital-twin/forecast-f12.png",
         "alt": "Actual versus forecast oil rate for well 15/9-F-12."
       },
       {
         "kind": "image",
-        "src": "/images/projects/energy-asset-digital-twin/dashboard-drilling-anomaly.png",
+        "src": "/media/energy-asset-digital-twin/dashboard-drilling-anomaly.png",
         "alt": "Drilling anomaly panel with flagged channels and an anomaly banner."
       },
       {
         "kind": "image",
-        "src": "/images/projects/energy-asset-digital-twin/anomaly-event.png",
+        "src": "/media/energy-asset-digital-twin/anomaly-event.png",
         "alt": "The highest-scoring drilling anomaly event, shown against the surrounding channel data."
       },
       {
         "kind": "video",
-        "src": "TODO(media): capture a ~30s recording of the replay simulator jumping to an anomaly event",
-        "alt": "Screen recording of the replay simulator seeking to a flagged drilling event."
+        "src": "TODO(media): /media/energy-asset-digital-twin/demo.mp4",
+        "srcWebm": "/media/energy-asset-digital-twin/demo.webm",
+        "poster": "/media/energy-asset-digital-twin/demo-poster.jpg",
+        "alt": "Screen recording of the replay simulator streaming historical data through the dashboard.",
+        "shot": "8-15s screen recording. Start the replay simulator on the field overview and let it run so the clock advances, the per-well tiles update and the health index moves. Steady state sells this one - no clicking. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/energy-asset-digital-twin/."
       }
     ],
     "status": "shipped",
@@ -475,33 +487,36 @@
     "media": [
       {
         "kind": "image",
-        "src": "/images/projects/core-anomaly-detection/mspc-control-charts.png",
+        "src": "/media/core-anomaly-detection/mspc-control-charts.png",
         "alt": "Hotelling T-squared and Q control charts with upper control limits marked."
       },
       {
         "kind": "image",
-        "src": "/images/projects/core-anomaly-detection/mspc-heatmap-all.png",
+        "src": "/media/core-anomaly-detection/mspc-heatmap-all.png",
         "alt": "Heatmap of detection rate for every model across all 20 fault types."
       },
       {
         "kind": "image",
-        "src": "/images/projects/core-anomaly-detection/live-simulation-alarm.png",
+        "src": "/media/core-anomaly-detection/live-simulation-alarm.png",
         "alt": "The live simulation dashboard with an active alarm indicator and animated sensor charts."
       },
       {
         "kind": "image",
-        "src": "/images/projects/core-anomaly-detection/model-performance.png",
+        "src": "/media/core-anomaly-detection/model-performance.png",
         "alt": "Model comparison view contrasting four model families."
       },
       {
         "kind": "image",
-        "src": "/images/projects/core-anomaly-detection/dashboard-overview.png",
+        "src": "/media/core-anomaly-detection/dashboard-overview.png",
         "alt": "Overview panel of the CORE monitoring dashboard."
       },
       {
         "kind": "video",
-        "src": "TODO(media): capture a ~30s recording of the live simulation replaying a fault until the alarm fires",
-        "alt": "Screen recording of a fault scenario replaying until the detector raises an alarm."
+        "src": "TODO(media): /media/core-anomaly-detection/demo.mp4",
+        "srcWebm": "/media/core-anomaly-detection/demo.webm",
+        "poster": "/media/core-anomaly-detection/demo-poster.jpg",
+        "alt": "Screen recording of a fault replaying until the detector raises an alarm.",
+        "shot": "8-15s screen recording. Open the CORE live simulation, pick fault 1 or 4 (both detect reliably), and capture from normal operation through to the alarm indicator firing. Start a couple of seconds before onset so the change is visible. Export MP4 + WebM under 3 MB plus a poster still as demo-poster.jpg, into /public/media/core-anomaly-detection/."
       }
     ],
     "status": "shipped",
@@ -565,8 +580,9 @@
     "media": [
       {
         "kind": "image",
-        "src": "TODO(media): a chart of the key findings, or a scan of a results table from the thesis",
-        "alt": "Chart of the study's key findings."
+        "src": "TODO(media): /media/examination-malpractice-study/findings-table.png",
+        "alt": "The study results table, showing each hypothesis and its test statistic.",
+        "shot": "A clean capture of the results table from the thesis - a screenshot of the typeset table, or a flat evenly lit scan. Crop to the table itself. Save as findings-table.png in /public/media/examination-malpractice-study/. Supplying the underlying numbers too would let the findings chart become real rather than a placeholder."
       }
     ],
     "status": "archived",

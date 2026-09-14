@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { Suspense } from "react";
 import { LensExperience, LensFallback } from "@/components/home/LensExperience";
+import { HeroBackdrop } from "@/components/motion/HeroBackdrop";
 import { ButtonLink } from "@/components/ui/Button";
+import { Headshot } from "@/components/ui/Headshot";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
 import { Icon } from "@/components/ui/Icon";
@@ -47,12 +49,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero + lens ----------------------------------------------------- */}
-      <section className="border-line border-b py-20 md:py-28">
+      <section className="border-line relative isolate border-b py-20 md:py-28">
+        <HeroBackdrop />
         <Container>
           <Reveal>
-            <Overline>
-              {profile.location} · {profile.availability}
-            </Overline>
+            <div className="flex flex-wrap items-center gap-5">
+              <Headshot size="sm" />
+              <Overline>
+                {profile.location} · {profile.availability}
+              </Overline>
+            </div>
             <Heading level={1} size="display" className="mt-6 max-w-[14ch]">
               {profile.name}
             </Heading>

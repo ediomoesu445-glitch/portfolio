@@ -258,6 +258,33 @@ the statically rendered page still ships complete, indexable HTML.
 
 ---
 
+## Media
+
+All imagery lives in `/public/media/<project-slug>/`. Intrinsic dimensions are
+generated into `content/media-manifest.json` and read by `lib/media.ts`, so
+`next/image` always gets a width and height and layout space is reserved before
+a file arrives. Everything below the fold loads lazily.
+
+**Anything not yet captured is a labelled slot, not a gap.** A `TODO(media)`
+source renders as a dashed amber frame carrying the exact shot required, and
+`docs/MEDIA-TO-CAPTURE.md` — generated from the content, so it cannot drift —
+lists every one with its target path.
+
+**Demo reels** use `components/ui/VideoReel.tsx`: MP4 with a WebM source ahead
+of it, muted, looping, `playsInline`, `preload="none"`, a required poster, and
+a visible play/pause control. Never autoplay with sound; never autoplay at all
+under reduced motion, where the poster shows instead and the control still
+reaches the footage. Target under 3 MB per file.
+
+**The live demo** at `/projects/ghost-transaction-detection` posts to the
+FastAPI service when one is configured and to `app/api/ml/predict/route.ts`
+otherwise. Both run the project's explainable rule tier — real logic, no
+trained model, no labels — and the response says so. `is_full_drain` is
+computed and shown but scored at zero, because that feature encoded the
+simulator rather than fraud.
+
+---
+
 ## Case-study motion assets
 
 Each case study opens with a bespoke animated asset in

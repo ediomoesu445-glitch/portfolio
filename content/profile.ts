@@ -14,6 +14,11 @@ export const profile: Profile = {
   email: "ediomoesu445@gmail.com",
   phone: "+234 812 838 8445",
   resumeUrl: "/ediomo-esu-cv.pdf",
+  headshot: {
+    src: "TODO(media): /media/headshot.jpg",
+    alt: "Ediomo Ubong Esu",
+    shot: "A professional headshot: head and shoulders, plain or softly blurred background, even front light, looking at the lens. Shoot so it crops square as well as landscape, at least 1200px on the short edge. Save as headshot.jpg in /public/media/.",
+  },
   links: [
     {
       label: "LinkedIn",

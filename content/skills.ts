@@ -117,8 +117,8 @@ export const skillGroups: SkillGroup[] = [
 
 /** From the CV. Shown on the about page. */
 export const languages = [
-  { name: "English", level: "Full professional / native-level" },
-  { name: "Ibibio", level: "Native" },
-  { name: "French", level: "Basic" },
-  { name: "German", level: "Basic" },
+  { name: "Ibibio", level: "Native", fraction: 1, note: "Mother tongue" },
+  { name: "English", level: "C2", fraction: 1, note: "Proficient user" },
+  { name: "French", level: "A2", fraction: 0.35, note: "Basic user" },
+  { name: "German", level: "A1", fraction: 0.2, note: "Basic user" },
 ];
