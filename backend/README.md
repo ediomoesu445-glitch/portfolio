@@ -25,12 +25,12 @@ pytest
 
 ## Layout
 
-- `app/main.py` — application, CORS, router mounting
-- `app/core/config.py` — settings from environment / `.env`
-- `app/api/routes/` — one module per resource
-- `app/schemas/` — Pydantic contracts, mirroring `/content/types.ts`
-- `app/services/` — data access and side effects, kept out of the routes
-- `data/projects.json` — project catalogue
+- `app/main.py` - application, CORS, router mounting
+- `app/core/config.py` - settings from environment / `.env`
+- `app/api/routes/` - one module per resource
+- `app/schemas/` - Pydantic contracts, mirroring `/content/types.ts`
+- `app/services/` - data access and side effects, kept out of the routes
+- `data/projects.json` - project catalogue
 
 ## Notes
 

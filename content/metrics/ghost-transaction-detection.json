@@ -1,5 +1,5 @@
 {
-  "source": "github.com/ediomoesu445-glitch/ghost-transaction-detection — reports/REPORT.md",
+  "source": "github.com/ediomoesu445-glitch/ghost-transaction-detection - reports/REPORT.md",
   "caveat": "Synthetic-proxy (PaySim) performance. An upper bound on method quality, not a claim about energy-sector data. The deployment target has no labels, so no precision or recall can ever be computed there.",
   "testBaseRate": 0.007707,
   "testRows": 552504,

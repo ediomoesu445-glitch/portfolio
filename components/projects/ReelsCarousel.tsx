@@ -6,7 +6,7 @@ import { SqueezeCarousel, type SqueezeSlide } from "@/components/ui/carousel-squ
  * Every project's demo reel in one carousel.
  *
  * Reels live here rather than on the case studies because there is one per
- * project — a carousel of one is a still image with arrows. Figures stay
+ * project - a carousel of one is a still image with arrows. Figures stay
  * letterboxed in their own grid, where a cropped confusion matrix would lose
  * its axis labels.
  */

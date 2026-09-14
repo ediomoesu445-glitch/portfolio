@@ -13,7 +13,7 @@ import { TodoChip } from "@/components/ui/TodoChip";
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Methodological findings from applied work in data, machine learning, computer vision and education — including the ones that made the headline number smaller.",
+    "Methodological findings from applied work in data, machine learning, computer vision and education - including the ones that made the headline number smaller.",
 };
 
 /** Body copy, or a visible placeholder where it is still a TODO. */
@@ -101,7 +101,7 @@ export default function ResearchPage() {
       <Section
         eyebrow="Next"
         title="Open to research roles, scholarships and fellowships"
-        description="In energy data analytics, energy-sector digitalisation and applied research — in Nigeria or internationally."
+        description="In energy data analytics, energy-sector digitalisation and applied research - in Nigeria or internationally."
         tone="subtle"
       >
         <Link

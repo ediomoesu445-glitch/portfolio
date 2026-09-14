@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /**
  * A short demo reel.
  *
- * Muted, looping, inline and lazy — but never autoplaying with sound, and
+ * Muted, looping, inline and lazy - but never autoplaying with sound, and
  * never autoplaying at all when the visitor has asked for reduced motion. In
  * that case the poster is shown instead, with the control still available so
  * the footage is reachable rather than withheld.

@@ -12,7 +12,7 @@ import { TodoChip } from "@/components/ui/TodoChip";
 export const metadata: Metadata = {
   title: "Leadership",
   description:
-    "Student government, a national students' parliament, conference convening, community M&E and media leadership — each shown with its scope, its stakeholders and what it delivered.",
+    "Student government, a national students' parliament, conference convening, community M&E and media leadership - each shown with its scope, its stakeholders and what it delivered.",
 };
 
 export default function LeadershipPage() {
@@ -21,7 +21,7 @@ export default function LeadershipPage() {
       divided={false}
       eyebrow="Leadership & delivery"
       title="Convening, representing, shipping"
-        headingLevel={1}
+      headingLevel={1}
       description="Each role on three axes: the scope it covered, the people who had to be brought along, and what actually came out of it. The middle one is the axis most CVs leave out, and usually the hardest part."
     >
       <RevealGroup as="ul" className="grid gap-6 lg:grid-cols-2">

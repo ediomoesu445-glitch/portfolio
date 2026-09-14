@@ -41,7 +41,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="text-ink font-mono text-sm font-medium tracking-tight"
-          aria-label={`${profile.shortName} — home`}
+          aria-label={`${profile.shortName} - home`}
         >
           {profile.shortName}
         </Link>
@@ -62,7 +62,7 @@ export function SiteHeader() {
                     )}
                   >
                     {item.label}
-                    {/* The active marker is a rule, not a colour fill — the
+                    {/* The active marker is a rule, not a colour fill - the
                         accents are reserved for figures. */}
                     <span
                       aria-hidden

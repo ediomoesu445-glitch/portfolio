@@ -24,7 +24,7 @@ const identityByLens = Object.fromEntries(
  * The five-identity lens.
  *
  * The selected lens lives in the URL as `?lens=educator`, not in component
- * state, so a link opens the page already framed for whoever it was sent to —
+ * state, so a link opens the page already framed for whoever it was sent to -
  * a school, a fellowship panel, a programme office. That also makes back and
  * forward work, and makes the view shareable without any extra machinery.
  */

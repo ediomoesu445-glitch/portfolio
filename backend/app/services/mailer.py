@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def build_message(payload: ContactRequest, settings: Settings) -> EmailMessage:
     message = EmailMessage()
-    message["Subject"] = f"Portfolio contact — {payload.name}"
+    message["Subject"] = f"Portfolio contact - {payload.name}"
     message["From"] = settings.contact_from_email
     message["To"] = settings.contact_to_email
     message["Reply-To"] = str(payload.email)
@@ -31,7 +31,7 @@ def deliver(payload: ContactRequest, settings: Settings) -> None:
 
     if not settings.smtp_configured:
         logger.info(
-            "SMTP not configured — contact message logged instead of sent:\n%s",
+            "SMTP not configured - contact message logged instead of sent:\n%s",
             message.get_content(),
         )
         return

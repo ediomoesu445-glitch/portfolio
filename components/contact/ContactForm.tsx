@@ -13,7 +13,7 @@ const schema = z.object({
   message: z
     .string()
     .trim()
-    .min(20, "A little more detail, please — at least 20 characters.")
+    .min(20, "A little more detail, please - at least 20 characters.")
     .max(4000, "That is longer than the form accepts."),
 });
 

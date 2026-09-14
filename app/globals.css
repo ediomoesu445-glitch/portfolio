@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 /* Dark is the default. The `light` class is set only when the visitor asks for
-   it, so no explicit class means dark — see components/theme/theme-script.ts. */
+   it, so no explicit class means dark - see components/theme/theme-script.ts. */
 @custom-variant light (&:where(.light, .light *));
 
 /* ---------------------------------------------------------------------------
-   DESIGN TOKENS — "Control Room"
+   DESIGN TOKENS - "Control Room"
 
    The palette follows ISA-101, the HMI standard used in process plants: a
    desaturated grey field where saturated colour is reserved for exceptional
    states. Colour is information here, never decoration.
 
-     alarm  (amber) — a figure that is qualified, or a live alarm state
-     normal (teal)  — a figure that is measured and verified; interactive state
+     alarm  (amber) - a figure that is qualified, or a live alarm state
+     normal (teal)  - a figure that is measured and verified; interactive state
 
    Nothing else in the interface is allowed to be saturated. If a new element
    seems to need a third hue, it almost certainly needs better hierarchy.
@@ -60,13 +60,13 @@
   --primary: var(--normal);
   --primary-foreground: var(--normal-ink);
 
-  /* Elevation — restrained; a control room is flat, not glassy. */
+  /* Elevation - restrained; a control room is flat, not glassy. */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.35);
   --shadow-md: 0 6px 20px -6px rgb(0 0 0 / 0.5);
   --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.65);
 }
 
-/* ISA-101 light mode is grey, not white — a white field in a control room is
+/* ISA-101 light mode is grey, not white - a white field in a control room is
    glare. The light theme keeps the same discipline at higher luminance. */
 .light {
   --bg: #e9ebed;
@@ -145,7 +145,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
-  /* Typography — loaded in app/layout.tsx via next/font */
+  /* Typography - loaded in app/layout.tsx via next/font */
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
@@ -168,7 +168,7 @@
   --text-overline--line-height: 1.2;
   --text-overline--letter-spacing: 0.16em;
 
-  /* Radii — a control panel is squared off. One small radius, used sparingly. */
+  /* Radii - a control panel is squared off. One small radius, used sparingly. */
   --radius-card: 2px;
   --radius-pill: 2px;
 
@@ -181,7 +181,7 @@
   --container-prose: 42rem;
   --container-wide: 88rem;
 
-  /* Motion — three durations, two easings. Everything uses these. */
+  /* Motion - three durations, two easings. Everything uses these. */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);
 

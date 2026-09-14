@@ -61,7 +61,7 @@ const BANDS = {
 /**
  * The live demo: paste a transaction, get a score and the reasons behind it.
  *
- * The call path is real end to end — this posts to the FastAPI service when
+ * The call path is real end to end - this posts to the FastAPI service when
  * one is configured, and to the Next route handler otherwise. What it runs is
  * the project's explainable rule tier, not the trained model, and the response
  * says so rather than leaving it to be assumed.
@@ -220,7 +220,7 @@ export function MlDemo() {
                         {signal.label}
                       </span>
                       <span className="text-ink-subtle font-mono text-[11px]">
-                        {signal.triggered ? `+${signal.weight.toFixed(2)}` : "—"}
+                        {signal.triggered ? `+${signal.weight.toFixed(2)}` : "-"}
                       </span>
                     </div>
                     <p className="text-ink-subtle mt-1 text-[13px] leading-snug">

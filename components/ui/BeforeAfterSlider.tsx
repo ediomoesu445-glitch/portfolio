@@ -5,7 +5,7 @@ import { useId, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Wipe comparison between two images — a clean input and the same input under
+ * Wipe comparison between two images - a clean input and the same input under
  * a simulated field condition, say.
  *
  * The control is a real range input stretched over the frame, so dragging,

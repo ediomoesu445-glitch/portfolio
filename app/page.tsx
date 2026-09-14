@@ -59,7 +59,7 @@ export default function HomePage() {
         badgeLabel="Open"
         badgeText={`${profile.location} · ${profile.availability}`}
         title={profile.name}
-        description="I build analytics and machine-learning systems for the energy sector — and publish the number I can defend, not the flattering one."
+        description="I build analytics and machine-learning systems for the energy sector - and publish the number I can defend, not the flattering one."
         primaryAction={{
           label: `See all ${projects.length} projects`,
           href: "/projects",

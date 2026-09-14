@@ -8,7 +8,7 @@ export const identities: Identity[] = [
   {
     id: "researcher",
     label: "Researcher",
-    title: "Researcher — Mathematics, Statistical Modelling, AI and Education",
+    title: "Researcher - Mathematics, Statistical Modelling, AI and Education",
     summary:
       "Applied research across mathematics and statistical modelling, machine learning and computer vision, and survey-based education research. Each project here produced a finding about method, not just a model.",
     highlights: [
@@ -24,7 +24,7 @@ export const identities: Identity[] = [
   {
     id: "data-scientist",
     label: "Data Scientist",
-    title: "Data Scientist — Energy & Regulatory Analytics",
+    title: "Data Scientist - Energy & Regulatory Analytics",
     summary:
       "Regulatory analytics for oil & gas: forecasting, anomaly detection and fraud signals on midstream and downstream data.",
     highlights: [
@@ -52,7 +52,7 @@ export const identities: Identity[] = [
   {
     id: "educator",
     label: "Educator",
-    title: "Educator — Mathematics, ICT & Computational Thinking",
+    title: "Educator - Mathematics, ICT & Computational Thinking",
     summary:
       "Teaching and mentorship that gets students from formulas to reasoning they can actually apply.",
     highlights: [
@@ -66,7 +66,7 @@ export const identities: Identity[] = [
   {
     id: "leader",
     label: "Leader",
-    title: "Emerging Leader — Student Government, Convening & Community",
+    title: "Emerging Leader - Student Government, Convening & Community",
     summary:
       "Student-government service, conference convening, and community and media leadership.",
     highlights: [
@@ -80,9 +80,9 @@ export const identities: Identity[] = [
   {
     id: "project-manager",
     label: "Project Manager",
-    title: "Project Manager — Programs, Events & Technical Builds",
+    title: "Project Manager - Programs, Events & Technical Builds",
     summary:
-      "End-to-end coordination of programs, events and technical builds — scope, schedule, stakeholders, delivery.",
+      "End-to-end coordination of programs, events and technical builds - scope, schedule, stakeholders, delivery.",
     highlights: [
       "Programs and events run from planning through delivery",
       "Technical builds coordinated across contributors",

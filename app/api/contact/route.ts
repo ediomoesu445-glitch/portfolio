@@ -6,7 +6,7 @@ import { z } from "zod";
  *
  * The site is deployable on its own, so when NEXT_PUBLIC_API_BASE_URL is not
  * set the client posts here instead. The validation, honeypot and rate limit
- * mirror backend/app/api/routes/contact.py — if you change one, change both.
+ * mirror backend/app/api/routes/contact.py - if you change one, change both.
  *
  * Like the Python service, this logs the message rather than sending it unless
  * SMTP is configured, so local development never needs a mailbox and nothing
@@ -22,7 +22,7 @@ const schema = z.object({
 const WINDOW_MS = 60 * 60 * 1000;
 const LIMIT = Number(process.env.CONTACT_RATE_LIMIT_PER_HOUR ?? 5);
 
-/** Per-IP sliding window. In-process, so it resets on redeploy — adequate for
+/** Per-IP sliding window. In-process, so it resets on redeploy - adequate for
  *  a personal site, and the honeypot carries most of the load anyway. */
 const history = new Map<string, number[]>();
 
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
   if (parsed.data.company) {
     return NextResponse.json({
       ok: true,
-      message: "Thanks — your message has been sent.",
+      message: "Thanks - your message has been sent.",
     });
   }
 
@@ -78,11 +78,11 @@ export async function POST(request: Request) {
 
   const { name, email, message } = parsed.data;
   console.info(
-    `[contact] SMTP not configured — message logged instead of sent:\nFrom: ${name} <${email}>\n\n${message}\n`,
+    `[contact] SMTP not configured - message logged instead of sent:\nFrom: ${name} <${email}>\n\n${message}\n`,
   );
 
   return NextResponse.json({
     ok: true,
-    message: "Thanks — your message has been sent.",
+    message: "Thanks - your message has been sent.",
   });
 }

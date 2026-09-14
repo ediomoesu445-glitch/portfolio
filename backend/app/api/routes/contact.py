@@ -9,7 +9,7 @@ from app.services import mailer
 
 router = APIRouter(prefix="/contact", tags=["contact"])
 
-#: Per-IP sliding window. In-process and therefore per-worker — good enough for
+#: Per-IP sliding window. In-process and therefore per-worker - good enough for
 #: a personal site; swap for Redis if this ever runs multi-instance.
 _requests: dict[str, deque[float]] = defaultdict(deque)
 _WINDOW_SECONDS = 3600
@@ -34,7 +34,7 @@ def send_contact(
 ) -> ContactResponse:
     # Honeypot: answer as if accepted so bots get no signal, but drop it.
     if payload.company:
-        return ContactResponse(ok=True, message="Thanks — your message has been sent.")
+        return ContactResponse(ok=True, message="Thanks - your message has been sent.")
 
     client_ip = request.client.host if request.client else "unknown"
     if _rate_limited(client_ip, settings.contact_rate_limit_per_hour):
@@ -45,10 +45,10 @@ def send_contact(
 
     try:
         mailer.deliver(payload, settings)
-    except Exception as error:  # noqa: BLE001 — surface a clean message, log the cause
+    except Exception as error:  # noqa: BLE001 - surface a clean message, log the cause
         raise HTTPException(
             status_code=502,
             detail="Could not deliver the message. Please email me directly.",
         ) from error
 
-    return ContactResponse(ok=True, message="Thanks — your message has been sent.")
+    return ContactResponse(ok=True, message="Thanks - your message has been sent.")

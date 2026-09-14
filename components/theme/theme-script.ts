@@ -3,7 +3,7 @@
  *
  * Dark is the default: the `light` class is added only when the visitor has
  * explicitly chosen light. A visitor whose OS prefers light still gets dark
- * unless they use the toggle — the site is a control room, and that is a
+ * unless they use the toggle - the site is a control room, and that is a
  * deliberate identity choice rather than an oversight.
  */
 export const themeInitScript = `

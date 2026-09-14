@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       divided={false}
       eyebrow={`${projects.length} projects`}
       title="Work"
-        headingLevel={1}
+      headingLevel={1}
       description="Four projects, all in energy. Each one reports the figure it can defend rather than the flattering one, and says plainly what it has not shown."
     >
       <ProjectsExplorer projects={ordered} />
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
         </Reveal>
         <p className="text-ink-subtle mt-6 text-[13px]">
           {capturedReelCount === 0
-            ? `Demo reels for each project. None of the ${reelCount} are recorded yet — each panel carries the shot it is waiting for.`
+            ? `Demo reels for each project. None of the ${reelCount} are recorded yet - each panel carries the shot it is waiting for.`
             : `Demo reels for each project. ${capturedReelCount} of ${reelCount} recorded.`}
         </p>
       </div>

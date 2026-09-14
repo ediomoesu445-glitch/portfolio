@@ -1,7 +1,7 @@
 """The live demo scorer.
 
 This is the ghost-transaction project's *explainable rule tier*, implemented
-in full — not a stub and not a mock. It uses no trained model and no labels,
+in full - not a stub and not a mock. It uses no trained model and no labels,
 which is the point: the deployment target has no labels either, so the rule is
 the part of the method that transfers.
 
@@ -12,7 +12,7 @@ reproduces them.
 The one deliberate omission is `is_full_drain`. It is computed and returned so
 a reader can see it fire, but it is excluded from the score because the
 project's own diagnostic showed it encodes the simulator's generator
-signature rather than fraudulent behaviour — deleting it cost 0.1376 PR-AUC,
+signature rather than fraudulent behaviour - deleting it cost 0.1376 PR-AUC,
 and putting it back here would repeat the mistake the project exists to
 document.
 """

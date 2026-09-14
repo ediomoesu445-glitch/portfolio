@@ -2,7 +2,7 @@
  * Motion conventions.
  *
  * Every animation on the site uses one of these. Three durations, two easings,
- * one entrance distance — the same restraint the palette follows.
+ * one entrance distance - the same restraint the palette follows.
  */
 export const duration = {
   fast: 0.15,

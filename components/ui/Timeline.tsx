@@ -4,7 +4,7 @@ import { isTodo } from "@/lib/content";
 import { TodoChip } from "./TodoChip";
 
 /**
- * A vertical rail of dated entries — roles, study, anything with a period.
+ * A vertical rail of dated entries - roles, study, anything with a period.
  * The rail is a hairline with a tick per entry, borrowed from a strip chart.
  */
 export function Timeline({
@@ -26,7 +26,7 @@ export function TimelineItem({
   headingLevel = 3,
   children,
 }: {
-  /** Already formatted, e.g. "Aug 2026 — Present". TODO sentinels are handled. */
+  /** Already formatted, e.g. "Aug 2026 - Present". TODO sentinels are handled. */
   period: string;
   title: string;
   subtitle?: string;
@@ -36,7 +36,7 @@ export function TimelineItem({
   /**
    * Where the entry sits in the document outline. Defaults to h3, for a
    * timeline under a section heading. On a page where the timeline *is* the
-   * content and the page title is the h1, pass 2 — skipping a level is a real
+   * content and the page title is the h1, pass 2 - skipping a level is a real
    * failure for anyone navigating by headings.
    */
   headingLevel?: 2 | 3;

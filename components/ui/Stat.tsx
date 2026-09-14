@@ -18,7 +18,7 @@ const valueSizes: Record<Size, string> = {
  * A figure is shown with whatever qualifies it, in the same object: the
  * flattering number it replaced struck through, and the caveat in alarm amber
  * beside it. This is the one place colour is spent, because it marks the one
- * thing worth noticing — that the published number is the honest one.
+ * thing worth noticing - that the published number is the honest one.
  */
 export function Stat({
   label,

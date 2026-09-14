@@ -69,7 +69,7 @@ function AnomalyDot({
  * as it scrolls into view with the labelled fault region lighting up behind it.
  *
  * The highlighted points are the dataset's own ground-truth labels, not model
- * output — the caption says so, because a chart that implies a detector found
+ * output - the caption says so, because a chart that implies a detector found
  * these would be claiming a result the chart does not show.
  */
 export function AnomalyTimeSeries() {

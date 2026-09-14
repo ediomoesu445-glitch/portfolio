@@ -4,8 +4,8 @@ import type { Project } from "@/content/types";
 /**
  * Client for the FastAPI service in /backend.
  *
- * The site must render with the backend down — it is a portfolio, not a
- * dashboard — so every call falls back to the typed content files and logs the
+ * The site must render with the backend down - it is a portfolio, not a
+ * dashboard - so every call falls back to the typed content files and logs the
  * failure rather than throwing. Set NEXT_PUBLIC_API_BASE_URL to enable it.
  */
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ?? "";
@@ -40,7 +40,7 @@ export interface ContactPayload {
   name: string;
   email: string;
   message: string;
-  /** Honeypot field — must stay empty for a submission to be accepted. */
+  /** Honeypot field - must stay empty for a submission to be accepted. */
   company?: string;
 }
 

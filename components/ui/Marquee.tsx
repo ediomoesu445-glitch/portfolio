@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * A slow horizontal ticker, used for lists where the sequence does not matter —
+ * A slow horizontal ticker, used for lists where the sequence does not matter -
  * a stack, a set of tools.
  *
  * With reduced motion requested it renders as a plain wrapped list rather than

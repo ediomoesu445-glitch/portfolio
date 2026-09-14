@@ -1,7 +1,7 @@
 """Schemas for the live demo endpoint.
 
 The demo scores a single transaction with the project's *explainable rule
-tier* — the label-free detector, not the trained XGBoost model. That is a
+tier* - the label-free detector, not the trained XGBoost model. That is a
 deliberate choice: the rule is deterministic, needs no model artefact, and is
 the part of the method that actually transfers to an unlabelled target.
 """

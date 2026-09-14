@@ -27,7 +27,7 @@ const wells = twin.wells.map((well) => ({
  * A loop of the monitoring view: tiles taking focus in turn, the way an
  * operator's eye moves across a wall display.
  *
- * The numbers are the real per-well results from the project's own manifests —
+ * The numbers are the real per-well results from the project's own manifests -
  * skill against a persistence baseline, not R², because on this field a naive
  * baseline already scores R² 0.86 to 0.92.
  */
@@ -37,7 +37,7 @@ export function DashboardMock() {
   const prefersReducedMotion = useReducedMotion();
   const [focus, setFocus] = useState(0);
 
-  // A slow rotation, and only while on screen — an off-screen timer is just
+  // A slow rotation, and only while on screen - an off-screen timer is just
   // wasted work.
   useEffect(() => {
     if (!inView || prefersReducedMotion) return;
@@ -88,7 +88,7 @@ export function DashboardMock() {
                   }}
                 >
                   {well.skill === null
-                    ? "—"
+                    ? "-"
                     : `${well.skill > 0 ? "+" : ""}${well.skill.toFixed(3)}`}
                 </p>
 

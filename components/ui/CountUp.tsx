@@ -3,7 +3,7 @@
 import { animate, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-/** Splits "99.50%" into "", 99.5, "%" — and "+0.717" into "+", 0.717, "". */
+/** Splits "99.50%" into "", 99.5, "%" - and "+0.717" into "+", 0.717, "". */
 function parse(value: string) {
   const match = value.match(/^(\D*?)(-?[\d.,]+)(.*)$/);
   if (!match) return null;
@@ -16,7 +16,7 @@ function parse(value: string) {
 /**
  * Counts a figure up once, when it scrolls into view.
  *
- * Anything that is not a plain number — a range, a TODO sentinel, "2 of 5" —
+ * Anything that is not a plain number - a range, a TODO sentinel, "2 of 5" -
  * is rendered untouched rather than mangled, and the final value is what
  * renders on the server, so the number is correct before hydration and for
  * anyone with reduced motion or no JavaScript.

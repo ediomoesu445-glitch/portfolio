@@ -2,8 +2,8 @@
  * Content model.
  *
  * Every piece of copy on the site is typed here and authored in the sibling
- * data files. Components read from these structures only — no hard-coded copy
- * in JSX — so the site can be edited without touching React.
+ * data files. Components read from these structures only - no hard-coded copy
+ * in JSX - so the site can be edited without touching React.
  */
 
 /** The five professional identities the site is organised around. */
@@ -46,7 +46,7 @@ export interface ProjectMetric {
    * number, so nothing unverified can leak into the published site.
    */
   value: string;
-  /** How the figure was derived — shown on hover/expand for credibility. */
+  /** How the figure was derived - shown on hover/expand for credibility. */
   method?: string;
   /** A prior, misleading figure this one replaced. Rendered struck through. */
   superseded?: string;
@@ -64,7 +64,7 @@ export interface ProjectMedia {
   kind: "image" | "video" | "lottie";
   /**
    * Path under /public, or an absolute URL. May also be a TODO sentinel for
-   * media that is planned but not yet captured — components must check
+   * media that is planned but not yet captured - components must check
    * `isTodo(media.src)` before passing it to next/image.
    */
   src: string;
@@ -117,7 +117,7 @@ export interface Project {
   objective: string;
   problem?: string;
   approach?: string;
-  /** How it was actually done — the method, in method-and-tools terms. */
+  /** How it was actually done - the method, in method-and-tools terms. */
   method?: string;
   outcome?: string;
   /** Honest next steps. Statements of intent, never claimed as done. */
@@ -138,7 +138,7 @@ export interface Project {
   /** Set when the work involves material that cannot be published. */
   confidentialityNote?: string;
   /**
-   * Scope or validity limits a reader should see before the numbers — e.g. a
+   * Scope or validity limits a reader should see before the numbers - e.g. a
    * result measured on a synthetic proxy rather than the real target. Shown
    * next to the metrics, not hidden in small print.
    */
@@ -156,7 +156,7 @@ export interface ExperienceItem {
   /** ISO YYYY-MM, or null while current. */
   end: string | null;
   /**
-   * Marks an ongoing role that nonetheless has a known end date — a fixed-term
+   * Marks an ongoing role that nonetheless has a known end date - a fixed-term
    * placement, say. Without this, only `end: null` reads as current.
    */
   current?: boolean;
@@ -228,7 +228,7 @@ export interface Testimonial {
  *
  * Any string of the form `TODO(...)` is treated as missing data by the UI: it
  * renders as a visible amber placeholder chip instead of being displayed as a
- * value, and `isTodo()` in lib/content.ts detects it. This is deliberate —
+ * value, and `isTodo()` in lib/content.ts detects it. This is deliberate -
  * unverified numbers must never reach the published site looking like results.
  */
 export type Todo = `TODO(${string})`;
@@ -262,11 +262,11 @@ export interface LeadershipRole {
   role: string;
   /** Already-formatted period, or a TODO sentinel. */
   period: string;
-  /** The scale of the role — who was represented, how many attended. */
+  /** The scale of the role - who was represented, how many attended. */
   scope?: string;
   /**
    * Who had to be brought along. A leadership role is assessable on three
-   * axes — scope, stakeholders, outcome — and this is the one most CVs omit.
+   * axes - scope, stakeholders, outcome - and this is the one most CVs omit.
    */
   stakeholders?: string[];
   summary: string;
@@ -281,7 +281,7 @@ export interface Affiliation {
 }
 
 /**
- * A "lens" — the home page seen through one professional identity.
+ * A "lens" - the home page seen through one professional identity.
  *
  * Selecting a lens rewrites the hero copy, the highlighted skills and the
  * featured items. The choice lives in the URL (`?lens=educator`) so a single
@@ -305,12 +305,12 @@ export interface Lens {
   skills: string[];
   /** Project slugs to feature, in order. */
   projects: string[];
-  /** CV material to surface — roles, credentials, memberships. */
+  /** CV material to surface - roles, credentials, memberships. */
   credentials: LensItem[];
 }
 
 /**
- * A methodological finding — something a project established about *method*,
+ * A methodological finding - something a project established about *method*,
  * usually at the cost of a more flattering headline number.
  */
 export interface ResearchFinding {

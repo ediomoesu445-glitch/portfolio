@@ -1,7 +1,7 @@
 """Project metadata schemas.
 
 These mirror the TypeScript types in /content/types.ts. When one side changes,
-change the other — the contract test in tests/test_api.py checks the shape.
+change the other - the contract test in tests/test_api.py checks the shape.
 """
 
 from typing import Literal

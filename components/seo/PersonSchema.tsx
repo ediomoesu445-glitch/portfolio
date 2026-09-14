@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
  * JSON-LD describing the person this site is about.
  *
  * Every field is drawn from the content files, so it cannot drift from the
- * pages. Nothing is asserted here that is not also stated in the visible copy —
+ * pages. Nothing is asserted here that is not also stated in the visible copy -
  * structured data claiming more than the page is how sites get penalised, and
  * it would contradict the rest of this project besides.
  */

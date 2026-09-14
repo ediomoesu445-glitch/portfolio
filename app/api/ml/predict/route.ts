@@ -4,7 +4,7 @@ import { z } from "zod";
 /**
  * Fallback for the FastAPI /api/ml/predict endpoint.
  *
- * A faithful port of backend/app/services/ml.py — same rules, same weights,
+ * A faithful port of backend/app/services/ml.py - same rules, same weights,
  * same exclusion. If you change one, change both; the backend test suite is
  * the authority on the expected bands.
  *

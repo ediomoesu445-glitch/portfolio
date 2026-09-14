@@ -6,7 +6,7 @@ import { useSyncExternalStore } from "react";
 type Theme = "light" | "dark";
 
 /**
- * The `light` class on <html> is the single source of truth — the inline script
+ * The `light` class on <html> is the single source of truth - the inline script
  * in app/layout.tsx sets it before first paint. This subscribes to that class
  * rather than mirroring it into React state, so the button stays correct even
  * if the theme is changed elsewhere.

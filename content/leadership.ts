@@ -8,8 +8,8 @@ import type { Affiliation, LeadershipRole } from "./types";
 export const leadershipRoles: LeadershipRole[] = [
   {
     org: "National Association of Nigerian Students (NANS)",
-    role: "Executive Secretary — National Directorate of Humanitarian Affairs & Students Social Intervention",
-    period: "May 2025 — May 2026",
+    role: "Executive Secretary - National Directorate of Humanitarian Affairs & Students Social Intervention",
+    period: "May 2025 - May 2026",
     scope:
       "National directorate, Abuja. Humanitarian and social-intervention programmes.",
     stakeholders: [
@@ -21,7 +21,7 @@ export const leadershipRoles: LeadershipRole[] = [
       "Female students nationwide",
     ],
     summary:
-      "Ran documentation, communication and programme coordination for the directorate — the administrative spine that decides whether a humanitarian programme can show what it did.",
+      "Ran documentation, communication and programme coordination for the directorate - the administrative spine that decides whether a humanitarian programme can show what it did.",
     outcomes: [
       "Compiled beneficiary, challenge and outcome reports for the visit to IDPs and vulnerable students in Borno State, so the intervention could be accounted for rather than just announced.",
       "Coordinated the International Women's Day 2026 online webinar for female students nationwide.",
@@ -33,8 +33,8 @@ export const leadershipRoles: LeadershipRole[] = [
   },
   {
     org: "National Youth Service Corps (NYSC)",
-    role: "Environmental Protection & Sanitation — Community Development Service",
-    period: "Mar 2026 — Present",
+    role: "Environmental Protection & Sanitation - Community Development Service",
+    period: "Mar 2026 - Present",
     scope: "CDS group, Abuja. Community environmental and sanitation projects.",
     stakeholders: [
       "Host communities",
@@ -42,7 +42,7 @@ export const leadershipRoles: LeadershipRole[] = [
       "Fellow corps members and volunteers",
     ],
     summary:
-      "Planned and delivered community environmental projects end to end — sensitisation, clean-up and waste-segregation exercises, and the advocacy around them.",
+      "Planned and delivered community environmental projects end to end - sensitisation, clean-up and waste-segregation exercises, and the advocacy around them.",
     outcomes: [
       "Ran awareness campaigns on environmental protection, sanitation and sustainable living.",
       "Coordinated clean-up exercises and waste-segregation projects.",
@@ -54,8 +54,8 @@ export const leadershipRoles: LeadershipRole[] = [
   {
     org: "Destiny Centre Unveiling Chapel",
     role: "Head of Media & Public Relations",
-    period: "May 2025 — Present",
-    scope: "Media unit — live sound, streaming and AV for every service.",
+    period: "May 2025 - Present",
+    scope: "Media unit - live sound, streaming and AV for every service.",
     stakeholders: [
       "Congregation and streaming audience",
       "The media and technical team",
@@ -64,7 +64,7 @@ export const leadershipRoles: LeadershipRole[] = [
     summary:
       "Strategic communication and image management for the church, plus the team and the equipment that deliver it. A weekly production deadline that does not move.",
     outcomes: [
-      "Led the media team — delegation, accountability, and coordination across departments.",
+      "Led the media team - delegation, accountability, and coordination across departments.",
       "Delivered live sound, live-streaming and audio-visual for all services.",
       "Built and ran the digital outreach across online platforms and social media.",
       "Kept records of media activity and campaigns for accountability and compliance.",
@@ -74,7 +74,7 @@ export const leadershipRoles: LeadershipRole[] = [
   {
     org: "DipGold Human Development Foundation (DGHDF)",
     role: "Programme & Digital Media Support",
-    period: "Sep 2024 — Present",
+    period: "Sep 2024 - Present",
     scope: "Community development, advocacy and humanitarian programmes.",
     stakeholders: [
       "Community stakeholders",
@@ -83,7 +83,7 @@ export const leadershipRoles: LeadershipRole[] = [
       "Local and international partners",
     ],
     summary:
-      "Monitoring, evaluation and digital media across the foundation's community work — capturing activity, reach and outcome data, and collecting it in the field rather than at a desk.",
+      "Monitoring, evaluation and digital media across the foundation's community work - capturing activity, reach and outcome data, and collecting it in the field rather than at a desk.",
     outcomes: [
       "Documented and evaluated community project outcomes, with recommendations for later interventions.",
       "Supported medical outreaches providing free screening and services to vulnerable communities.",
@@ -95,7 +95,7 @@ export const leadershipRoles: LeadershipRole[] = [
   {
     org: "Synergy Conference",
     role: "Convener & Lead Coordinator",
-    period: "Jul 2023 — Present",
+    period: "Jul 2023 - Present",
     scope:
       "Multi-sector conference convening Students' Union Governments from tertiary institutions nationwide. TODO(metric): attendance and budget.",
     stakeholders: [
@@ -119,7 +119,7 @@ export const leadershipRoles: LeadershipRole[] = [
   {
     org: "Akwa Ibom State University of Education (affiliated to the University of Uyo)",
     role: "President, Students' Union Government",
-    period: "Jan 2023 — Dec 2023",
+    period: "Jan 2023 - Dec 2023",
     scope:
       "Elected head of the union executive, representing the student body to university management and external stakeholders.",
     stakeholders: [
@@ -132,13 +132,13 @@ export const leadershipRoles: LeadershipRole[] = [
       "Nsit Ibom LGA · Afaha Nsit Village Council",
     ],
     summary:
-      "Led the union executive for a full session: advocacy, welfare, union finances and the programme of events — and negotiated with management where student interests and institutional decisions collided.",
+      "Led the union executive for a full session: advocacy, welfare, union finances and the programme of events - and negotiated with management where student interests and institutional decisions collided.",
     outcomes: [
       "Secured the release of a transformer from the state government for the community housing most students, which had been without power for over eighteen months.",
       "Negotiated a reduction in a school-fee hike through dialogue with management, defusing a protest that was already forming.",
       "Had the school coaster buses repaired and initiated a shuttle system, creating a new Director of Transport office in the union to run it.",
       "Convened the first-ever Synergy Conference, bringing together Students' Union Governments from tertiary institutions nationwide.",
-      "Hosted the first Made in College Display and Exhibition — trade fairs and competitions showcasing student enterprise.",
+      "Hosted the first Made in College Display and Exhibition - trade fairs and competitions showcasing student enterprise.",
       "Facilitated free bank accounts for students and ran a financial-literacy summit alongside them.",
       "Built partnerships with Zenith Bank, First Bank, Akwa Ibom Investment Corporation, the State Ministry of Power and Petroleum, Nsit Ibom LGA and others.",
     ],
@@ -147,7 +147,7 @@ export const leadershipRoles: LeadershipRole[] = [
   {
     org: "National Association of Nigerian Students (NANS)",
     role: "Senator, National Students' Parliament",
-    period: "Jan 2023 — Dec 2023",
+    period: "Jan 2023 - Dec 2023",
     scope: "National students' parliament, representing constituency interests.",
     stakeholders: [
       "Constituent students",
@@ -155,7 +155,7 @@ export const leadershipRoles: LeadershipRole[] = [
       "Parliamentary committees",
     ],
     summary:
-      "Represented constituent students in the national parliament — debate, resolutions, and oversight of national NANS programmes.",
+      "Represented constituent students in the national parliament - debate, resolutions, and oversight of national NANS programmes.",
     outcomes: [
       "Debated and passed resolutions affecting student welfare and unionism.",
       "Provided oversight on national NANS programmes and projects.",

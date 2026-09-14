@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * original, all of which would otherwise break something already built here:
  *
  * 1. The original renders its own <header> with a nav and a mobile menu. This
- *    site already has SiteHeader — sticky, active-route aware, with a mobile
+ *    site already has SiteHeader - sticky, active-route aware, with a mobile
  *    disclosure that closes on Escape and returns focus. Two navs on one page
  *    is a bug, not a feature, so the header is gone and the banner sits under
  *    the real one.
@@ -20,14 +20,14 @@ import { cn } from "@/lib/utils";
  * 3. `<img>` became next/image, as everywhere else here.
  * 4. The "partners" strip asked for logos of organisations. There are no
  *    sponsors to show, and putting institutional logos under a partnership
- *    heading would claim endorsements that do not exist — so the strip takes
+ *    heading would claim endorsements that do not exist - so the strip takes
  *    plain text and is labelled for what it is.
  */
 
 export interface HeroAction {
   label: string;
   href: string;
-  /** Renders after the label — an arrow, usually. */
+  /** Renders after the label - an arrow, usually. */
   icon?: ReactNode;
 }
 
@@ -45,7 +45,7 @@ export interface ResponsiveHeroBannerProps {
   secondaryAction?: HeroAction;
   /** Heading above the closing strip. Say what the list actually is. */
   stripTitle?: string;
-  /** Plain text entries. No logos — see note 4 above. */
+  /** Plain text entries. No logos - see note 4 above. */
   stripItems?: string[];
   /** Sits above the badge. The headshot, usually. */
   leading?: ReactNode;

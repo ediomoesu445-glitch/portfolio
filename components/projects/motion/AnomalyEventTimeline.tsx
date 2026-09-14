@@ -30,7 +30,7 @@ const formatDay = (value: number) =>
  * The seven anomaly events that survived calibration, across a 19-day section
  * of hole.
  *
- * Every point is a row from the project's own committed events.csv — no
+ * Every point is a row from the project's own committed events.csv - no
  * illustration. The sparseness is the finding: after the thresholds were
  * recalibrated on held-out normal drilling, there was very little here for
  * these detectors to find, and saying so is the result.
@@ -117,8 +117,8 @@ export function AnomalyEventTimeline() {
       </div>
 
       <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
-        {data.note} Marker size is event duration. The largest reads as a connection —
-        hookload dropping 107 to 70 kkgf as the string is set in slips — an operational
+        {data.note} Marker size is event duration. The largest reads as a connection -
+        hookload dropping 107 to 70 kkgf as the string is set in slips - an operational
         transition, not a fault.
       </figcaption>
     </figure>

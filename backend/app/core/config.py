@@ -12,7 +12,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    app_name: str = "Ediomo Esu — Portfolio API"
+    app_name: str = "Ediomo Esu - Portfolio API"
     environment: str = "development"
     debug: bool = True
 

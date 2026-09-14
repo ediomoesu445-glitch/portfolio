@@ -1,6 +1,6 @@
 {
   "status": "PLACEHOLDER",
-  "note": "Every figure below is invented shape, not data. It exists so the chart component can be built and reviewed before the thesis results table is supplied. Replace wholesale — do not adjust these toward the real numbers.",
+  "note": "Every figure below is invented shape, not data. It exists so the chart component can be built and reviewed before the thesis results table is supplied. Replace wholesale - do not adjust these toward the real numbers.",
   "replaceWith": "TODO(metric): per-factor agreement counts from the thesis results table, plus the test statistic and p-value for each hypothesis.",
   "scale": "Placeholder agreement score, 0-100",
   "factors": [

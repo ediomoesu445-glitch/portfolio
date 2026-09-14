@@ -19,7 +19,7 @@ import { duration, ease, revealDistance } from "@/components/motion/motion-token
 import { projects } from "@/content/projects";
 
 /**
- * Internal style guide — every primitive rendered against real content.
+ * Internal style guide - every primitive rendered against real content.
  *
  * Not linked from the site and excluded from indexing. It exists so the design
  * system can be reviewed in one place rather than inferred from whichever page
@@ -64,7 +64,7 @@ export default function DesignSystemPage() {
         divided={false}
         eyebrow="Internal reference"
         title="Design system"
-        description="Control Room: a desaturated field where saturated colour is reserved for exceptional states, after ISA-101. Two accents only — alarm amber for a figure that is qualified, normal teal for one that is verified."
+        description="Control Room: a desaturated field where saturated colour is reserved for exceptional states, after ISA-101. Two accents only - alarm amber for a figure that is qualified, normal teal for one that is verified."
       >
         <Pill variant="normal">Dark is the default</Pill>
       </Section>
@@ -116,7 +116,7 @@ export default function DesignSystemPage() {
         id="stat"
         eyebrow="03"
         title="Stat"
-        description="The signature element. A figure appears with whatever qualifies it, in the same object — the flattering number it replaced struck through, and the caveat in amber beside it."
+        description="The signature element. A figure appears with whatever qualifies it, in the same object - the flattering number it replaced struck through, and the caveat in amber beside it."
       >
         <div className="border-line bg-line grid gap-px border md:grid-cols-3">
           <div className="bg-bg p-6">
@@ -180,7 +180,7 @@ export default function DesignSystemPage() {
         id="media"
         eyebrow="05"
         title="MediaFrame"
-        description="One frame for every asset. Figures are letterboxed rather than cropped — cropping a confusion matrix to fill a box loses the axis labels. A source still marked TODO renders as a placeholder, never a broken image."
+        description="One frame for every asset. Figures are letterboxed rather than cropped - cropping a confusion matrix to fill a box loses the axis labels. A source still marked TODO renders as a placeholder, never a broken image."
       >
         <div className="grid gap-8 md:grid-cols-2">
           <MediaFrame
@@ -230,14 +230,14 @@ export default function DesignSystemPage() {
       <Section id="timeline" eyebrow="07" title="Timeline">
         <Timeline className="max-w-prose">
           <TimelineItem
-            period="Aug 2026 — Present"
+            period="Aug 2026 - Present"
             title="Data Scientist (NYSC placement)"
-            subtitle="NMDPRA — Finance & Accounts Directorate, Abuja"
+            subtitle="NMDPRA - Finance & Accounts Directorate, Abuja"
             current
             meta={<Pill variant="code">DS</Pill>}
           >
             <p className="text-ink-muted text-sm">
-              Entries take any children — achievements, stack pills, a nested Stat.
+              Entries take any children - achievements, stack pills, a nested Stat.
             </p>
           </TimelineItem>
           <TimelineItem
@@ -323,7 +323,7 @@ export default function DesignSystemPage() {
         <Reveal delay={0.2} className="mt-4">
           <Card tone="bare">
             <p className="text-ink-muted text-sm">
-              A single Reveal with a delay. Scroll away and back — it plays once.
+              A single Reveal with a delay. Scroll away and back - it plays once.
             </p>
           </Card>
         </Reveal>

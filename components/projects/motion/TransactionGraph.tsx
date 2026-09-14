@@ -154,7 +154,7 @@ export function TransactionGraph() {
 
       <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
         A schematic of the pattern, not a plot of results. Destinations that receive
-        value and never pass any on are what the label-free rule flags — 93.63% of those
+        value and never pass any on are what the label-free rule flags - 93.63% of those
         flags were real fraud on the labelled proxy.
       </figcaption>
     </figure>

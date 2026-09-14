@@ -3,7 +3,7 @@ import { projects } from "@/content/projects";
 import { siteConfig } from "@/lib/site";
 
 /**
- * Every indexable route. /design is left out deliberately — it is noindex and
+ * Every indexable route. /design is left out deliberately - it is noindex and
  * exists for reviewing the design system, not for readers.
  */
 export default function sitemap(): MetadataRoute.Sitemap {

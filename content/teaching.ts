@@ -7,7 +7,7 @@ import type { TeachingContent } from "./types";
  */
 export const teaching: TeachingContent = {
   intro:
-    "I taught mathematics and physics at secondary level, ran the ICT lab and the clubs that used it, and mentored students through their assessments. The aim is not syllabus coverage — it is getting a student from a formula they can reproduce to reasoning they can apply somewhere the formula was never mentioned.",
+    "I taught mathematics and physics at secondary level, ran the ICT lab and the clubs that used it, and mentored students through their assessments. The aim is not syllabus coverage - it is getting a student from a formula they can reproduce to reasoning they can apply somewhere the formula was never mentioned.",
   approach: [
     {
       title: "Computational thinking as a habit",
@@ -17,7 +17,7 @@ export const teaching: TeachingContent = {
     {
       title: "Quantitative reasoning, not recall",
       detail:
-        "Lesson materials built to strengthen quantitative reasoning across algebra, calculus, trigonometry and statistics — the parts students most often learn as procedure without meaning.",
+        "Lesson materials built to strengthen quantitative reasoning across algebra, calculus, trigonometry and statistics - the parts students most often learn as procedure without meaning.",
     },
     {
       title: "The lab has to work",
@@ -29,7 +29,7 @@ export const teaching: TeachingContent = {
     {
       name: "Mathematics",
       detail:
-        "Secondary level — algebra, calculus, trigonometry and statistics, at Wells International School.",
+        "Secondary level - algebra, calculus, trigonometry and statistics, at Wells International School.",
     },
     {
       name: "Physics",
@@ -44,13 +44,13 @@ export const teaching: TeachingContent = {
   clubs: [
     {
       name: "ICT & Science Clubs",
-      role: "Head — Wells International School",
+      role: "Head - Wells International School",
       summary:
         "Introduced students to coding fundamentals and robotics projects to build early computational-thinking skills, and kept the lab and equipment running for them. TODO(metric): how many students took part.",
     },
   ],
   mentorship: [
     "Mentored students preparing for internal mathematics and science assessments, through structured practice sessions rather than ad-hoc revision.",
-    "TODO(content): an outcome you would stand behind — a result, a progression, a student who went on to something specific.",
+    "TODO(content): an outcome you would stand behind - a result, a progression, a student who went on to something specific.",
   ],
 };

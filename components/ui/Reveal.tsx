@@ -13,7 +13,7 @@ import {
  * The standard entrance: a short rise and fade as the element scrolls in, once.
  *
  * Reduced motion is handled globally by MotionConfig in
- * components/motion/MotionProvider — it drops the transform and keeps the
+ * components/motion/MotionProvider - it drops the transform and keeps the
  * fade, so this component needs no check of its own.
  */
 export function Reveal({

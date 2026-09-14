@@ -4,7 +4,7 @@ import type { Project } from "./types";
  * The five portfolio case studies.
  *
  * Every figure is transcribed from a committed result file in the source
- * repository — a CSV under `reports/`, a per-well manifest, or `REPORT.md`.
+ * repository - a CSV under `reports/`, a per-well manifest, or `REPORT.md`.
  * The machine-readable versions live in ./metrics/ and drive the charts.
  * Nothing is estimated.
  *
@@ -21,24 +21,24 @@ export const projects: Project[] = [
     order: 1,
     title: "Anomaly Detection & Predictive Maintenance for Energy Infrastructure",
     tagline:
-      "Unsupervised detection on a real drilling log — and the calibration step that decided whether any of it meant anything.",
+      "Unsupervised detection on a real drilling log - and the calibration step that decided whether any of it meant anything.",
     identities: ["researcher", "data-scientist", "ai-engineer"],
     objective:
       "Flag early signs of equipment and process anomalies in oil and gas infrastructure, supporting a shift from reactive to predictive maintenance. Built alongside the Energy Asset Digital Twin on the same Volve dataset, so detection and monitoring share one view of the asset.",
     summary:
       "Unsupervised anomaly detection over the 15/9-F-9 A drilling log: an isolation forest, an LSTM autoencoder, SPC control charts and a stuck-pipe heuristic, combined into a single reviewable event list. The detectors are the easy part. Calibrating them so their flag rates mean the same thing is where the work was.",
     problem:
-      "Operational sensor data is abundant and unlabelled, so there is no ground truth to score against. A detector can hit its target flag rate on the data it was fitted to and be wildly off on data it has not seen — and without noticing that, any combination of detectors is arithmetic on incomparable numbers.",
+      "Operational sensor data is abundant and unlabelled, so there is no ground truth to score against. A detector can hit its target flag rate on the data it was fitted to and be wildly off on data it has not seen - and without noticing that, any combination of detectors is arithmetic on incomparable numbers.",
     approach:
-      "Detection runs in two tiers, because two of the eight requested channels — standpipe pressure and surface torque — exist for only 15.7% of the log, in twelve contiguous blocks. Flags are confined to on-bottom rotary drilling, the regime the detectors were fitted on: scored against tripping and circulating they fire on three quarters of the log, correctly but uselessly. Thresholds are then calibrated on a held-out slice of normal drilling, never on the fitting split.",
+      "Detection runs in two tiers, because two of the eight requested channels - standpipe pressure and surface torque - exist for only 15.7% of the log, in twelve contiguous blocks. Flags are confined to on-bottom rotary drilling, the regime the detectors were fitted on: scored against tripping and circulating they fire on three quarters of the log, correctly but uselessly. Thresholds are then calibrated on a held-out slice of normal drilling, never on the fitting split.",
     method:
-      "Operational sensor time-series were curated and preprocessed — pressure, flow, hookload, RPM and rate-of-penetration channels — then scored by four independent detectors. Each detector's threshold was recalibrated against unseen normal drilling, and the surviving flags were merged into contiguous events with a combined score, a detector-agreement matrix and a duration, so a human reviews events rather than points.",
+      "Operational sensor time-series were curated and preprocessed - pressure, flow, hookload, RPM and rate-of-penetration channels - then scored by four independent detectors. Each detector's threshold was recalibrated against unseen normal drilling, and the surviving flags were merged into contiguous events with a combined score, a detector-agreement matrix and a duration, so a human reviews events rather than points.",
     outcome:
-      "Judged on their own fitting split, the isolation forest and the autoencoder both hit their 1% target exactly. On unseen normal drilling they flagged 4.21% and 33.44% — a 110-fold spread that made any weighted combination of them meaningless. Recalibrated, all three land within 0.15 pp of target. Seven events then survive across a 19-day section of hole, totalling 5.5 minutes, all during genuine drilling; the largest reads as a connection, not a fault. The honest conclusion is that there is very little here for these detectors to find — which is a result, not a failure to report one.",
+      "Judged on their own fitting split, the isolation forest and the autoencoder both hit their 1% target exactly. On unseen normal drilling they flagged 4.21% and 33.44% - a 110-fold spread that made any weighted combination of them meaningless. Recalibrated, all three land within 0.15 pp of target. Seven events then survive across a 19-day section of hole, totalling 5.5 minutes, all during genuine drilling; the largest reads as a connection, not a fault. The honest conclusion is that there is very little here for these detectors to find - which is a result, not a failure to report one.",
     nextSteps: [
       "Run the same calibrated pipeline over a section of hole with a known incident in it, to test whether the detectors catch something that matters and not just something unfamiliar.",
       "Fold the surviving events into the twin's health index, so detection feeds the monitoring view rather than sitting beside it.",
-      "Extend beyond drilling to the midstream and downstream assets the objective names — tanks, pipelines, processing units — which needs operational data the Volve set does not contain.",
+      "Extend beyond drilling to the midstream and downstream assets the objective names - tanks, pipelines, processing units - which needs operational data the Volve set does not contain.",
     ],
     stack: [
       "Python",
@@ -50,8 +50,8 @@ export const projects: Project[] = [
       "Time-series analysis",
     ],
     dataset: {
-      name: "Volve field dataset — 15/9-F-9 A drilling log",
-      source: "Equinor and the Volve licence partners — North Sea, 2008-2016",
+      name: "Volve field dataset - 15/9-F-9 A drilling log",
+      source: "Equinor and the Volve licence partners - North Sea, 2008-2016",
       note: "A WITSML export of 419,747 rows and 237 curves across 19 days of hole. Real well-sensor time-series, released for research and study under non-commercial terms; no dataset files are redistributed.",
     },
     metrics: [
@@ -78,7 +78,7 @@ export const projects: Project[] = [
         label: "Channel coverage",
         value: "15.7%",
         method:
-          "Standpipe pressure and surface torque, present in only 12 contiguous blocks — hence two-tier detection.",
+          "Standpipe pressure and surface torque, present in only 12 contiguous blocks - hence two-tier detection.",
       },
     ],
     links: [
@@ -98,7 +98,7 @@ export const projects: Project[] = [
       {
         kind: "image",
         src: `${ASSETS}/anomaly-detection-predictive-maintenance/top-anomaly-event.png`,
-        alt: "The highest-scoring event, shown against hookload, RPM and mud flow — a connection rather than a fault.",
+        alt: "The highest-scoring event, shown against hookload, RPM and mud flow - a connection rather than a fault.",
       },
       {
         kind: "image",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     started: "2026-08",
     featured: true,
     caveat:
-      "Unsupervised detection finds the unfamiliar; a human decides whether unfamiliar means wrong. There are no labels in this data, so none of these figures is a detection rate against known faults — they are flag rates, and the calibration result is what makes them comparable at all. The drilling log is also upstream data standing in for the midstream and downstream assets the objective describes.",
+      "Unsupervised detection finds the unfamiliar; a human decides whether unfamiliar means wrong. There are no labels in this data, so none of these figures is a detection rate against known faults - they are flag rates, and the calibration result is what makes them comparable at all. The drilling log is also upstream data standing in for the midstream and downstream assets the objective describes.",
     attribution:
       "Built on the Volve dataset, released by Equinor Energy AS, ExxonMobil Exploration and Production Norway AS and Bayerngas Norge AS under non-commercial CC BY-NC-SA-style terms. Not affiliated with or endorsed by Equinor or the Volve licence partners. No dataset files are redistributed.",
   },
@@ -147,15 +147,15 @@ export const projects: Project[] = [
     summary:
       "A ResNet18 classifier that assigns a steel surface image to one of six defect classes, with Grad-CAM saliency overlays and a corruption-robustness evaluation. Built as a proof of concept for the visual-inspection layer of a pipeline-integrity workflow.",
     problem:
-      "Pipeline integrity management relies on in-line inspection — magnetic flux leakage and ultrasonic testing — as the authoritative source for wall loss and defect depth. Separately, operators run visual surveys: right-of-way patrols, drone and CCTV footage, station and riser inspections. Those surveys generate far more imagery than anyone can review by eye.",
+      "Pipeline integrity management relies on in-line inspection - magnetic flux leakage and ultrasonic testing - as the authoritative source for wall loss and defect depth. Separately, operators run visual surveys: right-of-way patrols, drone and CCTV footage, station and riser inspections. Those surveys generate far more imagery than anyone can review by eye.",
     approach:
       "Transfer learning from ImageNet backbones, with leakage-controlled splits committed to the repository so results reproduce across machines. Grad-CAM was run on correct and incorrect predictions alike, because a saliency map over a failure says more about a model than one over a success. A 22-cell corruption grid then measured what happens when the image stops being clean.",
     method:
-      "Images were preprocessed and augmented, then used to fine-tune a ResNet18 backbone; 5-fold cross-validation confirmed the split was not doing the work. Models were exported to ONNX for CPU inference and served through a Gradio demo. Robustness was measured across seven corruptions at three severities — motion blur, defocus, noise, low light and others — against a clean baseline.",
+      "Images were preprocessed and augmented, then used to fine-tune a ResNet18 backbone; 5-fold cross-validation confirmed the split was not doing the work. Models were exported to ONNX for CPU inference and served through a Gradio demo. Robustness was measured across seven corruptions at three severities - motion blur, defocus, noise, low light and others - against a clean baseline.",
     outcome:
       "The headline accuracy is not the contribution: the dataset is small and clean enough that high accuracy is expected. The contribution is the measured lab-to-field gap. A model at 99.63% clean accuracy falls to 67.83% mean accuracy across 21 simulated corrupted conditions, and to 42.96% at severe. In-distribution accuracy on a clean benchmark does not predict field performance.",
     nextSteps: [
-      "Finish the backbone benchmark — three of five are outstanding, halted by available compute rather than by method. The scripts resume from partial progress.",
+      "Finish the backbone benchmark - three of five are outstanding, halted by available compute rather than by method. The scripts resume from partial progress.",
       "Run the cross-backbone robustness comparison, so the corruption grid covers more than ResNet18.",
       "Fine-tune on real pipeline imagery once a labelled set exists. Everything here is steel surface imagery standing in for it.",
       "Add the severity-ranking workflow and the corrosion imagery. Both are designed and neither is built, for the same reason as the benchmark.",
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     stack: ["Python", "PyTorch", "ResNet18", "OpenCV", "Grad-CAM", "ONNX", "Gradio"],
     dataset: {
       name: "NEU Surface Defect Database",
-      source: "Northeastern University — six defect classes of steel surface imagery",
+      source: "Northeastern University - six defect classes of steel surface imagery",
       note: "A proxy: no labelled Nigerian pipeline inspection dataset exists publicly. The transferable claim is the method and the robustness finding, not the class labels.",
     },
     metrics: [
@@ -249,17 +249,17 @@ export const projects: Project[] = [
       "Ranking reconciliation records so limited investigative capacity goes to the ones most worth opening.",
     identities: ["researcher", "data-scientist", "ai-engineer"],
     objective:
-      "Detect fraudulent and ghost transactions in energy-sector financial flows — records that never corresponded to real economic activity. The output has to be reviewable by a finance or audit team, which rules out a model that cannot say why it flagged something.",
+      "Detect fraudulent and ghost transactions in energy-sector financial flows - records that never corresponded to real economic activity. The output has to be reviewable by a finance or audit team, which rules out a model that cannot say why it flagged something.",
     summary:
       "A detection method developed and validated on labelled synthetic data, designed to run unsupervised on the real, unlabelled deployment target. Informed by hands-on exposure to budget and account system control at Nigeria's midstream and downstream petroleum regulator. Every output is an investigative lead for human review, never a determination of fraud.",
     problem:
-      "Energy-sector revenue flows pass through a reconciliation chain — operator declarations, regulator records, remittances to government. Gaps in that chain can be benign (timing, classification, exchange-rate treatment) or can indicate transactions that never happened. Investigative capacity is finite, so the task is ranking, not classification.",
+      "Energy-sector revenue flows pass through a reconciliation chain - operator declarations, regulator records, remittances to government. Gaps in that chain can be benign (timing, classification, exchange-rate treatment) or can indicate transactions that never happened. Investigative capacity is finite, so the task is ranking, not classification.",
     approach:
-      "Two tracks in parallel. A supervised track for method development where labels exist, and label-free detectors — an autoencoder, explainable rules, local outlier factor, isolation forest — for the unlabelled target. A single-feature PR-AUC diagnostic was run before modelling, and it caught a simulator artefact that was inflating every supervised score.",
+      "Two tracks in parallel. A supervised track for method development where labels exist, and label-free detectors - an autoencoder, explainable rules, local outlier factor, isolation forest - for the unlabelled target. A single-feature PR-AUC diagnostic was run before modelling, and it caught a simulator artefact that was inflating every supervised score.",
     method:
       "Transactional and account data were profiled for duplicates, ghost destinations and structuring patterns. Features were built in one module used as the single source of truth by both tracks. Models were scored on PR-AUC and on recall at fixed precision rather than accuracy, since the base rate is 0.77%. SHAP was used throughout, so a flagged record arrives with its reasons attached rather than as a bare score.",
     outcome:
-      "Deleting the artefact and its collinear twin cost 0.1376 PR-AUC — 0.9995 down to 0.8619. That deletion is the most important result in the project: the higher number was measuring the simulator's own generator signature, not fraudulent behaviour. The label-free ghost-destination rule is the most transferable result, at 93.63% precision with no labels used at any point.",
+      "Deleting the artefact and its collinear twin cost 0.1376 PR-AUC - 0.9995 down to 0.8619. That deletion is the most important result in the project: the higher number was measuring the simulator's own generator signature, not fraudulent behaviour. The label-free ghost-destination rule is the most transferable result, at 93.63% precision with no labels used at any point.",
     nextSteps: [
       "Attempt transfer to real reconciliation records. Nothing here has touched them, and the method's value is unproven until it does.",
       "Build the reviewer feedback loop: a flagged record an analyst clears is training signal the unlabelled target otherwise never produces.",
@@ -269,7 +269,7 @@ export const projects: Project[] = [
     dataset: {
       name: "PaySim synthetic transactions, with NEITI reports for context",
       source: "Kaggle (PaySim); NEITI oil & gas audit reports",
-      note: "PaySim is the only source here with ground truth, which is what makes honest evaluation possible. NEITI reports are aggregate PDFs used for domain framing — they hold no transaction-level records and never train or score a model.",
+      note: "PaySim is the only source here with ground truth, which is what makes honest evaluation possible. NEITI reports are aggregate PDFs used for domain framing - they hold no transaction-level records and never train or score a model.",
     },
     metrics: [
       {
@@ -336,7 +336,7 @@ export const projects: Project[] = [
     started: "2026-08",
     featured: true,
     caveat:
-      "All reported figures are synthetic-proxy performance on PaySim — an upper bound on method quality, not a claim about energy-sector data. PaySim is synthetic mobile-money data and does not become energy-sector data by being used here. Transfer to real regulator records has not been attempted, and the deployment target has no labels, so precision and recall can never be computed there.",
+      "All reported figures are synthetic-proxy performance on PaySim - an upper bound on method quality, not a claim about energy-sector data. PaySim is synthetic mobile-money data and does not become energy-sector data by being used here. Transfer to real regulator records has not been attempted, and the deployment target has no labels, so precision and recall can never be computed there.",
   },
 
   /* 4 ------------------------------------------------------------------ */
@@ -354,14 +354,14 @@ export const projects: Project[] = [
     problem:
       "Production and drilling data are abundant, but a forecast that looks accurate can be worthless. Predicting that tomorrow matches today already scores R² 0.86–0.92 on every well in this field, so any model reporting R² alone will look competent while adding nothing.",
     approach:
-      "Five forecasting families per well — Arps decline-curve, ARIMA, Prophet, XGBoost and an LSTM — fitted separately and scored on skill against the regime's naive baseline rather than on R². Anomaly detection combines an isolation forest, an LSTM autoencoder, SPC charts and a stuck-pipe heuristic into a single reviewable event list.",
+      "Five forecasting families per well - Arps decline-curve, ARIMA, Prophet, XGBoost and an LSTM - fitted separately and scored on skill against the regime's naive baseline rather than on R². Anomaly detection combines an isolation forest, an LSTM autoencoder, SPC charts and a stuck-pipe heuristic into a single reviewable event list.",
     method:
       "Well and asset state were modelled as objects carrying operational state, throughput and condition indicators, with a documented 0–100 health index. A replay simulator streams historical data through the same path a live feed would take, so the dashboard is exercised end to end. The service is containerised, and no dataset files are committed.",
     outcome:
       "Reporting skill instead of R² changed the conclusion. Two wells produced genuinely useful models, at +0.72 and +0.66 skill one step ahead; on well 15/9-F-11 no model beat persistence at all, so its manifest records a null winner rather than naming a least-bad model. On the drilling log, seven anomaly events survived review, totalling 5.5 minutes, all during genuine drilling.",
     nextSteps: [
       "Connect a live feed. Everything is replay today, and the lag this project exists to close is only really closed by streaming ingestion.",
-      "Publish the health index as a versioned, auditable definition — it drives attention, so it needs to be arguable.",
+      "Publish the health index as a versioned, auditable definition - it drives attention, so it needs to be arguable.",
       "Re-fit per well on a schedule. The same model family is best on three wells and worst on another, so one field-wide fit would be wrong.",
     ],
     stack: [
@@ -377,7 +377,7 @@ export const projects: Project[] = [
     ],
     dataset: {
       name: "Volve field dataset",
-      source: "Equinor and the Volve licence partners — North Sea, 2008–2016",
+      source: "Equinor and the Volve licence partners - North Sea, 2008–2016",
       note: "Production data across seven wellbores plus a WITSML drilling log of 419,747 rows and 237 curves. Released for research and study under non-commercial terms; no dataset files are redistributed.",
     },
     metrics: [
@@ -457,7 +457,7 @@ export const projects: Project[] = [
   {
     slug: "core-anomaly-detection",
     order: 5,
-    title: "CORE — Anomaly Detection for Petroleum Process Facilities",
+    title: "CORE - Anomaly Detection for Petroleum Process Facilities",
     tagline:
       "A two-tier screener and classifier watching 52 process variables across 20 fault types.",
     identities: ["researcher", "data-scientist", "ai-engineer"],
@@ -466,17 +466,17 @@ export const projects: Project[] = [
     summary:
       "Fault detection for petroleum process facilities on the Tennessee Eastman Process benchmark. A PCA-MSPC screener flags any departure from normal operation without needing labels; a LightGBM classifier then confirms whether the departure is a real fault. Built separately from the Volve work and on a different dataset, which is why it stands as its own project rather than folding into the drilling-log one.",
     problem:
-      "Process plants generate continuous multivariate sensor data in which faults are rare, varied and easy to miss among normal operating drift. Unlike the drilling log, this benchmark has ground-truth labels — which is exactly what makes it useful for measuring whether a detection method works at all.",
+      "Process plants generate continuous multivariate sensor data in which faults are rare, varied and easy to miss among normal operating drift. Unlike the drilling log, this benchmark has ground-truth labels - which is exactly what makes it useful for measuring whether a detection method works at all.",
     approach:
       "Two tiers. Tier one is unsupervised and statistical: PCA-based multivariate statistical process control, using Hotelling's T-squared and Q statistics against limits learned from fault-free operation. Tier two is a LightGBM classifier that confirms the deviation, which is what keeps the false-alarm rate low.",
     method:
-      "Sensor time-series were standardised and reduced with PCA, with control limits fitted on fault-free runs only. Four model families were compared on the same split — logistic regression, random forest, LightGBM and an MLP — scored on detection rate, false-alarm rate and precision rather than accuracy, which is misleading on imbalanced fault data. Per-fault detection rates were computed for all 20 faults rather than averaged.",
+      "Sensor time-series were standardised and reduced with PCA, with control limits fitted on fault-free runs only. Four model families were compared on the same split - logistic regression, random forest, LightGBM and an MLP - scored on detection rate, false-alarm rate and precision rather than accuracy, which is misleading on imbalanced fault data. Per-fault detection rates were computed for all 20 faults rather than averaged.",
     outcome:
       "The LightGBM tier raises an alarm that is correct 99.50% of the time, at a 1.32% false-alarm rate, with detection across all faults at 65.77%. The per-fault breakdown is the useful part: most faults are caught reliably while a few are close to undetectable in this benchmark for every model tried, which an average would have hidden.",
     nextSteps: [
-      "Decide whether the MLP should be the headline model — it beats LightGBM on both precision (0.9958) and detection rate (0.6799) in tep_model_summary.csv.",
+      "Decide whether the MLP should be the headline model - it beats LightGBM on both precision (0.9958) and detection rate (0.6799) in tep_model_summary.csv.",
       "Re-fit the control limits to a specific facility's own normal operating envelope. The TEP limits describe a simulator, not a plant.",
-      "Add remaining-useful-life estimation on top of detection — the step that turns an alarm into a maintenance schedule.",
+      "Add remaining-useful-life estimation on top of detection - the step that turns an alarm into a maintenance schedule.",
     ],
     stack: [
       "Python",
@@ -489,14 +489,14 @@ export const projects: Project[] = [
     ],
     dataset: {
       name: "Tennessee Eastman Process simulation data",
-      source: "Harvard Dataverse — Rieth, Amsel, Tran & Cook (2017)",
+      source: "Harvard Dataverse - Rieth, Amsel, Tran & Cook (2017)",
       note: "The standard benchmark for process fault detection: 52 process variables, 20 fault types, with ground-truth labels that make honest evaluation possible.",
     },
     metrics: [
       {
         label: "Alarm precision",
         value: "99.50%",
-        method: "LightGBM tier — share of raised alarms that were real faults.",
+        method: "LightGBM tier - share of raised alarms that were real faults.",
       },
       {
         label: "Fault detection rate",
@@ -576,7 +576,7 @@ export const projects: Project[] = [
       "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
     identities: ["researcher", "educator", "data-scientist"],
     objective:
-      "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it — grounded in primary data from the people involved rather than in assertion.",
+      "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it - grounded in primary data from the people involved rather than in assertion.",
     summary:
       "An undergraduate research study combining instrument design, primary data collection and inferential testing to examine the causes of examination malpractice in school mathematics across Nsit Ibom Local Government Area, and the situational measures that might prevent it. Submitted for the B.Sc. (Ed.) Mathematics degree at the University of Uyo.",
     problem:
@@ -584,7 +584,7 @@ export const projects: Project[] = [
     approach:
       "A survey study across schools in Nsit Ibom Local Government Area, Akwa Ibom State: an instrument designed for the population, primary data collected directly, and inferential tests applied to the hypotheses. TODO(content): sampling frame, sample size, and how the instrument was validated.",
     method:
-      "TODO(content): instrument design, administration and response rate, then the specific tests applied (chi-square, t-test, ANOVA, correlation — whichever you actually ran) and the significance level.",
+      "TODO(content): instrument design, administration and response rate, then the specific tests applied (chi-square, t-test, ANOVA, correlation - whichever you actually ran) and the significance level.",
     outcome:
       "TODO(content): the findings, and the recommendations drawn from them. This is the section a reader will care about most.",
     nextSteps: [
@@ -595,7 +595,7 @@ export const projects: Project[] = [
       "Survey design",
       "Inferential statistics",
       "Hypothesis testing",
-      "TODO(content): analysis tool — SPSS, Excel, Python?",
+      "TODO(content): analysis tool - SPSS, Excel, Python?",
     ],
     dataset: {
       name: "Primary survey data",

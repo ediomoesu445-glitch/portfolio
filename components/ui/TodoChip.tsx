@@ -13,7 +13,7 @@ export function TodoChip({ value, className }: { value: string; className?: stri
         "bg-alarm-soft text-alarm px-2 py-0.5 font-mono text-[11px]",
         className,
       )}
-      title="Placeholder — awaiting real content"
+      title="Placeholder - awaiting real content"
     >
       <span aria-hidden>◌</span>
       {todoLabel(value)}

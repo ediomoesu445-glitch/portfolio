@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
  * this is ever updated from upstream:
  *
  * 1. The upstream file injects a Geist @font-face from a third-party CDN and
- *    forces `font-family` on the root. Removed — this site's type is Archivo,
+ *    forces `font-family` on the root. Removed - this site's type is Archivo,
  *    IBM Plex Sans and IBM Plex Mono, loaded through next/font, and a remote
  *    font would both override that and add a network dependency the rest of
  *    the site does not have. The carousel now inherits.
@@ -47,7 +47,7 @@ export type SqueezeSlide = {
   image?: string;
   /** Alt text for that picture. Leave it out and the picture reads as decoration. */
   imageAlt?: string;
-  /** Any CSS background — a gradient, a colour, layers. Used when there is no picture. */
+  /** Any CSS background - a gradient, a colour, layers. Used when there is no picture. */
   background?: string;
   /** Sits in the corner of the open panel: a wordmark, a logo, a caption. */
   overlay?: ReactNode;
@@ -140,7 +140,7 @@ export type SqueezeCarouselProps = {
   controls?: boolean;
   /** Fill behind the button, the arrows and the focus ring. */
   accent?: string;
-  /** What sits on top of that fill — the label and the arrow heads. */
+  /** What sits on top of that fill - the label and the arrow heads. */
   accentForeground?: string;
   /** What a screen reader calls the carousel. Default `"Featured"`. */
   label?: string;
@@ -463,7 +463,7 @@ export function SqueezeCarousel({
 
 /**
  * Drawn at a fixed 16:9 block and centred, never at the width of its card, so
- * the picture keeps one scale as the card opens and closes — the card only
+ * the picture keeps one scale as the card opens and closes - the card only
  * changes how much of it you can see.
  *
  * next/image rather than a bare <img>: intrinsic dimensions come from the media

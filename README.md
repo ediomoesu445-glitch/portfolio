@@ -1,4 +1,4 @@
-# Ediomo Ubong Esu — Portfolio
+# Ediomo Ubong Esu - Portfolio
 
 Personal portfolio presenting five professional identities: **data scientist**
 (energy / oil & gas regulatory analytics), **AI/ML & backend engineer**,
@@ -26,7 +26,7 @@ evidence of the backend-engineering identity it describes.
 
 - Node.js 20+ (developed on 24) and npm
 - Python 3.11+ (developed on 3.14)
-- Docker (optional — only needed to run the backend in a container)
+- Docker (optional - only needed to run the backend in a container)
 
 ---
 
@@ -98,7 +98,7 @@ docker compose up --build api
 │   ├── motion/             # MotionProvider (global reduced-motion guard), tokens
 │   ├── theme/              # light-mode toggle + no-flash init script
 │   └── ui/                 # the design-system primitives
-├── content/                # ALL site copy, typed — edit here, not in JSX
+├── content/                # ALL site copy, typed - edit here, not in JSX
 │   ├── types.ts            # the content model
 │   ├── profile.ts          # name, bio, contact, links
 │   ├── about.ts            # narrative bio + regulator context
@@ -138,7 +138,7 @@ docker compose up --build api
 
 ## Editing content
 
-All copy lives in `/content/*.ts` and is fully typed — change text without
+All copy lives in `/content/*.ts` and is fully typed - change text without
 touching a component. Two conventions matter:
 
 **1. Placeholders are explicit.** Any value of the form `TODO(...)` is treated
@@ -167,7 +167,7 @@ test in `backend/tests/test_api.py` guards the field names, and
 | ------------------ | ---------------------------------------------------------------- |
 | `/`                | Hero, quick stats, the five-identity switcher, featured projects |
 | `/projects`        | All projects, filterable by identity and by skill                |
-| `/projects/[slug]` | Case study per project — caveat first, then the figures          |
+| `/projects/[slug]` | Case study per project - caveat first, then the figures          |
 | `/experience`      | Timeline of professional roles                                   |
 | `/leadership`      | Student government, convening, community and media roles         |
 | `/teaching`        | Subjects taught, clubs led, mentorship                           |
@@ -201,7 +201,7 @@ both carry meaning:
 
 Nothing else is allowed to be saturated. Identities are distinguished by an
 instrument tag (`DS`, `ML`, `ED`, `LD`, `PM`) and typography rather than by
-hue — five decorative colours would contradict the rule the palette rests on.
+hue - five decorative colours would contradict the rule the palette rests on.
 
 **Dark is the default.** The `light` class is added to `<html>` only when the
 visitor asks for it, so no class means dark. Light mode is ISA grey rather than
@@ -219,7 +219,7 @@ for data and instrument labels. Loaded via `next/font`, exposed as
 `Reveal` / `RevealGroup` / `RevealItem` · `TodoChip` · `Icon`
 
 `Stat` is the signature element: it renders a figure together with whatever
-qualifies it — the superseded value struck through, and the caveat in amber.
+qualifies it - the superseded value struck through, and the caveat in amber.
 
 **Motion.** Three durations and two easings, defined once in
 `components/motion/motion-tokens.ts` and mirrored as CSS custom properties.
@@ -247,7 +247,7 @@ material and the featured projects, cross-fading between them with
 /?lens=leader           /?lens=project-manager
 ```
 
-So a single link opens the site already framed for whoever it was sent to — a
+So a single link opens the site already framed for whoever it was sent to - a
 school, a fellowship panel, a programme office. Back and forward work, the view
 is shareable, and there is a copy-link button beside the tabs. An unknown or
 missing value falls back to the first lens rather than erroring.
@@ -267,7 +267,7 @@ a file arrives. Everything below the fold loads lazily.
 
 **Anything not yet captured is a labelled slot, not a gap.** A `TODO(media)`
 source renders as a dashed amber frame carrying the exact shot required, and
-`docs/MEDIA-TO-CAPTURE.md` — generated from the content, so it cannot drift —
+`docs/MEDIA-TO-CAPTURE.md` - generated from the content, so it cannot drift -
 lists every one with its target path.
 
 **Demo reels** use `components/ui/VideoReel.tsx`: MP4 with a WebM source ahead
@@ -278,8 +278,8 @@ reaches the footage. Target under 3 MB per file.
 
 **The live demo** at `/projects/ghost-transaction-detection` posts to the
 FastAPI service when one is configured and to `app/api/ml/predict/route.ts`
-otherwise. Both run the project's explainable rule tier — real logic, no
-trained model, no labels — and the response says so. `is_full_drain` is
+otherwise. Both run the project's explainable rule tier - real logic, no
+trained model, no labels - and the response says so. `is_full_drain` is
 computed and shown but scored at zero, because that feature encoded the
 simulator rather than fraud.
 
@@ -299,7 +299,7 @@ Each case study opens with a bespoke animated asset in
 | `findings-chart`     | Thesis                    | A placeholder until the study's results table is supplied                                                         |
 
 Two rules these follow. Anything driven by real data says where the data came
-from, and anything that is an illustration says so in its caption — an animated
+from, and anything that is an illustration says so in its caption - an animated
 graph that looks like output while showing none is a lie with good production
 values. All of them honour reduced motion through the global `MotionConfig`,
 and the looping ones stop when scrolled out of view.
@@ -309,7 +309,7 @@ and the looping ones stop when scrolled out of view.
 ## Where the project numbers come from
 
 Every figure in `content/projects.ts` is transcribed from a committed result file
-in the corresponding source repository — never estimated, never rounded up:
+in the corresponding source repository - never estimated, never rounded up:
 
 | Project                     | Source of truth                                                            |
 | --------------------------- | -------------------------------------------------------------------------- |
@@ -323,8 +323,8 @@ render. Figures in `public/images/projects/` were copied from each repo's
 `reports/figures/`, `assets/` or `screenshots/` directory.
 
 **No datasets, model binaries or secrets were copied into this project**, and none
-should be. Each project entry also carries a `caveat` — the scope limit a reader
-should see beside the numbers — and an `attribution` where a dataset licence
+should be. Each project entry also carries a `caveat` - the scope limit a reader
+should see beside the numbers - and an `attribution` where a dataset licence
 requires one.
 
 ---
@@ -338,7 +338,7 @@ requires one.
 | GET    | `/api/projects/{slug}` | One project                                              |
 | POST   | `/api/contact`         | Validates and forwards a message (honeypot + rate limit) |
 | GET    | `/api/ml/model-info`   | Demo model status                                        |
-| POST   | `/api/ml/predict`      | Live ML demo — returns **501 until Phase 6**             |
+| POST   | `/api/ml/predict`      | Live ML demo - returns **501 until Phase 6**             |
 
 Contact messages are **logged, not sent**, unless SMTP credentials are set, so
 local development never needs a mailbox.
@@ -360,5 +360,5 @@ local development never needs a mailbox.
 
 The frontend deploys to Vercel unchanged. The FastAPI service needs a container
 host (Fly.io, Railway, Render, Cloud Run). If a separate Python host proves
-awkward, the service can be swapped for Next.js Route Handlers — the routing,
+awkward, the service can be swapped for Next.js Route Handlers - the routing,
 schema and service layers are already separated, so the port is mechanical.

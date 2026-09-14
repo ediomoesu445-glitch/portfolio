@@ -18,7 +18,7 @@ import { TodoChip } from "@/components/ui/TodoChip";
  * The thesis findings chart, running on placeholder values.
  *
  * The component is real and the animation is real; the numbers are invented
- * shape, and the frame says so in three places — a dashed amber border, a
+ * shape, and the frame says so in three places - a dashed amber border, a
  * banner, and axis labels marked "placeholder". Nothing here should be read as
  * a result until the results table replaces it.
  */

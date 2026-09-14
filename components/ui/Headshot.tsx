@@ -14,7 +14,7 @@ const sizes = {
  * The headshot slot.
  *
  * Until a photograph exists it renders as a labelled frame rather than a
- * broken image or a generic avatar, so the gap is obviously a gap — and the
+ * broken image or a generic avatar, so the gap is obviously a gap - and the
  * capture spec travels with it in the title attribute.
  */
 export function Headshot({

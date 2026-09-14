@@ -18,7 +18,7 @@ def test_list_projects_returns_catalogue() -> None:
     assert response.status_code == 200
     payload = response.json()
     assert isinstance(payload, list) and payload
-    # Contract with /content/types.ts — these keys are what the frontend reads.
+    # Contract with /content/types.ts - these keys are what the frontend reads.
     for key in ("slug", "title", "tagline", "identities", "status", "metrics"):
         assert key in payload[0]
 

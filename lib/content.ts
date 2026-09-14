@@ -44,7 +44,7 @@ export function formatMonth(value: string | null): string {
 
 /** Formats a start/end pair as a period string. */
 export function formatPeriod(start: string, end: string | null): string {
-  return `${formatMonth(start)} — ${formatMonth(end)}`;
+  return `${formatMonth(start)} - ${formatMonth(end)}`;
 }
 
 /** Sorts newest-first, keeping TODO-dated entries in their authored order. */

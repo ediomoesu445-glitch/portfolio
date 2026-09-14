@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
  * Ambient backdrop for the hero: a faint instrument grid with two slow sensor
  * traces drifting across it.
  *
- * Deliberately almost invisible. It is one SVG with no JavaScript animation —
+ * Deliberately almost invisible. It is one SVG with no JavaScript animation -
  * the drift is CSS, so the global prefers-reduced-motion rule stops it without
- * this component needing to know — and it pauses entirely when scrolled out of
+ * this component needing to know - and it pauses entirely when scrolled out of
  * view so it costs nothing on the rest of the page.
  */
 export function HeroBackdrop({ className }: { className?: string }) {

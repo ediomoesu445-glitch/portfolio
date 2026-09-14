@@ -62,7 +62,7 @@ export function MediaPlaceholder({
  *
  * Images are given their intrinsic width and height from the media manifest so
  * layout space is reserved before the file arrives, and everything below the
- * fold loads lazily. Figures are letterboxed rather than cropped — cropping a
+ * fold loads lazily. Figures are letterboxed rather than cropped - cropping a
  * confusion matrix to fill a box loses the axis labels.
  */
 export function MediaFrame({

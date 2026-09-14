@@ -294,7 +294,7 @@ export default async function ProjectPage({
         <Section
           eyebrow="05"
           title="Figures"
-          description="Letterboxed rather than cropped — a confusion matrix without its axis labels is not a confusion matrix."
+          description="Letterboxed rather than cropped - a confusion matrix without its axis labels is not a confusion matrix."
         >
           <div className="grid gap-8 md:grid-cols-2">
             {figures.map((media) => (

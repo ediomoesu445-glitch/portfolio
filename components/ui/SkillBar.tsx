@@ -7,7 +7,7 @@ import { Overline } from "./Heading";
 /**
  * A proficiency bar.
  *
- * Used only where a real, externally defined scale exists — the CEFR language
+ * Used only where a real, externally defined scale exists - the CEFR language
  * levels. Skills elsewhere on the site are pills rather than bars, because a
  * bar implies a measured proficiency and no such measurement exists for
  * "scikit-learn" or "stakeholder management". Inventing one would be the same

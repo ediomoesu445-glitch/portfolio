@@ -15,7 +15,7 @@ const PIPELINE = "/media/pipeline-defect-detection";
  *
  * The first is the one that matters for explainability: the raw input against
  * the Grad-CAM overlay, so a reader can see whether the model attended to the
- * defect or to the background. The second is the robustness story — the same
+ * defect or to the background. The second is the robustness story - the same
  * input clean and under severe motion blur.
  *
  * Both are real crops from the project's own committed figures.
@@ -45,7 +45,7 @@ function GradCamSliders() {
         </div>
         <figcaption className="border-line text-ink-subtle border-t px-5 py-4 text-[13px] leading-relaxed">
           Drag the handle, or focus it and use the arrow keys. Classified as crazing at
-          0.95 confidence, with the heat over the defect rather than the background —
+          0.95 confidence, with the heat over the defect rather than the background -
           which is what the saliency check is for.
         </figcaption>
       </figure>

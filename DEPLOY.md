@@ -1,8 +1,8 @@
 # Deploying
 
 Two pieces deploy independently: the Next.js site and the FastAPI service. The
-site runs perfectly well without the service — every page falls back to the
-typed content in `/content` — so deploy the frontend first, confirm it, then
+site runs perfectly well without the service - every page falls back to the
+typed content in `/content` - so deploy the frontend first, confirm it, then
 add the backend.
 
 ---
@@ -40,7 +40,7 @@ vercel
 vercel --prod
 ```
 
-Vercel detects Next.js on its own — no build command or output directory to
+Vercel detects Next.js on its own - no build command or output directory to
 configure.
 
 ### If you skip the backend
@@ -101,7 +101,7 @@ docker run -p 8000:8000 --env-file backend/.env portfolio-api
 
 ### After the backend is up
 
-Point the site at it and allow it through CORS — both, or the browser will
+Point the site at it and allow it through CORS - both, or the browser will
 block the call:
 
 ```bash
@@ -129,7 +129,7 @@ build time, not read at runtime).
 `.env.example` at the repo root lists all of them with comments.
 
 **Contact messages are logged rather than emailed until SMTP is configured.**
-That is deliberate — nothing is sent by accident from a fresh deploy — but it
+That is deliberate - nothing is sent by accident from a fresh deploy - but it
 does mean a live site with no SMTP silently drops enquiries. Set SMTP before
 sharing the link, or rely on the direct email and phone links, which always work.
 
@@ -145,7 +145,7 @@ curl -s https://YOUR-DOMAIN/robots.txt
 curl -s https://YOUR-DOMAIN/sitemap.xml | head -20
 ```
 
-- Open `https://YOUR-DOMAIN/opengraph-image` — the card should show your real
+- Open `https://YOUR-DOMAIN/opengraph-image` - the card should show your real
   domain in the corner, not `localhost:3000`. If it does not,
   `NEXT_PUBLIC_SITE_URL` was not set at build time.
 - Paste the URL into LinkedIn's post composer and confirm the card renders.
@@ -158,5 +158,5 @@ curl -s https://YOUR-DOMAIN/sitemap.xml | head -20
 ## Custom domain
 
 Add it in Vercel → Settings → Domains, then update `NEXT_PUBLIC_SITE_URL` to
-match and redeploy. Anything that embeds the URL — sitemap, OG card, JSON-LD —
+match and redeploy. Anything that embeds the URL - sitemap, OG card, JSON-LD -
 is generated at build time, so the redeploy is what makes the change take.

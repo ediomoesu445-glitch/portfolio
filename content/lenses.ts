@@ -8,7 +8,7 @@ import type { Lens } from "./types";
  * matches `identities`, and the `id` is what appears in the URL as `?lens=`.
  *
  * Credentials are drawn from the CV. Figures that would make a role assessable
- * — cohort sizes, attendance, budgets — live in experience.ts and
+ * - cohort sizes, attendance, budgets - live in experience.ts and
  * leadership.ts, marked TODO where the CV does not give them.
  */
 export const lenses: Lens[] = [
@@ -17,7 +17,7 @@ export const lenses: Lens[] = [
     headline:
       "I find the thing that makes a result smaller, and then I publish the smaller result.",
     blurb:
-      "Applied research across mathematics and statistical modelling, machine learning, computer vision and education — built on a mathematics degree and a survey-based thesis. Every project here produced a finding about method: an artefact that inflated a score, a threshold that meant nothing off its own split, a benchmark that did not predict the field. Four of the five made the headline number worse.",
+      "Applied research across mathematics and statistical modelling, machine learning, computer vision and education - built on a mathematics degree and a survey-based thesis. Every project here produced a finding about method: an artefact that inflated a score, a threshold that meant nothing off its own split, a benchmark that did not predict the field. Four of the five made the headline number worse.",
     skills: [
       "Research design",
       "Statistical modelling",
@@ -51,7 +51,7 @@ export const lenses: Lens[] = [
         title: "B.Sc. (Ed.) Mathematics & Education",
         org: "University of Uyo · 2020–2025 · Second Class Upper",
         detail:
-          "Thesis: causes and situational prevention of examination malpractice in school mathematics across Nsit Ibom LGA — instrument design, primary data collection and inferential testing.",
+          "Thesis: causes and situational prevention of examination malpractice in school mathematics across Nsit Ibom LGA - instrument design, primary data collection and inferential testing.",
         href: "/about",
       },
       {
@@ -105,7 +105,7 @@ export const lenses: Lens[] = [
     ],
     credentials: [
       {
-        title: "Data Science Intern — Energy Regulatory Analytics",
+        title: "Data Science Intern - Energy Regulatory Analytics",
         org: "NMDPRA · Finance & Accounts · Jan–Dec 2026",
         detail:
           "Rotating through Regional Accounts, Budget, Account System, Final Account and Treasury at Nigeria's midstream and downstream petroleum regulator.",
@@ -115,7 +115,7 @@ export const lenses: Lens[] = [
         title: "Energy-domain knowledge",
         org: "Midstream & downstream regulation",
         detail:
-          "Oil and gas value-chain data, regulatory reporting, budget and account compliance monitoring, and production and finance data structures — the context that decides whether a model asks a useful question.",
+          "Oil and gas value-chain data, regulatory reporting, budget and account compliance monitoring, and production and finance data structures - the context that decides whether a model asks a useful question.",
       },
       {
         title: "B.Sc. (Ed.) Mathematics & Education",
@@ -171,7 +171,7 @@ export const lenses: Lens[] = [
         title: "Deployable inference paths",
         org: "ONNX · FastAPI · Docker",
         detail:
-          "Models exported for CPU inference, served behind documented endpoints and containerised — including the service behind this site.",
+          "Models exported for CPU inference, served behind documented endpoints and containerised - including the service behind this site.",
       },
       {
         title: "Explainability as a requirement",
@@ -181,7 +181,7 @@ export const lenses: Lens[] = [
         href: "/projects/pipeline-defect-detection",
       },
       {
-        title: "Data Science Intern — Energy Regulatory Analytics",
+        title: "Data Science Intern - Energy Regulatory Analytics",
         org: "NMDPRA · Finance & Accounts · Jan–Dec 2026",
         href: "/experience",
       },
@@ -191,7 +191,7 @@ export const lenses: Lens[] = [
   {
     id: "educator",
     headline:
-      "I teach mathematics, physics and ICT — and the reasoning that outlasts the syllabus.",
+      "I teach mathematics, physics and ICT - and the reasoning that outlasts the syllabus.",
     blurb:
       "Secondary-level teaching, an ICT lab and the clubs that ran in it, one-to-one mentorship, and research on why students cheat and what actually prevents it. Certified by the Teachers Registration Council of Nigeria.",
     skills: [
@@ -210,7 +210,7 @@ export const lenses: Lens[] = [
         title: "Mathematics & ICT Educator",
         org: "Wells International School · Sep 2024 – Aug 2025",
         detail:
-          "Taught mathematics and physics at secondary level — algebra, calculus, trigonometry, statistics — and mentored students through their assessments.",
+          "Taught mathematics and physics at secondary level - algebra, calculus, trigonometry, statistics - and mentored students through their assessments.",
         href: "/experience",
       },
       {
@@ -262,7 +262,7 @@ export const lenses: Lens[] = [
         href: "/leadership",
       },
       {
-        title: "Executive Secretary — Humanitarian Affairs",
+        title: "Executive Secretary - Humanitarian Affairs",
         org: "NANS National Directorate · May 2025 – May 2026",
         detail:
           "Documentation and coordination across humanitarian programmes, from a visit to IDPs in Borno State to a career symposium for students with disabilities.",
@@ -326,7 +326,7 @@ export const lenses: Lens[] = [
         title: "Conference delivery, end to end",
         org: "Synergy Conference · 2023 – Present",
         detail:
-          "Concept through to the day itself — programme, speakers, partners, logistics, budget and the run of show — then post-event reporting for stakeholders.",
+          "Concept through to the day itself - programme, speakers, partners, logistics, budget and the run of show - then post-event reporting for stakeholders.",
         href: "/leadership",
       },
       {
@@ -347,14 +347,14 @@ export const lenses: Lens[] = [
         title: "Union budget oversight and delivery",
         org: "Students' Union Government · 2023",
         detail:
-          "Oversaw union funds as elected president, and shipped the programme behind them — a shuttle system that needed a new transport office to run it, an exhibition, and a financial-literacy summit.",
+          "Oversaw union funds as elected president, and shipped the programme behind them - a shuttle system that needed a new transport office to run it, an exhibition, and a financial-literacy summit.",
         href: "/leadership",
       },
       {
         title: "Technical build coordination",
         org: "Energy Asset Digital Twin",
         detail:
-          "Three modules, one dataset, one dashboard — scoped and sequenced so each piece could be evaluated on its own.",
+          "Three modules, one dataset, one dashboard - scoped and sequenced so each piece could be evaluated on its own.",
         href: "/projects/energy-asset-digital-twin",
       },
     ],

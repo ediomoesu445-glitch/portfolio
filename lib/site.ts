@@ -2,7 +2,7 @@ import { profile } from "@/content/profile";
 
 export const siteConfig = {
   name: profile.name,
-  title: `${profile.name} — ${profile.headline}`,
+  title: `${profile.name} - ${profile.headline}`,
   description:
     "Data scientist working on energy and regulatory analytics; AI/ML and backend engineer; educator; emerging leader; project manager. Based in Abuja, Nigeria.",
   /** Set NEXT_PUBLIC_SITE_URL in production for absolute OG/canonical URLs. */
