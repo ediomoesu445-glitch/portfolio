@@ -122,15 +122,19 @@ for reduced motion - so a missing WebM degrades quietly rather than breaking.
 
 ## Redeploying
 
-Full instructions and commands are in [DEPLOY.md](DEPLOY.md). The short version:
+The site and the FastAPI service deploy together, from this one repo, in one
+command. Vercel builds the Next.js app and `api/index.py` as a Python function
+alongside it, so there is no second host and no CORS.
 
 ```bash
 vercel --prod
 ```
 
+Full instructions are in [DEPLOY.md](DEPLOY.md), including which of the two API
+implementations answers and how to tell.
+
 Remember that `NEXT_PUBLIC_*` values are inlined at build time. Changing the
-site URL, or pointing at a newly deployed backend, needs a fresh deploy - not
-just an environment-variable edit.
+site URL needs a fresh deploy - not just an environment-variable edit.
 
 ---
 

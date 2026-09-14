@@ -1,0 +1,4 @@
+# Vercel installs this when building the Python function in api/.
+# It defers to the service's own list rather than restating it, so the
+# deployed dependencies cannot drift from the ones the tests run against.
+-r backend/requirements.txt
