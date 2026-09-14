@@ -1,56 +1,12 @@
 import type { TeachingContent } from "./types";
+import teachingData from "./data/teaching.json";
+
+// Data lives in ./data/*.json so the admin panel can read and write it.
+// This module types it and is the import every page still uses.
 
 /**
  * The educator identity, from the CV. Subjects, clubs and mentorship are real;
  * cohort sizes and outcomes are marked TODO because they are the figures a
  * school will actually ask about and they are not in the CV.
  */
-export const teaching: TeachingContent = {
-  intro:
-    "I taught mathematics and physics at secondary level, ran the ICT lab and the clubs that used it, and mentored students through their assessments. The aim is not syllabus coverage - it is getting a student from a formula they can reproduce to reasoning they can apply somewhere the formula was never mentioned.",
-  approach: [
-    {
-      title: "Computational thinking as a habit",
-      detail:
-        "Coding fundamentals and robotics in the ICT and Science Clubs, taught as transferable reasoning rather than as a unit to be examined and forgotten.",
-    },
-    {
-      title: "Quantitative reasoning, not recall",
-      detail:
-        "Lesson materials built to strengthen quantitative reasoning across algebra, calculus, trigonometry and statistics - the parts students most often learn as procedure without meaning.",
-    },
-    {
-      title: "The lab has to work",
-      detail:
-        "Running the ICT lab and its equipment so that both classroom instruction and club activities could actually happen. Teaching technology with broken technology teaches the wrong lesson.",
-    },
-  ],
-  subjects: [
-    {
-      name: "Mathematics",
-      detail:
-        "Secondary level - algebra, calculus, trigonometry and statistics, at Wells International School.",
-    },
-    {
-      name: "Physics",
-      detail: "Secondary level, alongside mathematics.",
-    },
-    {
-      name: "ICT & computational thinking",
-      detail:
-        "Coding fundamentals and robotics, delivered through the ICT and Science Clubs.",
-    },
-  ],
-  clubs: [
-    {
-      name: "ICT & Science Clubs",
-      role: "Head - Wells International School",
-      summary:
-        "Introduced students to coding fundamentals and robotics projects to build early computational-thinking skills, and kept the lab and equipment running for them. TODO(metric): how many students took part.",
-    },
-  ],
-  mentorship: [
-    "Mentored students preparing for internal mathematics and science assessments, through structured practice sessions rather than ad-hoc revision.",
-    "TODO(content): an outcome you would stand behind - a result, a progression, a student who went on to something specific.",
-  ],
-};
+export const teaching = teachingData as TeachingContent;

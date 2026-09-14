@@ -1,0 +1,24 @@
+[
+  {
+    "institution": "University of the People",
+    "credential": "B.Sc. Computer Science (in progress)",
+    "location": "California, United States",
+    "start": "2025-08",
+    "end": null,
+    "details": [
+      "Studied alongside full-time work: data structures and software design, algorithms and complexity, discrete mathematics, computer systems fundamentals and software engineering principles."
+    ]
+  },
+  {
+    "institution": "University of Uyo",
+    "credential": "B.Sc. (Ed.) Mathematics & Education",
+    "location": "Akwa Ibom, Nigeria",
+    "start": "2020-01",
+    "end": "2025-12",
+    "details": [
+      "Second Class Honours (Upper Division).",
+      "Thesis: causes and situational prevention of examination malpractice in school mathematics in Nsit Ibom Local Government Area.",
+      "Relevant coursework: predictive modelling, statistical analysis and probability, data analytics, optimization, operations research, numerical analysis, computational mathematics."
+    ]
+  }
+]

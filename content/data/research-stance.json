@@ -1,0 +1,4 @@
+{
+  "title": "How I work",
+  "body": "Four of the five findings here made a headline number smaller. That is the point: a result that only survives on the split it was fitted to is not a result. I run the diagnostic before the model, calibrate against data the model has not seen, score against the naive baseline, and publish the figure that survives - including when the honest answer is that there was nothing to find."
+}
