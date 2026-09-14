@@ -7,10 +7,10 @@ import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { formatPeriod, isTodo } from "@/lib/content";
 import { MlDemo } from "@/components/projects/MlDemo";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { MotionAsset } from "@/components/projects/motion/MotionAsset";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
-import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Pill } from "@/components/ui/Pill";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -98,8 +98,6 @@ export default async function ProjectPage({
   const period = project.started
     ? formatPeriod(project.started, project.date)
     : project.date;
-  const gallery = project.media?.filter((item) => item.kind === "image") ?? [];
-  const pending = project.media?.filter((item) => isTodo(item.src)) ?? [];
 
   return (
     <>
@@ -290,28 +288,15 @@ export default async function ProjectPage({
       )}
 
       {/* Media gallery --------------------------------------------------- */}
-      {(gallery.length > 0 || pending.length > 0) && (
-        <Section eyebrow="05" title="Gallery">
-          {gallery.length > 0 && (
-            <div className="grid gap-8 md:grid-cols-2">
-              {gallery.map((media) => (
-                <MediaFrame
-                  key={media.src}
-                  media={media}
-                  aspect="4 / 3"
-                  caption={media.alt}
-                />
-              ))}
-            </div>
-          )}
-
-          {pending.length > 0 && (
-            <div className="mt-8 grid gap-8 md:grid-cols-2">
-              {pending.map((media) => (
-                <MediaFrame key={media.src} media={media} aspect="16 / 9" />
-              ))}
-            </div>
-          )}
+      {(project.media?.length ?? 0) > 0 && (
+        <Section
+          eyebrow="05"
+          title="Gallery"
+          description="Figures and reels. Panels crop to keep the carousel working, so every figure links through to the uncropped file."
+        >
+          <Reveal>
+            <ProjectGallery project={project} />
+          </Reveal>
         </Section>
       )}
 

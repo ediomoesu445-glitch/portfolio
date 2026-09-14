@@ -45,6 +45,18 @@
 
   --focus: #5fb5b0;
 
+  /* shadcn compatibility. Dropped-in components address the theme by these
+     names; mapping them here means such a component themes correctly without
+     being edited, and there is still exactly one source of colour. */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-muted);
+  --border: var(--line);
+  --ring: var(--focus);
+  --primary: var(--normal);
+  --primary-foreground: var(--normal-ink);
+
   /* Elevation — restrained; a control room is flat, not glassy. */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.35);
   --shadow-md: 0 6px 20px -6px rgb(0 0 0 / 0.5);
@@ -76,6 +88,19 @@
 
   --focus: #2c6b68;
 
+  /* The same aliases resolve through the light palette automatically, since
+     each points at a token that is itself redefined above. Repeated here only
+     because custom properties do not cascade into a class the way a theme
+     block does. */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-muted);
+  --border: var(--line);
+  --ring: var(--focus);
+  --primary: var(--normal);
+  --primary-foreground: var(--normal-ink);
+
   --shadow-sm: 0 1px 2px 0 rgb(22 27 32 / 0.06);
   --shadow-md: 0 6px 20px -6px rgb(22 27 32 / 0.12);
   --shadow-lg: 0 24px 48px -16px rgb(22 27 32 / 0.18);
@@ -103,6 +128,16 @@
   --color-normal-soft: var(--normal-soft);
   --color-normal-ink: var(--normal-ink);
   --color-focus: var(--focus);
+
+  /* Generates bg-muted, text-foreground, ring-offset-background and friends. */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
 
   /* Typography — loaded in app/layout.tsx via next/font */
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
