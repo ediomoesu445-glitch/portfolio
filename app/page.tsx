@@ -1,15 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Suspense } from "react";
 import { LensExperience, LensFallback } from "@/components/home/LensExperience";
-import { HeroBackdrop } from "@/components/motion/HeroBackdrop";
+import { ResponsiveHeroBanner } from "@/components/ui/responsive-hero-banner";
 import { ButtonLink } from "@/components/ui/Button";
 import { Headshot } from "@/components/ui/Headshot";
 import { Container } from "@/components/ui/Container";
-import { Heading, Overline } from "@/components/ui/Heading";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { Stat } from "@/components/ui/Stat";
+import { affiliations } from "@/content/leadership";
 import { projects } from "@/content/projects";
 import { profile } from "@/content/profile";
 
@@ -48,23 +48,32 @@ const quickStats = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero + lens ----------------------------------------------------- */}
-      <section className="border-line relative isolate border-b py-20 md:py-28">
-        <HeroBackdrop />
+      {/* Hero ------------------------------------------------------------- */}
+      <ResponsiveHeroBanner
+        // Real drilling channels from the Volve log, sunk almost to black.
+        // Sensor traces rather than a stock photograph: linear enough to sit
+        // behind display type, and true to the work.
+        backgroundImageUrl="/media/anomaly-detection-predictive-maintenance/drilling-channels-flagged.png"
+        backgroundImageAlt=""
+        leading={<Headshot size="md" />}
+        badgeLabel="Open"
+        badgeText={`${profile.location} · ${profile.availability}`}
+        title={profile.name}
+        description="I build analytics and machine-learning systems for the energy sector — and publish the number I can defend, not the flattering one."
+        primaryAction={{
+          label: `See all ${projects.length} projects`,
+          href: "/projects",
+          icon: <ArrowRight className="size-4" aria-hidden />,
+        }}
+        secondaryAction={{ label: "Read the research", href: "/research" }}
+        stripTitle="Member of"
+        stripItems={affiliations.map((item) => item.name)}
+      />
+
+      {/* Lens ------------------------------------------------------------- */}
+      <section className="border-line border-b py-16 md:py-20">
         <Container>
           <Reveal>
-            <div className="flex flex-wrap items-center gap-5">
-              <Headshot size="sm" />
-              <Overline>
-                {profile.location} · {profile.availability}
-              </Overline>
-            </div>
-            <Heading level={1} size="display" className="mt-6 max-w-[14ch]">
-              {profile.name}
-            </Heading>
-          </Reveal>
-
-          <Reveal delay={0.06} className="mt-8">
             {/* useSearchParams needs a boundary on a statically rendered page;
                 the fallback renders the first lens so the server HTML is
                 complete and indexable. */}
@@ -73,12 +82,8 @@ export default function HomePage() {
             </Suspense>
           </Reveal>
 
-          <Reveal delay={0.12}>
+          <Reveal delay={0.1}>
             <div className="border-line mt-12 flex flex-wrap items-center gap-3 border-t pt-10">
-              <ButtonLink href="/projects" variant="primary">
-                All {projects.length} projects
-                <ArrowRight className="size-4" aria-hidden />
-              </ButtonLink>
               <ButtonLink href="/about">About me</ButtonLink>
               {profile.links.map((link) => (
                 <a

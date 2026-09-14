@@ -183,6 +183,10 @@
   --animate-marquee: marquee-scroll 42s linear infinite;
   --animate-drift-slow: drift 48s linear infinite;
   --animate-drift-slower: drift 77s linear infinite;
+  --animate-fade-slide-in-1: fade-slide-in 620ms var(--ease-out-expo) both;
+  --animate-fade-slide-in-2: fade-slide-in 620ms 80ms var(--ease-out-expo) both;
+  --animate-fade-slide-in-3: fade-slide-in 620ms 160ms var(--ease-out-expo) both;
+  --animate-fade-slide-in-4: fade-slide-in 620ms 240ms var(--ease-out-expo) both;
 }
 
 /* Anomaly points on the case-study chart: appear as the line reaches them. */
@@ -214,6 +218,19 @@
   }
   to {
     transform: translateX(-1200px);
+  }
+}
+
+/* Entrance for the hero banner. Four staggered steps; the global
+   prefers-reduced-motion rule flattens them along with everything else. */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
