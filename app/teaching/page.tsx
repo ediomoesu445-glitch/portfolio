@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { certifications } from "@/content/education";
 import { teaching } from "@/content/teaching";
 import { isTodo } from "@/lib/content";
 import { Card } from "@/components/ui/Card";
 import { Overline } from "@/components/ui/Heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { CertificationStrip } from "@/components/ui/CertificationStrip";
 import { Section } from "@/components/ui/Section";
 import { TodoChip } from "@/components/ui/TodoChip";
 
@@ -18,6 +20,13 @@ function Copy({ children }: { children: string }) {
   if (isTodo(children)) return <TodoChip value={children} />;
   return <p className="text-ink-muted text-[15px] leading-relaxed">{children}</p>;
 }
+
+/** The credentials a school or a scholarship panel would actually ask about. */
+const teachingCredentials = certifications.filter((certification) =>
+  ["TRCN", "Leadership", "NYSC"].some((key) =>
+    `${certification.name} ${certification.issuer}`.includes(key),
+  ),
+);
 
 export default function TeachingPage() {
   return (
@@ -99,6 +108,20 @@ export default function TeachingPage() {
             </ul>
           </Reveal>
         </div>
+      </Section>
+
+      <Section
+        eyebrow="Credentials"
+        title="Qualified to teach"
+        description="Registration with the Teachers Registration Council of Nigeria is the statutory requirement for classroom practice; the rest is the training behind it."
+        tone="subtle"
+      >
+        <Reveal>
+          <CertificationStrip
+            certifications={teachingCredentials}
+            title="Teaching and leadership credentials"
+          />
+        </Reveal>
       </Section>
     </>
   );

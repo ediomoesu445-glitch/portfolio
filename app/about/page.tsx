@@ -6,6 +6,7 @@ import { profile } from "@/content/profile";
 import { formatPeriod, isTodo } from "@/lib/content";
 import { languages } from "@/content/skills";
 import { ButtonLink } from "@/components/ui/Button";
+import { CertificationStrip } from "@/components/ui/CertificationStrip";
 import { Headshot } from "@/components/ui/Headshot";
 import { SkillBar } from "@/components/ui/SkillBar";
 import { Overline } from "@/components/ui/Heading";
@@ -143,22 +144,9 @@ export default function AboutPage() {
         </Reveal>
 
         {certifications.length > 0 && (
-          <div className="mt-16 max-w-3xl">
-            <Overline>Certifications</Overline>
-            <ul className="divide-line border-line mt-5 divide-y border-y">
-              {certifications.map((certification) => (
-                <li
-                  key={certification.name}
-                  className="flex flex-wrap items-baseline justify-between gap-2 py-4"
-                >
-                  <span className="text-ink text-sm">{certification.name}</span>
-                  <span className="text-ink-subtle font-mono text-[13px]">
-                    {certification.issuer}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Reveal className="mt-16">
+            <CertificationStrip certifications={certifications} />
+          </Reveal>
         )}
       </Section>
     </>

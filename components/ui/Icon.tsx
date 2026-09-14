@@ -1,5 +1,6 @@
 import {
   BrainCircuit,
+  Download,
   Github,
   GraduationCap,
   KanbanSquare,
@@ -21,6 +22,7 @@ import {
  */
 const icons = {
   BrainCircuit,
+  Download,
   Github,
   GraduationCap,
   KanbanSquare,

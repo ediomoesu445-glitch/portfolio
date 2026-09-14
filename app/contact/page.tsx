@@ -4,6 +4,7 @@ import { profile } from "@/content/profile";
 import { Icon } from "@/components/ui/Icon";
 import { Overline } from "@/components/ui/Heading";
 import { Reveal } from "@/components/ui/Reveal";
+import { ButtonLink } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
@@ -62,6 +63,22 @@ export default function ContactPage() {
                   </li>
                 ))}
             </ul>
+
+            {profile.resumeUrl && (
+              <div className="border-line mt-8 border-t pt-6">
+                <Overline>CV</Overline>
+                <ButtonLink
+                  href={profile.resumeUrl}
+                  variant="outline"
+                  size="sm"
+                  download
+                  className="mt-3"
+                >
+                  <Icon name="Download" className="size-4" />
+                  Download CV (PDF)
+                </ButtonLink>
+              </div>
+            )}
 
             <div className="border-line mt-8 border-t pt-6">
               <Overline>Location</Overline>

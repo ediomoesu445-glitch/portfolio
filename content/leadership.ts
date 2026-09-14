@@ -12,6 +12,14 @@ export const leadershipRoles: LeadershipRole[] = [
     period: "May 2025 — May 2026",
     scope:
       "National directorate, Abuja. Humanitarian and social-intervention programmes.",
+    stakeholders: [
+      "NANS national leadership",
+      "IDPs and vulnerable students, Borno State",
+      "Students with disabilities",
+      "NETISEN ICTS",
+      "Postgraduate students, University of Uyo",
+      "Female students nationwide",
+    ],
     summary:
       "Ran documentation, communication and programme coordination for the directorate — the administrative spine that decides whether a humanitarian programme can show what it did.",
     outcomes: [
@@ -28,6 +36,11 @@ export const leadershipRoles: LeadershipRole[] = [
     role: "Environmental Protection & Sanitation — Community Development Service",
     period: "Mar 2026 — Present",
     scope: "CDS group, Abuja. Community environmental and sanitation projects.",
+    stakeholders: [
+      "Host communities",
+      "Local leaders",
+      "Fellow corps members and volunteers",
+    ],
     summary:
       "Planned and delivered community environmental projects end to end — sensitisation, clean-up and waste-segregation exercises, and the advocacy around them.",
     outcomes: [
@@ -43,6 +56,11 @@ export const leadershipRoles: LeadershipRole[] = [
     role: "Head of Media & Public Relations",
     period: "May 2025 — Present",
     scope: "Media unit — live sound, streaming and AV for every service.",
+    stakeholders: [
+      "Congregation and streaming audience",
+      "The media and technical team",
+      "Other church departments",
+    ],
     summary:
       "Strategic communication and image management for the church, plus the team and the equipment that deliver it. A weekly production deadline that does not move.",
     outcomes: [
@@ -58,6 +76,12 @@ export const leadershipRoles: LeadershipRole[] = [
     role: "Programme & Digital Media Support",
     period: "Sep 2024 — Present",
     scope: "Community development, advocacy and humanitarian programmes.",
+    stakeholders: [
+      "Community stakeholders",
+      "IDPs, flood victims and orphans",
+      "Government agencies and NGOs",
+      "Local and international partners",
+    ],
     summary:
       "Monitoring, evaluation and digital media across the foundation's community work — capturing activity, reach and outcome data, and collecting it in the field rather than at a desk.",
     outcomes: [
@@ -74,6 +98,13 @@ export const leadershipRoles: LeadershipRole[] = [
     period: "Jul 2023 — Present",
     scope:
       "Multi-sector conference convening Students' Union Governments from tertiary institutions nationwide. TODO(metric): attendance and budget.",
+    stakeholders: [
+      "Students' Union Governments nationwide",
+      "Government agencies",
+      "Private organisations and NGOs",
+      "Community leaders",
+      "Speakers and partners",
+    ],
     summary:
       "Conceived and ran the first-ever conference bringing together Students' Union Governments from tertiary institutions, tagged The Synergy in Leadership, Academics and Business. Concept, speakers, partners, logistics, execution and post-event reporting.",
     outcomes: [
@@ -91,6 +122,15 @@ export const leadershipRoles: LeadershipRole[] = [
     period: "Jan 2023 — Dec 2023",
     scope:
       "Elected head of the union executive, representing the student body to university management and external stakeholders.",
+    stakeholders: [
+      "The student body",
+      "University management",
+      "Akwa Ibom State Government",
+      "Zenith Bank · First Bank",
+      "Akwa Ibom Investment Corporation",
+      "State Ministry of Power and Petroleum",
+      "Nsit Ibom LGA · Afaha Nsit Village Council",
+    ],
     summary:
       "Led the union executive for a full session: advocacy, welfare, union finances and the programme of events — and negotiated with management where student interests and institutional decisions collided.",
     outcomes: [
@@ -109,6 +149,11 @@ export const leadershipRoles: LeadershipRole[] = [
     role: "Senator, National Students' Parliament",
     period: "Jan 2023 — Dec 2023",
     scope: "National students' parliament, representing constituency interests.",
+    stakeholders: [
+      "Constituent students",
+      "NANS national leadership",
+      "Parliamentary committees",
+    ],
     summary:
       "Represented constituent students in the national parliament — debate, resolutions, and oversight of national NANS programmes.",
     outcomes: [

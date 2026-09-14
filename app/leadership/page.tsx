@@ -12,7 +12,7 @@ import { TodoChip } from "@/components/ui/TodoChip";
 export const metadata: Metadata = {
   title: "Leadership",
   description:
-    "Student government, conference convening, and community and media leadership — each shown with what was delivered and at what scale.",
+    "Student government, a national students' parliament, conference convening, community M&E and media leadership — each shown with its scope, its stakeholders and what it delivered.",
 };
 
 export default function LeadershipPage() {
@@ -21,9 +21,9 @@ export default function LeadershipPage() {
       divided={false}
       eyebrow="Leadership & delivery"
       title="Convening, representing, shipping"
-      description="Leadership roles shown with the thing that makes them assessable: what was delivered, at what scale, against what plan."
+      description="Each role on three axes: the scope it covered, the people who had to be brought along, and what actually came out of it. The middle one is the axis most CVs leave out, and usually the hardest part."
     >
-      <RevealGroup as="ul" className="grid gap-6 lg:grid-cols-3">
+      <RevealGroup as="ul" className="grid gap-6 lg:grid-cols-2">
         {leadershipRoles.map((role) => (
           <RevealItem as="li" key={`${role.org}-${role.role}`}>
             <Card className="h-full">
@@ -42,32 +42,66 @@ export default function LeadershipPage() {
                 </div>
               </div>
 
-              <h2 className="text-subtitle font-display text-ink mt-4 font-semibold">
+              <h2 className="text-subtitle font-display text-ink mt-4 font-semibold text-balance">
                 {role.role}
               </h2>
               <p className="text-ink-muted mt-1 text-sm">{role.org}</p>
-
-              {role.scope && (
-                <p className="border-line text-ink-subtle mt-4 border-y py-3 font-mono text-[12px]">
-                  {role.scope}
-                </p>
-              )}
 
               <p className="text-ink-muted mt-4 text-sm leading-relaxed">
                 {role.summary}
               </p>
 
-              <ul className="mt-4 space-y-2">
-                {role.outcomes.map((outcome) => (
-                  <li
-                    key={outcome}
-                    className="text-ink-subtle flex gap-2.5 text-sm leading-relaxed"
-                  >
-                    <span aria-hidden className="bg-line-strong mt-2 size-1 shrink-0" />
-                    {outcome}
-                  </li>
-                ))}
-              </ul>
+              {/* Scope ------------------------------------------------- */}
+              {role.scope && (
+                <div className="border-line mt-6 border-t pt-4">
+                  <Overline>Scope</Overline>
+                  {isTodo(role.scope) ? (
+                    <div className="mt-2">
+                      <TodoChip value={role.scope} />
+                    </div>
+                  ) : (
+                    <p className="text-ink-subtle mt-2 text-[13px] leading-relaxed">
+                      {role.scope}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Stakeholders ------------------------------------------ */}
+              {role.stakeholders && role.stakeholders.length > 0 && (
+                <div className="border-line mt-5 border-t pt-4">
+                  <Overline>Stakeholders</Overline>
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
+                    {role.stakeholders.map((person) => (
+                      <li key={person}>
+                        <Pill>{person}</Pill>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Outcome ----------------------------------------------- */}
+              <div className="border-line mt-5 border-t pt-4">
+                <Overline>Outcome</Overline>
+                <ul className="mt-3 space-y-2.5">
+                  {role.outcomes.map((outcome) =>
+                    isTodo(outcome) ? (
+                      <li key={outcome}>
+                        <TodoChip value={outcome} />
+                      </li>
+                    ) : (
+                      <li
+                        key={outcome}
+                        className="text-ink-muted flex gap-2.5 text-sm leading-relaxed"
+                      >
+                        <span aria-hidden className="bg-normal mt-2 size-1 shrink-0" />
+                        {outcome}
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
             </Card>
           </RevealItem>
         ))}

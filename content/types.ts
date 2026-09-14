@@ -264,6 +264,11 @@ export interface LeadershipRole {
   period: string;
   /** The scale of the role — who was represented, how many attended. */
   scope?: string;
+  /**
+   * Who had to be brought along. A leadership role is assessable on three
+   * axes — scope, stakeholders, outcome — and this is the one most CVs omit.
+   */
+  stakeholders?: string[];
   summary: string;
   outcomes: string[];
   identities: IdentityId[];
