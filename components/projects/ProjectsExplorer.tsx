@@ -41,7 +41,7 @@ function Chip({
       className={cn(
         "interactive rounded-pill border px-3 py-1.5 font-mono text-[11px] tracking-[0.1em] uppercase",
         active
-          ? "border-normal bg-normal-soft text-normal"
+          ? "border-normal bg-normal-soft text-normal-strong"
           : "border-line text-ink-muted hover:text-ink",
       )}
     >

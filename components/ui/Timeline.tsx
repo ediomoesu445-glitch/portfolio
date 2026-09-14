@@ -23,6 +23,7 @@ export function TimelineItem({
   subtitle,
   meta,
   current,
+  headingLevel = 3,
   children,
 }: {
   /** Already formatted, e.g. "Aug 2026 — Present". TODO sentinels are handled. */
@@ -32,8 +33,17 @@ export function TimelineItem({
   meta?: ReactNode;
   /** Marks the entry as ongoing; the tick becomes a live indicator. */
   current?: boolean;
+  /**
+   * Where the entry sits in the document outline. Defaults to h3, for a
+   * timeline under a section heading. On a page where the timeline *is* the
+   * content and the page title is the h1, pass 2 — skipping a level is a real
+   * failure for anyone navigating by headings.
+   */
+  headingLevel?: 2 | 3;
   children?: ReactNode;
 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
+
   return (
     <li className="relative pb-12 pl-6 last:pb-0 md:pl-8">
       <span
@@ -61,9 +71,9 @@ export function TimelineItem({
         {meta}
       </div>
 
-      <h3 className="text-subtitle font-display text-ink mt-2 font-semibold">
+      <Heading className="text-subtitle font-display text-ink mt-2 font-semibold">
         {title}
-      </h3>
+      </Heading>
       {subtitle && <p className="text-ink-muted mt-1 text-sm">{subtitle}</p>}
       {children && <div className="mt-4">{children}</div>}
     </li>

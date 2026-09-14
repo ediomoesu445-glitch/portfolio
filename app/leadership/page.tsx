@@ -21,6 +21,7 @@ export default function LeadershipPage() {
       divided={false}
       eyebrow="Leadership & delivery"
       title="Convening, representing, shipping"
+        headingLevel={1}
       description="Each role on three axes: the scope it covered, the people who had to be brought along, and what actually came out of it. The middle one is the axis most CVs leave out, and usually the hardest part."
     >
       <RevealGroup as="ul" className="grid gap-6 lg:grid-cols-2">

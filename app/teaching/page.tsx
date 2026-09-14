@@ -35,6 +35,7 @@ export default function TeachingPage() {
         divided={false}
         eyebrow="Educator"
         title="Teaching"
+        headingLevel={1}
         description={teaching.intro}
       >
         <RevealGroup as="ul" className="grid gap-6 md:grid-cols-3">

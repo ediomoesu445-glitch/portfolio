@@ -23,6 +23,7 @@ export default function ProjectsPage() {
       divided={false}
       eyebrow={`${projects.length} projects`}
       title="Work"
+        headingLevel={1}
       description="Four projects, all in energy. Each one reports the figure it can defend rather than the flattering one, and says plainly what it has not shown."
     >
       <ProjectsExplorer projects={ordered} />

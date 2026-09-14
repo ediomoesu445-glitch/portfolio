@@ -75,6 +75,10 @@
     "height": 800,
     "width": 1266
   },
+  "/media/headshot.jpg": {
+    "height": 800,
+    "width": 800
+  },
   "/media/pipeline-defect-detection/confusion-matrix.png": {
     "height": 975,
     "width": 1200

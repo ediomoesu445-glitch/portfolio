@@ -20,6 +20,7 @@ export function Section({
   title,
   description,
   tone = "default",
+  headingLevel = 2,
   divided = true,
   width,
   headerClassName,
@@ -31,6 +32,11 @@ export function Section({
   title?: string;
   description?: ReactNode;
   tone?: Tone;
+  /**
+   * Every page needs exactly one h1. The lead section on a page sets this to
+   * 1; everything below it stays at the default.
+   */
+  headingLevel?: 1 | 2;
   /** Draws the hairline rule that separates this section from the one above. */
   divided?: boolean;
   width?: "content" | "prose" | "wide";
@@ -54,7 +60,12 @@ export function Section({
         {(eyebrow || title || description) && (
           <header className={cn("mb-12 max-w-prose", headerClassName)}>
             {title ? (
-              <Heading level={2} size="headline" eyebrow={eyebrow} id={headingId}>
+              <Heading
+                level={headingLevel}
+                size="headline"
+                eyebrow={eyebrow}
+                id={headingId}
+              >
                 {title}
               </Heading>
             ) : null}

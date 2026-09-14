@@ -27,8 +27,8 @@
 
   /* Ink */
   --ink: #e6eaee;
-  --ink-muted: #8c99a4;
-  --ink-subtle: #6b7883;
+  --ink-muted: #9aa6b2;
+  --ink-subtle: #8a93a0;
   --ink-inverse: #14181c;
 
   /* Rules */
@@ -41,6 +41,9 @@
   --alarm-ink: #14181c;
   --normal: #46908c;
   --normal-soft: #16302f;
+  /* Teal readable against --normal-soft. The fill teal is too dark on it to
+     clear 4.5:1, and text on a tinted chip is small. */
+  --normal-strong: #6fc4bf;
   --normal-ink: #08201f;
 
   --focus: #5fb5b0;
@@ -73,7 +76,7 @@
 
   --ink: #161b20;
   --ink-muted: #4d5760;
-  --ink-subtle: #6d7880;
+  --ink-subtle: #5a646c;
   --ink-inverse: #f4f5f6;
 
   --line: #cbd1d6;
@@ -84,6 +87,8 @@
   --alarm-ink: #ffffff;
   --normal: #2c6b68;
   --normal-soft: #dcebea;
+  /* Already clears 4.5:1 on the light ground, so no separate value needed. */
+  --normal-strong: #2c6b68;
   --normal-ink: #ffffff;
 
   --focus: #2c6b68;
@@ -126,6 +131,7 @@
   --color-alarm-ink: var(--alarm-ink);
   --color-normal: var(--normal);
   --color-normal-soft: var(--normal-soft);
+  --color-normal-strong: var(--normal-strong);
   --color-normal-ink: var(--normal-ink);
   --color-focus: var(--focus);
 

@@ -1,0 +1,205 @@
+# Handoff
+
+Everything you need to keep this site current without touching a component.
+
+The rule the whole thing is built on: **content lives in `/content`, never in a
+page.** Pages read typed data and render it. If you want to change what the site
+says, you edit a data file — and TypeScript tells you if you break the shape.
+
+---
+
+## Running it
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+The backend is optional for local work — the site falls back to the Next route
+handlers in `app/api/`. To run it anyway:
+
+```bash
+cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload
+```
+
+Before you push anything:
+
+```bash
+npm run format && npm run typecheck && npm run lint && npm run build
+```
+
+---
+
+## Editing content
+
+| File                    | What it drives                                                          |
+| ----------------------- | ----------------------------------------------------------------------- |
+| `content/profile.ts`    | Name, headline, location, email, phone, CV link, headshot, social links |
+| `content/projects.ts`   | All six case studies — the big one                                      |
+| `content/experience.ts` | The roles timeline on `/experience`                                     |
+| `content/leadership.ts` | Leadership roles and affiliations                                       |
+| `content/education.ts`  | Degrees and certifications                                              |
+| `content/teaching.ts`   | `/teaching`                                                             |
+| `content/research.ts`   | `/research` findings and stance                                         |
+| `content/skills.ts`     | Skill groups and languages (CEFR levels)                                |
+| `content/lenses.ts`     | The six identity lenses on the home page                                |
+| `content/about.ts`      | `/about`                                                                |
+
+`content/types.ts` is the contract for all of them. Adding a field means adding
+it there first.
+
+### The `TODO(...)` convention — read this before adding a number
+
+Anywhere a real value isn't known yet, the string starts with `TODO(`:
+
+```ts
+{ label: "Recall on held-out faults", value: "TODO(metric): rerun on the 2024 split" }
+```
+
+The site renders these as a visible, labelled placeholder — a `TodoChip` — not
+as a number. That is the point. **Never replace a `TODO(metric)` with an
+estimate, a rounded-up figure, or a number from memory.** Replace it only with a
+value you can point at in a result file, and add a `method` note saying how it
+was measured:
+
+```ts
+{
+  label: "Recall on held-out faults",
+  value: "0.83",
+  method: "Mean over 5 seeds, TEP faults 1-20, 20% held out",
+}
+```
+
+`ProjectMetric` also takes `caveat` (rendered in alarm colour, _before_ the
+numbers) and `superseded` (renders the old value struck through). Use them — a
+number with its limitation attached is worth more in an interview than a clean
+number you have to walk back.
+
+### Adding a project
+
+Append to `content/projects.ts` with the next `order` value and a unique `slug`.
+The route, the card on `/projects`, the sitemap entry and the reel slot all
+appear on their own — `/projects/[slug]` is generated from the data.
+
+If the backend is deployed, mirror the change into it:
+
+```bash
+npm run sync:projects
+```
+
+That regenerates `backend/data/projects.json` from the TypeScript, so the two
+can't drift.
+
+---
+
+## Adding media
+
+1. Drop files into `public/media/<project-slug>/`. The headshot lives at
+   `public/media/headshot.jpg`.
+2. Reference them from `content/projects.ts` by their `/media/...` path.
+3. Re-run the measuring script so `next/image` gets real dimensions and the
+   page doesn't shift while loading:
+
+```bash
+python scripts/measure-media.py
+```
+
+That writes `content/media-manifest.json`. **Run it every time you add an
+image** — without intrinsic dimensions, layout shift shows up in Lighthouse.
+
+Keep full-resolution originals in `source-media/` (gitignored). Only the
+web-sized copy belongs in `public/`. For reference, the headshot went from
+3.6 MB to 93 KB at 800×800, which is ample for a 96 px slot on a 2× display.
+
+Videos take an MP4 **and** a WebM plus a poster still. The player is muted,
+looped, lazily loaded and falls back to the poster when the visitor has asked
+for reduced motion — so a missing WebM degrades quietly rather than breaking.
+
+---
+
+## Redeploying
+
+Full instructions and commands are in [DEPLOY.md](DEPLOY.md). The short version:
+
+```bash
+vercel --prod
+```
+
+Remember that `NEXT_PUBLIC_*` values are inlined at build time. Changing the
+site URL, or pointing at a newly deployed backend, needs a fresh deploy — not
+just an environment-variable edit.
+
+---
+
+## Things worth knowing before you change them
+
+- **Design tokens** are in `app/globals.css` (Tailwind v4, CSS-first — there is
+  no `tailwind.config.js`). `/design` renders the whole system on one page;
+  it is deliberately excluded from `robots.txt`.
+- **Text-colour tokens are contrast-tuned.** `--ink-subtle` has to clear 4.5:1
+  on the _lightest_ surface it can land on, which is `--surface-raised` —
+  interactive cards hover into it. If you darken it, cards fail WCAG AA.
+- **Motion** is guarded globally by `MotionConfig reducedMotion="user"` plus a
+  `prefers-reduced-motion` block in `globals.css`. Ten components branch on the
+  preference individually. New animation should do the same.
+- **Every page has exactly one `h1`.** `Section` takes `headingLevel={1}` for a
+  page's lead section; `TimelineItem` takes `headingLevel={2}` where the
+  timeline sits directly under the page title. Skipping a level is a real
+  failure for anyone navigating by headings.
+- **OG image, sitemap and JSON-LD are generated from content** — they can't
+  drift, and they shouldn't be hand-edited.
+
+### Accessibility status
+
+All 14 routes audited with axe-core 4.10 in **both themes**: zero violations.
+Run it again after significant changes.
+
+Note that no Lighthouse run is included here — the CLI isn't installed in this
+environment, so there is no score to quote. The axe results above are real
+measurements; a Lighthouse number would not be. Run it yourself against the
+deployed URL:
+
+```bash
+npx lighthouse https://YOUR-DOMAIN --view
+```
+
+When auditing in a browser, pin reveals to their settled state first, or you
+will chase phantom contrast failures from elements caught mid-fade:
+
+```js
+document.head.insertAdjacentHTML(
+  "beforeend",
+  "<style>*,*::before,*::after{transition:none!important;animation:none!important}[data-reveal],[data-reveal] *{opacity:1!important;transform:none!important}</style>",
+);
+```
+
+---
+
+## MEDIA TO CAPTURE
+
+Six items are still outstanding. Each one has a labelled slot already on the
+site — drop the file at the path given and it appears with no code change. The
+full shot list, with what to show in each recording, is in
+[docs/MEDIA-TO-CAPTURE.md](docs/MEDIA-TO-CAPTURE.md).
+
+| #   | Type      | Project                                    | Path                                                       |
+| --- | --------- | ------------------------------------------ | ---------------------------------------------------------- |
+| 1   | Recording | Anomaly Detection & Predictive Maintenance | `/media/anomaly-detection-predictive-maintenance/demo.mp4` |
+| 2   | Recording | Pipeline Defect Detection                  | `/media/pipeline-defect-detection/demo.mp4`                |
+| 3   | Recording | Ghost-Transaction Detection                | `/media/ghost-transaction-detection/demo.mp4`              |
+| 4   | Recording | Energy Asset Digital Twin                  | `/media/energy-asset-digital-twin/demo.mp4`                |
+| 5   | Recording | CORE — Petroleum Process Facilities        | `/media/core-anomaly-detection/demo.mp4`                   |
+| 6   | Image     | Examination Malpractice Study              | `/media/examination-malpractice-study/findings-table.png`  |
+
+Recordings: 8–15 seconds, no audio, no cursor hunting. MP4 **and** WebM, each
+under 3 MB, plus a poster still.
+
+Item 6 is the one that unlocks the most: supplying the thesis results table —
+and the numbers behind it — turns roughly twenty `TODO(metric)` placeholders on
+that case study into real findings, and makes the findings chart real rather
+than a placeholder.
+
+The headshot is done: `public/media/headshot.jpg`, 800×800.

@@ -71,7 +71,7 @@ export default function HomePage() {
       />
 
       {/* Lens ------------------------------------------------------------- */}
-      <section className="border-line border-b py-16 md:py-20">
+      <section className="border-line border-b py-12 md:py-14">
         <Container>
           <Reveal>
             {/* useSearchParams needs a boundary on a statically rendered page;

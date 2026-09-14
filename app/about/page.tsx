@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Section divided={false} eyebrow="About" title={about.lede}>
+      <Section divided={false} eyebrow="About" title={about.lede} headingLevel={1}>
         <div className="mb-12">
           <Headshot size="lg" />
         </div>

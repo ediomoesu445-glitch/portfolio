@@ -19,6 +19,7 @@ export default function ExperiencePage() {
       divided={false}
       eyebrow="Roles"
       title="Experience"
+      headingLevel={1}
       description="Newest first. Where a date or an achievement has not been supplied yet it shows as a placeholder rather than being filled with a guess."
     >
       <Reveal>
@@ -26,6 +27,7 @@ export default function ExperiencePage() {
           {experience.map((role) => (
             <TimelineItem
               key={`${role.org}-${role.role}`}
+              headingLevel={2}
               period={formatPeriod(role.start, role.end)}
               title={role.role}
               subtitle={`${role.org} · ${role.location}`}

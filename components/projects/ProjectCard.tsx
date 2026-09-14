@@ -58,14 +58,14 @@ export function ProjectCard({
           </div>
         </div>
 
-        <h3 className="text-title font-display text-ink mt-4 font-semibold text-balance">
+        <h2 className="text-title font-display text-ink mt-4 font-semibold text-balance">
           <Link
             href={`/projects/${project.slug}`}
             className="after:absolute after:inset-0 focus-visible:outline-none"
           >
             {project.title}
           </Link>
-        </h3>
+        </h2>
 
         <p className="text-ink-muted mt-3 text-sm leading-relaxed">{project.tagline}</p>
 

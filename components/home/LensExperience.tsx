@@ -104,39 +104,44 @@ export function LensExperience({ projects }: { projects: Project[] }) {
       </div>
 
       {/* Tabs ------------------------------------------------------------ */}
-      <div
-        role="tablist"
-        aria-label="View this page as"
-        onKeyDown={onKeyDown}
-        className="mt-8 flex flex-wrap gap-2"
-      >
-        {lenses.map((lens, index) => {
-          const identity = identityByLens[lens.id];
-          const selected = lens.id === active.id;
-          return (
-            <button
-              key={lens.id}
-              ref={(node) => {
-                tabRefs.current[index] = node;
-              }}
-              role="tab"
-              id={`lens-tab-${lens.id}`}
-              aria-selected={selected}
-              aria-controls="lens-panel"
-              tabIndex={selected ? 0 : -1}
-              onClick={() => select(index)}
-              className={cn(
-                "interactive rounded-card inline-flex items-center gap-2 border px-3.5 py-2 text-sm",
-                selected
-                  ? "border-normal bg-normal-soft text-normal"
-                  : "border-line text-ink-muted hover:text-ink",
-              )}
-            >
-              <Icon name={identity.icon} className="size-4" aria-hidden />
-              {identity.label}
-            </button>
-          );
-        })}
+      {/* The copy-link button is a sibling of the tablist, not a child of it:
+          a tablist may only contain tabs, and nesting a plain button there
+          also put it in the path of the arrow-key roving focus. */}
+      <div className="mt-8 flex flex-wrap items-center gap-2">
+        <div
+          role="tablist"
+          aria-label="View this page as"
+          onKeyDown={onKeyDown}
+          className="flex flex-wrap gap-2"
+        >
+          {lenses.map((lens, index) => {
+            const identity = identityByLens[lens.id];
+            const selected = lens.id === active.id;
+            return (
+              <button
+                key={lens.id}
+                ref={(node) => {
+                  tabRefs.current[index] = node;
+                }}
+                role="tab"
+                id={`lens-tab-${lens.id}`}
+                aria-selected={selected}
+                aria-controls="lens-panel"
+                tabIndex={selected ? 0 : -1}
+                onClick={() => select(index)}
+                className={cn(
+                  "interactive rounded-card inline-flex items-center gap-2 border px-3.5 py-2 text-sm",
+                  selected
+                    ? "border-normal bg-normal-soft text-normal-strong"
+                    : "border-line text-ink-muted hover:text-ink",
+                )}
+              >
+                <Icon name={identity.icon} className="size-4" aria-hidden />
+                {identity.label}
+              </button>
+            );
+          })}
+        </div>
 
         <button
           type="button"

@@ -130,11 +130,11 @@ export function ResponsiveHeroBanner({
         }}
       />
 
-      <div className="max-w-content relative z-10 mx-auto w-full px-5 py-24 md:px-8 md:py-32">
-        {leading && <div className="animate-fade-slide-in-1 mb-6">{leading}</div>}
+      <div className="max-w-content relative z-10 mx-auto w-full px-5 py-12 md:px-8 md:py-16">
+        {leading && <div className="animate-fade-slide-in-1 mb-4">{leading}</div>}
 
         {badgeText && (
-          <div className="animate-fade-slide-in-1 rounded-pill border-line bg-surface/80 mb-8 inline-flex items-center gap-3 border px-2.5 py-1.5 backdrop-blur">
+          <div className="animate-fade-slide-in-1 rounded-pill border-line bg-surface/80 mb-6 inline-flex items-center gap-3 border px-2.5 py-1.5 backdrop-blur">
             {badgeLabel && (
               <span className="rounded-pill bg-normal text-normal-ink px-2 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase">
                 {badgeLabel}
@@ -163,7 +163,7 @@ export function ResponsiveHeroBanner({
         )}
 
         {(primaryAction || secondaryAction) && (
-          <div className="animate-fade-slide-in-4 mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <div className="animate-fade-slide-in-4 mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             {primaryAction && <ActionLink action={primaryAction} variant="primary" />}
             {secondaryAction && <ActionLink action={secondaryAction} variant="ghost" />}
           </div>

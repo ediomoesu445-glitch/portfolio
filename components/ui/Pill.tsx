@@ -13,7 +13,7 @@ type Size = "sm" | "md";
 const variants: Record<Variant, string> = {
   neutral: "border-line text-ink-muted",
   alarm: "border-alarm/45 bg-alarm-soft text-alarm",
-  normal: "border-normal/45 bg-normal-soft text-normal",
+  normal: "border-normal/45 bg-normal-soft text-normal-strong",
   code: "border-line-strong text-ink font-mono tracking-[0.18em]",
 };
 

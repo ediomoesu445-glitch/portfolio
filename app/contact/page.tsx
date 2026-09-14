@@ -18,6 +18,7 @@ export default function ContactPage() {
       divided={false}
       eyebrow="Contact"
       title="Get in touch"
+        headingLevel={1}
       description="Open to remote roles and relocation. If you would rather not use the form, every direct route is listed beside it."
     >
       <div className="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">

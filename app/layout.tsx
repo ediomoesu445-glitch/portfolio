@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { PersonSchema } from "@/components/seo/PersonSchema";
 import { themeInitScript } from "@/components/theme/theme-script";
 import { profile } from "@/content/profile";
 import { siteConfig } from "@/lib/site";
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <PersonSchema />
       </head>
       <body className="flex min-h-full flex-col">
         <a

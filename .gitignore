@@ -54,3 +54,6 @@ backend/.env
 .vscode/
 .DS_Store
 Thumbs.db
+
+# original media (full-resolution sources; the web copies live in /public/media)
+/source-media/

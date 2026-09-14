@@ -29,6 +29,7 @@ export default function ResearchPage() {
         divided={false}
         eyebrow="Researcher"
         title="Findings, not just models"
+        headingLevel={1}
         description="Every project on this site produced something about method as well as a result. Collected here because the pattern only shows when they sit together."
       >
         <Reveal>
