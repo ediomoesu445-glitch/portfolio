@@ -4,3 +4,8 @@ public/
 backend/
 *.lock
 package-lock.json
+
+# Written by the admin panel with JSON.stringify(data, null, 2).
+# Prettier collapses short arrays inline, which would turn every content
+# edit into a whole-file reformat and fight the panel on each save.
+content/data/

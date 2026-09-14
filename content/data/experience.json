@@ -6,7 +6,9 @@
     "start": "2026-03",
     "end": "2026-12",
     "current": true,
-    "identities": ["data-scientist"],
+    "identities": [
+      "data-scientist"
+    ],
     "summary": "A national service placement rotating through the Finance & Accounts Directorate - Regional Accounts, Budget, Account System, Final Account and Treasury - learning how financial and operational data moves across a national energy regulator.",
     "achievements": [
       "Consolidated and reconciled financial data submitted by regional and zonal offices, and supported budget tracking and variance checks against approved allocations.",
@@ -14,7 +16,13 @@
       "Used Python to explore sample budget and transaction data for patterns and anomalies, and built dashboards and reports that put the findings in front of supervisors in a form they could act on.",
       "Gained first-hand insight into regulatory reporting and financial oversight in the oil and gas value chain - the exposure that shaped the self-directed projects on this site."
     ],
-    "stack": ["Python", "SQL", "Excel", "Power BI", "Dashboards"]
+    "stack": [
+      "Python",
+      "SQL",
+      "Excel",
+      "Power BI",
+      "Dashboards"
+    ]
   },
   {
     "org": "Notre Dame Shalom School",
@@ -22,7 +30,10 @@
     "location": "Abuja, Nigeria",
     "start": "2025-09",
     "end": "2026-04",
-    "identities": ["educator", "data-scientist"],
+    "identities": [
+      "educator",
+      "data-scientist"
+    ],
     "summary": "Built and ran the school's data systems while teaching mathematics and ICT - the analysis and the infrastructure it depended on, in the same job.",
     "achievements": [
       "Built and managed the school's database systems, with accurate record-keeping, data security and workable access for students, staff and administration.",
@@ -44,7 +55,9 @@
     "location": "Akwa Ibom, Nigeria",
     "start": "2024-09",
     "end": "2025-08",
-    "identities": ["educator"],
+    "identities": [
+      "educator"
+    ],
     "summary": "Multi-disciplinary secondary teaching, the school's ICT and multimedia infrastructure, and the clubs that ran on it - plus pastoral duty as Compound Master.",
     "achievements": [
       "Delivered instruction across mathematics, further mathematics, physics, geography, government and technical drawing, building analytical alongside conceptual understanding.",

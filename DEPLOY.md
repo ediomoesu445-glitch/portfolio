@@ -87,14 +87,19 @@ check which one is answering before reading the wrong code.
 
 ## Environment variables
 
-| Variable                                            | Where    | What it does                                                     |
-| --------------------------------------------------- | -------- | ---------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`                              | Frontend | Canonical URLs, sitemap, robots, OG card. **Set this.**          |
-| `NEXT_PUBLIC_API_BASE_URL`                          | Frontend | `/api/py` to use FastAPI; empty to use the Next.js handlers.     |
-| `ENVIRONMENT`                                       | Function | `production` in production.                                      |
-| `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASSWORD` | Function | Contact delivery. **Unset means messages are logged, not sent.** |
-| `CONTACT_TO_EMAIL`                                  | Function | Where contact messages go.                                       |
-| `CONTACT_RATE_LIMIT_PER_HOUR`                       | Function | Per-IP submissions allowed. Default 5.                           |
+| Variable                                            | Where    | What it does                                                                      |
+| --------------------------------------------------- | -------- | --------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                              | Frontend | Canonical URLs, sitemap, robots, OG card. **Set this.**                           |
+| `NEXT_PUBLIC_API_BASE_URL`                          | Frontend | `/api/py` to use FastAPI; empty to use the Next.js handlers.                      |
+| `ENVIRONMENT`                                       | Function | `production` in production.                                                       |
+| `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASSWORD` | Function | Contact delivery. **Unset means messages are logged, not sent.**                  |
+| `CONTACT_TO_EMAIL`                                  | Function | Where contact messages go.                                                        |
+| `CONTACT_RATE_LIMIT_PER_HOUR`                       | Function | Per-IP submissions allowed. Default 5.                                            |
+| `ADMIN_PASSWORD_HASH`                               | Frontend | Admin login. Without it, `/admin` is a 404.                                       |
+| `ADMIN_SESSION_SECRET`                              | Frontend | Signs the admin session. Rotating it signs everyone out.                          |
+| `GITHUB_TOKEN`                                      | Frontend | Lets the panel commit content. Fine-grained, Contents read/write, this repo only. |
+| `GITHUB_REPO`                                       | Frontend | `owner/repo` the panel commits to.                                                |
+| `GITHUB_BRANCH`                                     | Frontend | Defaults to `main`.                                                               |
 
 `CORS_ORIGINS` is not needed on Vercel - same origin, no preflight. It still
 applies if you ever host the service separately.

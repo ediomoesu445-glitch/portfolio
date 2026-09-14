@@ -4,7 +4,11 @@
     "order": 1,
     "title": "Anomaly Detection & Predictive Maintenance for Energy Infrastructure",
     "tagline": "Unsupervised detection on a real drilling log - and the calibration step that decided whether any of it meant anything.",
-    "identities": ["researcher", "data-scientist", "ai-engineer"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "ai-engineer"
+    ],
     "objective": "Flag early signs of equipment and process anomalies in oil and gas infrastructure, supporting a shift from reactive to predictive maintenance. Built alongside the Energy Asset Digital Twin on the same Volve dataset, so detection and monitoring share one view of the asset.",
     "summary": "Unsupervised anomaly detection over the 15/9-F-9 A drilling log: an isolation forest, an LSTM autoencoder, SPC control charts and a stuck-pipe heuristic, combined into a single reviewable event list. The detectors are the easy part. Calibrating them so their flag rates mean the same thing is where the work was.",
     "problem": "Operational sensor data is abundant and unlabelled, so there is no ground truth to score against. A detector can hit its target flag rate on the data it was fitted to and be wildly off on data it has not seen - and without noticing that, any combination of detectors is arithmetic on incomparable numbers.",
@@ -109,7 +113,10 @@
     "order": 2,
     "title": "AI-Based Pipeline Defect Detection",
     "tagline": "Six-class surface-defect classification with Grad-CAM, measured against simulated field-imaging conditions.",
-    "identities": ["researcher", "ai-engineer"],
+    "identities": [
+      "researcher",
+      "ai-engineer"
+    ],
     "objective": "Detect and classify surface defects from inspection imagery, so the volume of footage a visual survey produces stops being the bottleneck. The point is triage: put the frames most likely to matter in front of an inspector first.",
     "summary": "A ResNet18 classifier that assigns a steel surface image to one of six defect classes, with Grad-CAM saliency overlays and a corruption-robustness evaluation. Built as a proof of concept for the visual-inspection layer of a pipeline-integrity workflow.",
     "problem": "Pipeline integrity management relies on in-line inspection - magnetic flux leakage and ultrasonic testing - as the authoritative source for wall loss and defect depth. Separately, operators run visual surveys: right-of-way patrols, drone and CCTV footage, station and riser inspections. Those surveys generate far more imagery than anyone can review by eye.",
@@ -122,7 +129,15 @@
       "Fine-tune on real pipeline imagery once a labelled set exists. Everything here is steel surface imagery standing in for it.",
       "Add the severity-ranking workflow and the corrosion imagery. Both are designed and neither is built, for the same reason as the benchmark."
     ],
-    "stack": ["Python", "PyTorch", "ResNet18", "OpenCV", "Grad-CAM", "ONNX", "Gradio"],
+    "stack": [
+      "Python",
+      "PyTorch",
+      "ResNet18",
+      "OpenCV",
+      "Grad-CAM",
+      "ONNX",
+      "Gradio"
+    ],
     "dataset": {
       "name": "NEU Surface Defect Database",
       "source": "Northeastern University - six defect classes of steel surface imagery",
@@ -204,7 +219,11 @@
     "order": 3,
     "title": "AI-Based Fraud & Ghost-Transaction Detection for Energy-Sector Finance",
     "tagline": "Ranking reconciliation records so limited investigative capacity goes to the ones most worth opening.",
-    "identities": ["researcher", "data-scientist", "ai-engineer"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "ai-engineer"
+    ],
     "objective": "Detect fraudulent and ghost transactions in energy-sector financial flows - records that never corresponded to real economic activity. The output has to be reviewable by a finance or audit team, which rules out a model that cannot say why it flagged something.",
     "summary": "A detection method developed and validated on labelled synthetic data, designed to run unsupervised on the real, unlabelled deployment target. Informed by hands-on exposure to budget and account system control at Nigeria's midstream and downstream petroleum regulator. Every output is an investigative lead for human review, never a determination of fraud.",
     "problem": "Energy-sector revenue flows pass through a reconciliation chain - operator declarations, regulator records, remittances to government. Gaps in that chain can be benign (timing, classification, exchange-rate treatment) or can indicate transactions that never happened. Investigative capacity is finite, so the task is ranking, not classification.",
@@ -216,7 +235,14 @@
       "Build the reviewer feedback loop: a flagged record an analyst clears is training signal the unlabelled target otherwise never produces.",
       "Calibrate the alert threshold to actual review capacity rather than to a fixed precision, since queue length is the real constraint."
     ],
-    "stack": ["Python", "pandas", "XGBoost", "scikit-learn", "SHAP", "Streamlit"],
+    "stack": [
+      "Python",
+      "pandas",
+      "XGBoost",
+      "scikit-learn",
+      "SHAP",
+      "Streamlit"
+    ],
     "dataset": {
       "name": "PaySim synthetic transactions, with NEITI reports for context",
       "source": "Kaggle (PaySim); NEITI oil & gas audit reports",
@@ -293,7 +319,12 @@
     "order": 4,
     "title": "Energy Asset Digital Twin & Monitoring Platform",
     "tagline": "Production forecasting, drilling anomaly detection and a replay dashboard over one real field dataset.",
-    "identities": ["researcher", "data-scientist", "ai-engineer", "project-manager"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "ai-engineer",
+      "project-manager"
+    ],
     "objective": "Prototype a near-real-time monitoring twin for energy assets, to cut the lag between what the field knows and what a decision-maker sees. Everything it produces is decision support for a person, never an automated verdict.",
     "summary": "Three modules on the Equinor Volve field dataset: per-well oil-rate forecasting evaluated against naive baselines, unsupervised anomaly detection on a drilling log, and a digital-twin dashboard with a documented health index and a historical replay simulator.",
     "problem": "Production and drilling data are abundant, but a forecast that looks accurate can be worthless. Predicting that tomorrow matches today already scores R² 0.86–0.92 on every well in this field, so any model reporting R² alone will look competent while adding nothing.",
@@ -393,7 +424,11 @@
     "order": 5,
     "title": "CORE - Anomaly Detection for Petroleum Process Facilities",
     "tagline": "A two-tier screener and classifier watching 52 process variables across 20 fault types.",
-    "identities": ["researcher", "data-scientist", "ai-engineer"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "ai-engineer"
+    ],
     "objective": "Detect process faults early enough to act on, at a false-alarm rate an operator will tolerate. A detector that cries wolf gets switched off by the people it was built for, so the binding constraint is false alarms rather than accuracy.",
     "summary": "Fault detection for petroleum process facilities on the Tennessee Eastman Process benchmark. A PCA-MSPC screener flags any departure from normal operation without needing labels; a LightGBM classifier then confirms whether the departure is a real fault. Built separately from the Volve work and on a different dataset, which is why it stands as its own project rather than folding into the drilling-log one.",
     "problem": "Process plants generate continuous multivariate sensor data in which faults are rare, varied and easy to miss among normal operating drift. Unlike the drilling log, this benchmark has ground-truth labels - which is exactly what makes it useful for measuring whether a detection method works at all.",
@@ -496,7 +531,11 @@
     "order": 6,
     "title": "Causes and Situational Prevention of Examination Malpractice",
     "tagline": "A B.Sc. research study on examination malpractice in school mathematics, using survey data and inferential statistics.",
-    "identities": ["researcher", "educator", "data-scientist"],
+    "identities": [
+      "researcher",
+      "educator",
+      "data-scientist"
+    ],
     "objective": "Identify what actually drives examination malpractice in school mathematics, and which situational controls plausibly reduce it - grounded in primary data from the people involved rather than in assertion.",
     "summary": "An undergraduate research study combining instrument design, primary data collection and inferential testing to examine the causes of examination malpractice in school mathematics across Nsit Ibom Local Government Area, and the situational measures that might prevent it. Submitted for the B.Sc. (Ed.) Mathematics degree at the University of Uyo.",
     "problem": "Examination malpractice is usually treated as a discipline problem to be punished after the fact. Situational prevention asks a different question: which features of the exam setting itself make malpractice easy, and which of those can be changed? TODO(content): add the framing your literature review actually used.",

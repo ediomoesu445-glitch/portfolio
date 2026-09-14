@@ -33,6 +33,57 @@ npm run format && npm run typecheck && npm run lint && npm run build
 
 ---
 
+## The admin panel
+
+`/admin` edits every content collection through forms, so you never have to
+open a data file. Saving commits to GitHub and Vercel rebuilds, which means a
+content change keeps exactly the same audit trail as a code change.
+
+### One-time setup
+
+```bash
+node scripts/hash-password.mjs "a password of at least 12 characters"
+```
+
+That prints `ADMIN_PASSWORD_HASH` and `ADMIN_SESSION_SECRET`. Put both in
+Vercel's environment variables. Then create a **fine-grained** GitHub token
+scoped to this repository alone, with Contents: read and write, and set it as
+`GITHUB_TOKEN` along with `GITHUB_REPO` and `GITHUB_BRANCH`.
+
+Until both admin variables are set, `/admin` returns 404 rather than a login
+form. A half-configured deploy should look like it has no admin at all, not
+like an unlocked one.
+
+### Using it
+
+Pick a collection, edit, save. A commit message is optional. Lists let you add,
+delete and reorder; long sub-records such as metrics and media collapse so a
+six-metric project is still navigable on a phone.
+
+Locally there is no token, so saving writes straight to `content/data/` and the
+dev server hot-reloads. Same forms, no commits.
+
+### The rule the panel enforces
+
+**A metric with a real value must have a method.** Clear the method on a real
+figure and the field turns red before you can save; try it anyway through the
+API and the save is rejected, naming the exact record. Mark the value
+`TODO(metric): ...` and the method becomes optional again, because a TODO is
+openly not a result.
+
+That is the master rule of this project made mechanical. You cannot publish a
+number you cannot source, even in a hurry, even months from now when the
+reasoning has faded.
+
+### If you outgrow it
+
+The panel is schema-driven: [lib/admin/collections.ts](lib/admin/collections.ts)
+describes every field, and one form engine renders all fifteen collections. To
+add a field, add it to `content/types.ts` and to that schema. There is no
+per-collection form to update.
+
+---
+
 ## Editing content
 
 | File                    | What it drives                                                          |

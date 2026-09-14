@@ -20,7 +20,10 @@
       "Brokered the Students Technology Training Programme (STEP) with NETISEN ICTS, delivering digital skills training.",
       "Documented the impact of the Business Summit and Grant Programme at the University of Uyo, measuring how grants and training moved postgraduate outcomes."
     ],
-    "identities": ["leader", "project-manager"]
+    "identities": [
+      "leader",
+      "project-manager"
+    ]
   },
   {
     "org": "National Youth Service Corps (NYSC)",
@@ -39,7 +42,10 @@
       "Managed community projects from planning to execution against set objectives and timelines, and tracked their impact afterwards.",
       "Designed the posters, presentations and digital content that carried the message."
     ],
-    "identities": ["project-manager", "leader"]
+    "identities": [
+      "project-manager",
+      "leader"
+    ]
   },
   {
     "org": "Destiny Centre Unveiling Chapel",
@@ -58,7 +64,10 @@
       "Built and ran the digital outreach across online platforms and social media.",
       "Kept records of media activity and campaigns for accountability and compliance."
     ],
-    "identities": ["leader", "project-manager"]
+    "identities": [
+      "leader",
+      "project-manager"
+    ]
   },
   {
     "org": "DipGold Human Development Foundation (DGHDF)",
@@ -78,7 +87,10 @@
       "Helped organise relief distribution for internally displaced persons, flood victims and orphans.",
       "Contributed to capacity-building programmes equipping community members with skills for self-reliance."
     ],
-    "identities": ["project-manager", "leader"]
+    "identities": [
+      "project-manager",
+      "leader"
+    ]
   },
   {
     "org": "Synergy Conference",
@@ -100,7 +112,10 @@
       "Established partnerships with government agencies and foundations intended to outlast the event itself.",
       "TODO(metric): attendance against target, number of institutions represented, and budget against plan."
     ],
-    "identities": ["leader", "project-manager"]
+    "identities": [
+      "leader",
+      "project-manager"
+    ]
   },
   {
     "org": "Akwa Ibom State University of Education (affiliated to the University of Uyo)",
@@ -126,7 +141,10 @@
       "Facilitated free bank accounts for students and ran a financial-literacy summit alongside them.",
       "Built partnerships with Zenith Bank, First Bank, Akwa Ibom Investment Corporation, the State Ministry of Power and Petroleum, Nsit Ibom LGA and others."
     ],
-    "identities": ["leader", "project-manager"]
+    "identities": [
+      "leader",
+      "project-manager"
+    ]
   },
   {
     "org": "National Association of Nigerian Students (NANS)",
@@ -145,6 +163,8 @@
       "Advocated for reform in tertiary education funding and management.",
       "Mediated between students and national leadership."
     ],
-    "identities": ["leader"]
+    "identities": [
+      "leader"
+    ]
   }
 ]

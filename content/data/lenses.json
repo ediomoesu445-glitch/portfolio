@@ -170,7 +170,9 @@
       "Survey design",
       "Inferential statistics"
     ],
-    "projects": ["examination-malpractice-study"],
+    "projects": [
+      "examination-malpractice-study"
+    ],
     "credentials": [
       {
         "title": "Mathematics & ICT Educator",
@@ -271,7 +273,9 @@
       "Post-event reporting",
       "Field data collection"
     ],
-    "projects": ["energy-asset-digital-twin"],
+    "projects": [
+      "energy-asset-digital-twin"
+    ],
     "credentials": [
       {
         "title": "Conference delivery, end to end",

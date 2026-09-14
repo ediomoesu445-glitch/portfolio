@@ -1,12 +1,24 @@
 [
   {
     "label": "Programming",
-    "identities": ["data-scientist", "ai-engineer"],
-    "items": ["Python", "SQL", "Java", "C", "MySQL"]
+    "identities": [
+      "data-scientist",
+      "ai-engineer"
+    ],
+    "items": [
+      "Python",
+      "SQL",
+      "Java",
+      "C",
+      "MySQL"
+    ]
   },
   {
     "label": "Machine learning",
-    "identities": ["ai-engineer", "data-scientist"],
+    "identities": [
+      "ai-engineer",
+      "data-scientist"
+    ],
     "items": [
       "Supervised & unsupervised learning",
       "Feature engineering",
@@ -18,7 +30,9 @@
   },
   {
     "label": "Computer vision",
-    "identities": ["ai-engineer"],
+    "identities": [
+      "ai-engineer"
+    ],
     "items": [
       "Image preprocessing & augmentation",
       "CNNs",
@@ -31,7 +45,11 @@
   },
   {
     "label": "Statistical modelling",
-    "identities": ["researcher", "data-scientist", "educator"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "educator"
+    ],
     "items": [
       "Predictive analytics",
       "Probability",
@@ -43,7 +61,11 @@
   },
   {
     "label": "Mathematical foundations",
-    "identities": ["researcher", "data-scientist", "educator"],
+    "identities": [
+      "researcher",
+      "data-scientist",
+      "educator"
+    ],
     "items": [
       "Linear algebra",
       "Calculus & differential equations",
@@ -54,7 +76,9 @@
   },
   {
     "label": "Energy sector & domain knowledge",
-    "identities": ["data-scientist"],
+    "identities": [
+      "data-scientist"
+    ],
     "items": [
       "Oil & gas value-chain data",
       "Midstream & downstream regulatory reporting",
@@ -64,7 +88,10 @@
   },
   {
     "label": "Data engineering & preparation",
-    "identities": ["data-scientist", "ai-engineer"],
+    "identities": [
+      "data-scientist",
+      "ai-engineer"
+    ],
     "items": [
       "Data preprocessing & cleaning",
       "EDA",
@@ -75,7 +102,11 @@
   },
   {
     "label": "Tools & ecosystem",
-    "identities": ["data-scientist", "ai-engineer", "project-manager"],
+    "identities": [
+      "data-scientist",
+      "ai-engineer",
+      "project-manager"
+    ],
     "items": [
       "Python data-science stack",
       "Jupyter",
@@ -89,7 +120,10 @@
   },
   {
     "label": "Teaching & communication",
-    "identities": ["educator", "leader"],
+    "identities": [
+      "educator",
+      "leader"
+    ],
     "items": [
       "Mathematics instruction",
       "Physics instruction",
@@ -101,7 +135,10 @@
   },
   {
     "label": "Delivery & coordination",
-    "identities": ["project-manager", "leader"],
+    "identities": [
+      "project-manager",
+      "leader"
+    ],
     "items": [
       "End-to-end event delivery",
       "Monitoring & evaluation",
