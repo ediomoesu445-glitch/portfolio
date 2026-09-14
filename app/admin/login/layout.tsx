@@ -14,5 +14,9 @@ export const metadata: Metadata = {
  * nonsense.
  */
 export default function LoginLayout({ children }: { children: ReactNode }) {
-  return <div className="max-w-content mx-auto w-full px-5 py-10 md:px-8">{children}</div>;
+  return (
+    <main id="main" className="max-w-content mx-auto w-full flex-1 px-5 py-10 md:px-8">
+      {children}
+    </main>
+  );
 }

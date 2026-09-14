@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="max-w-content mx-auto w-full px-5 py-10 md:px-8">
+    <main id="main" className="max-w-content mx-auto w-full flex-1 px-5 py-10 md:px-8">
       <div className="border-line mb-8 flex flex-wrap items-baseline justify-between gap-4 border-b pb-5">
         <div>
           <Link href="/admin" className="text-ink font-display text-xl font-bold">
@@ -26,9 +26,11 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             Edits commit to the repo. The site rebuilds automatically.
           </p>
         </div>
-        <AdminNav collections={collections.map((c) => ({ id: c.id, label: c.label }))} />
+        <AdminNav
+          collections={collections.map((c) => ({ id: c.id, label: c.label }))}
+        />
       </div>
       {children}
-    </div>
+    </main>
   );
 }

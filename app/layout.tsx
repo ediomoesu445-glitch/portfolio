@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import type { ReactNode } from "react";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { MotionProvider } from "@/components/motion/MotionProvider";
-import { PersonSchema } from "@/components/seo/PersonSchema";
 import { themeInitScript } from "@/components/theme/theme-script";
 import { profile } from "@/content/profile";
 import { siteConfig } from "@/lib/site";
@@ -65,6 +62,14 @@ export const viewport: Viewport = {
   ],
 };
 
+/**
+ * The document shell, and nothing that belongs to one area of the site.
+ *
+ * The header, footer and Person schema live in app/(site)/layout.tsx instead,
+ * so the admin panel does not inherit public-site chrome - a marketing footer
+ * under a content editor is noise, and the structured data describes the
+ * portfolio, not the tool used to edit it.
+ */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
@@ -74,22 +79,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <PersonSchema />
       </head>
       <body className="flex min-h-full flex-col">
-        <a
-          href="#main"
-          className="focus:rounded-card focus:bg-alarm focus:text-alarm-ink sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2"
-        >
-          Skip to content
-        </a>
-        <MotionProvider>
-          <SiteHeader />
-          <main id="main" className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-        </MotionProvider>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

@@ -30,7 +30,8 @@ function setPath(target: unknown, path: (string | number)[], value: unknown): un
     list[head] = setPath(list[head], rest, value);
     return list;
   }
-  const object = typeof target === "object" && target !== null ? { ...(target as Json) } : {};
+  const object =
+    typeof target === "object" && target !== null ? { ...(target as Json) } : {};
   object[head] = setPath(object[head], rest, value);
   return object;
 }
@@ -46,7 +47,11 @@ function getPath(target: unknown, path: (string | number)[]): unknown {
 function blankRecord(fields: Field[]): Json {
   const record: Json = {};
   for (const field of fields) {
-    if (field.kind === "stringList" || field.kind === "multiselect" || field.kind === "objectList") {
+    if (
+      field.kind === "stringList" ||
+      field.kind === "multiselect" ||
+      field.kind === "objectList"
+    ) {
       record[field.name] = [];
     } else if (field.kind === "boolean") {
       record[field.name] = false;
@@ -66,14 +71,41 @@ const inputClass =
   "placeholder:text-ink-subtle focus:border-normal focus:outline-none " +
   "focus:ring-2 focus:ring-focus/40";
 
-function FieldLabel({ field }: { field: Field }) {
+/** Stable, unique DOM id for a control, derived from its path in the record. */
+function fieldId(path: (string | number)[], name: string): string {
+  return ["f", ...path, name].join("-").replace(/[^A-Za-z0-9_-]/g, "-");
+}
+
+/**
+ * Kinds that render something other than a single focusable control, so a
+ * `<label for>` has nothing to point at. These get a group label instead.
+ */
+const GROUP_KINDS = new Set(["object", "objectList", "multiselect", "stringList"]);
+
+function FieldLabel({ field, id }: { field: Field; id: string }) {
   const required = "required" in field && field.required;
+  const isGroup = GROUP_KINDS.has(field.kind);
+  const content = (
+    <>
+      {field.label}
+      {required && <span className="text-alarm ml-1">*</span>}
+    </>
+  );
+
   return (
     <div className="mb-1.5">
-      <label className="text-ink text-sm font-medium">
-        {field.label}
-        {required && <span className="text-alarm ml-1">*</span>}
-      </label>
+      {isGroup ? (
+        // A label element pointing at nothing is worse than no label: it
+        // reads as broken to a screen reader. Groups are named via
+        // aria-labelledby on the container instead.
+        <span id={`${id}-label`} className="text-ink block text-sm font-medium">
+          {content}
+        </span>
+      ) : (
+        <label htmlFor={id} className="text-ink block text-sm font-medium">
+          {content}
+        </label>
+      )}
       {field.help && (
         <p className="text-ink-subtle mt-0.5 text-xs leading-relaxed">{field.help}</p>
       )}
@@ -81,19 +113,54 @@ function FieldLabel({ field }: { field: Field }) {
   );
 }
 
+/** Label and control together, so the id that binds them is owned in one place. */
+function FieldRow({
+  field,
+  path,
+  data,
+  onChange,
+  siblings,
+}: {
+  field: Field;
+  path: (string | number)[];
+  data: unknown;
+  onChange: (path: (string | number)[], value: unknown) => void;
+  siblings: Json;
+}) {
+  const id = fieldId(path, field.name);
+  return (
+    <div>
+      <FieldLabel field={field} id={id} />
+      <FieldInput
+        field={field}
+        path={path}
+        data={data}
+        onChange={onChange}
+        siblings={siblings}
+        id={id}
+      />
+    </div>
+  );
+}
+
 function StringListInput({
   value,
   onChange,
+  label,
+  labelledBy,
 }: {
   value: string[];
   onChange: (next: string[]) => void;
+  label: string;
+  labelledBy: string;
 }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2" role="group" aria-labelledby={labelledBy}>
       {value.map((entry, index) => (
         <div key={index} className="flex gap-2">
           <textarea
             rows={2}
+            aria-label={`${label} ${index + 1}`}
             className={inputClass}
             value={entry}
             onChange={(event) => {
@@ -129,12 +196,14 @@ function FieldInput({
   data,
   onChange,
   siblings,
+  id,
 }: {
   field: Field;
   path: (string | number)[];
   data: unknown;
   onChange: (path: (string | number)[], value: unknown) => void;
   siblings: Json;
+  id: string;
 }) {
   const here = [...path, field.name];
   const value = getPath(data, here);
@@ -145,6 +214,7 @@ function FieldInput({
       return (
         <input
           type="text"
+          id={id}
           className={inputClass}
           value={(value as string) ?? ""}
           onChange={(event) => set(event.target.value)}
@@ -165,6 +235,7 @@ function FieldInput({
         <div>
           <textarea
             rows={field.rows ?? 3}
+            id={id}
             className={cn(inputClass, owed && "border-alarm")}
             value={(value as string) ?? ""}
             onChange={(event) => set(event.target.value)}
@@ -183,6 +254,7 @@ function FieldInput({
         <input
           type="number"
           step="any"
+          id={id}
           className={inputClass}
           value={value === undefined || value === null ? "" : String(value)}
           onChange={(event) =>
@@ -196,6 +268,7 @@ function FieldInput({
         <label className="text-ink-muted flex items-center gap-2 text-sm">
           <input
             type="checkbox"
+            id={id}
             className="accent-normal size-4"
             checked={Boolean(value)}
             onChange={(event) => set(event.target.checked)}
@@ -207,11 +280,14 @@ function FieldInput({
     case "select":
       return (
         <select
+          id={id}
           className={inputClass}
           value={(value as string) ?? ""}
           onChange={(event) => set(event.target.value || undefined)}
         >
-          {(field.allowEmpty || value === undefined) && <option value="">(none)</option>}
+          {(field.allowEmpty || value === undefined) && (
+            <option value="">(none)</option>
+          )}
           {field.options.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -223,7 +299,11 @@ function FieldInput({
     case "multiselect": {
       const selected = Array.isArray(value) ? (value as string[]) : [];
       return (
-        <div className="flex flex-wrap gap-2">
+        <div
+          className="flex flex-wrap gap-2"
+          role="group"
+          aria-labelledby={`${id}-label`}
+        >
           {field.options.map((option) => {
             const on = selected.includes(option);
             return (
@@ -254,23 +334,27 @@ function FieldInput({
         <StringListInput
           value={Array.isArray(value) ? (value as string[]) : []}
           onChange={set}
+          label={field.label}
+          labelledBy={`${id}-label`}
         />
       );
 
     case "object":
       return (
-        <div className="border-line space-y-4 rounded-card border p-4">
+        <div
+          className="border-line rounded-card space-y-4 border p-4"
+          role="group"
+          aria-labelledby={`${id}-label`}
+        >
           {field.fields.map((child) => (
-            <div key={child.name}>
-              <FieldLabel field={child} />
-              <FieldInput
-                field={child}
-                path={here}
-                data={data}
-                onChange={onChange}
-                siblings={(value as Json) ?? {}}
-              />
-            </div>
+            <FieldRow
+              key={child.name}
+              field={child}
+              path={here}
+              data={data}
+              onChange={onChange}
+              siblings={(value as Json) ?? {}}
+            />
           ))}
         </div>
       );
@@ -295,16 +379,14 @@ function FieldInput({
               </summary>
               <div className="border-line space-y-4 border-t p-4">
                 {field.fields.map((child) => (
-                  <div key={child.name}>
-                    <FieldLabel field={child} />
-                    <FieldInput
-                      field={child}
-                      path={[...here, index]}
-                      data={data}
-                      onChange={onChange}
-                      siblings={item}
-                    />
-                  </div>
+                  <FieldRow
+                    key={child.name}
+                    field={child}
+                    path={[...here, index]}
+                    data={data}
+                    onChange={onChange}
+                    siblings={item}
+                  />
                 ))}
                 <div className="flex gap-2 pt-1">
                   <button
@@ -422,14 +504,16 @@ export function CollectionEditor({
                   type="button"
                   onClick={() => setSelected(index)}
                   className={cn(
-                    "w-full rounded-card px-3 py-2 text-left text-sm",
+                    "rounded-card w-full px-3 py-2 text-left text-sm",
                     index === selected
                       ? "bg-surface text-ink border-line border"
                       : "text-ink-muted hover:text-ink",
                   )}
                 >
                   <span className="block truncate">
-                    {String(item[collection.titleKey ?? "title"] || `Item ${index + 1}`)}
+                    {String(
+                      item[collection.titleKey ?? "title"] || `Item ${index + 1}`,
+                    )}
                   </span>
                   {collection.subtitleKey && (
                     <span className="text-ink-subtle mt-0.5 block truncate text-xs">
@@ -472,16 +556,14 @@ export function CollectionEditor({
 
       <div className="min-w-0 space-y-5">
         {collection.fields.map((field) => (
-          <div key={field.name}>
-            <FieldLabel field={field} />
-            <FieldInput
-              field={field}
-              path={rootPath}
-              data={data}
-              onChange={onChange}
-              siblings={record}
-            />
-          </div>
+          <FieldRow
+            key={field.name}
+            field={field}
+            path={rootPath}
+            data={data}
+            onChange={onChange}
+            siblings={record}
+          />
         ))}
 
         <div className="border-line bg-surface/60 rounded-card sticky bottom-4 space-y-3 border p-4 backdrop-blur">
@@ -497,7 +579,7 @@ export function CollectionEditor({
             <input
               type="text"
               placeholder="Commit message (optional)"
-              className={cn(inputClass, "flex-1 min-w-[200px]")}
+              className={cn(inputClass, "min-w-[200px] flex-1")}
               value={message}
               onChange={(event) => setMessage(event.target.value)}
             />

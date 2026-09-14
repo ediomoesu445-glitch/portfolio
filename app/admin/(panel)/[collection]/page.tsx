@@ -26,9 +26,7 @@ export default async function CollectionPage({
   } catch (error) {
     return (
       <div>
-        <h1 className="text-ink font-display text-2xl font-bold">
-          {collection.label}
-        </h1>
+        <h1 className="text-ink font-display text-2xl font-bold">{collection.label}</h1>
         <p className="text-alarm mt-4 text-sm">
           {error instanceof Error ? error.message : "Could not load this collection."}
         </p>
@@ -39,9 +37,7 @@ export default async function CollectionPage({
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-ink font-display text-2xl font-bold">
-          {collection.label}
-        </h1>
+        <h1 className="text-ink font-display text-2xl font-bold">{collection.label}</h1>
         <p className="text-ink-muted mt-1 text-sm">{collection.description}</p>
       </div>
       <CollectionEditor

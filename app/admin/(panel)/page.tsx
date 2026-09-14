@@ -7,19 +7,20 @@ export default function AdminIndex() {
 
   return (
     <div>
+      <h1 className="text-ink font-display mb-6 text-2xl font-bold">Collections</h1>
+
       <div className="border-line bg-surface/50 rounded-card mb-8 border p-4">
         <p className="text-ink-muted text-sm">
           {backend === "github" ? (
             <>
-              Saving commits to GitHub, which triggers a rebuild. Changes appear
-              in this panel immediately and on the live site in about a minute.
+              Saving commits to GitHub, which triggers a rebuild. Changes appear in this
+              panel immediately and on the live site in about a minute.
             </>
           ) : (
             <>
               No GitHub token set, so saving writes to{" "}
-              <code className="text-ink font-mono text-xs">content/data/</code> on
-              disk. That is the right behaviour locally; set GITHUB_TOKEN in
-              production.
+              <code className="text-ink font-mono text-xs">content/data/</code> on disk.
+              That is the right behaviour locally; set GITHUB_TOKEN in production.
             </>
           )}
         </p>
