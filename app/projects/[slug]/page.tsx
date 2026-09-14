@@ -7,10 +7,10 @@ import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { formatPeriod, isTodo } from "@/lib/content";
 import { MlDemo } from "@/components/projects/MlDemo";
-import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { MotionAsset } from "@/components/projects/motion/MotionAsset";
 import { Container } from "@/components/ui/Container";
 import { Heading, Overline } from "@/components/ui/Heading";
+import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Pill } from "@/components/ui/Pill";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -95,6 +95,8 @@ export default async function ProjectPage({
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
 
+  const figures = project.media?.filter((item) => item.kind === "image") ?? [];
+  const reels = project.media?.filter((item) => item.kind === "video") ?? [];
   const period = project.started
     ? formatPeriod(project.started, project.date)
     : project.date;
@@ -287,21 +289,39 @@ export default async function ProjectPage({
         </Section>
       )}
 
-      {/* Media gallery --------------------------------------------------- */}
-      {(project.media?.length ?? 0) > 0 && (
+      {/* Figures ---------------------------------------------------------- */}
+      {figures.length > 0 && (
         <Section
           eyebrow="05"
-          title="Gallery"
-          description="Figures and reels. Panels crop to keep the carousel working, so every figure links through to the uncropped file."
+          title="Figures"
+          description="Letterboxed rather than cropped — a confusion matrix without its axis labels is not a confusion matrix."
         >
-          <Reveal>
-            <ProjectGallery project={project} />
-          </Reveal>
+          <div className="grid gap-8 md:grid-cols-2">
+            {figures.map((media) => (
+              <MediaFrame
+                key={media.src}
+                media={media}
+                aspect="4 / 3"
+                caption={media.alt}
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* Reel ------------------------------------------------------------- */}
+      {reels.length > 0 && (
+        <Section eyebrow="06" title="Demo reel" tone="subtle">
+          <div className="max-w-3xl">
+            {reels.map((media) => (
+              <MediaFrame key={media.src} media={media} aspect="16 / 9" />
+            ))}
+          </div>
         </Section>
       )}
 
       {/* What I'd do next ------------------------------------------------ */}
-      <Section eyebrow="06" title="What I would do next" tone="subtle">
+      <Section eyebrow="07" title="What I would do next">
         <ol className="divide-line border-line max-w-prose divide-y border-y">
           {project.nextSteps.map((step, index) => (
             <li key={step} className="flex gap-5 py-5">
