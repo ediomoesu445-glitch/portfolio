@@ -51,6 +51,42 @@ configure.
 
 ---
 
+## Check which branch Vercel builds
+
+Vercel's **Production Branch** is set once, from the repository's default
+branch at the time you connect it. It does not follow the default afterwards.
+
+This repo started on `master` and was renamed to `main`. If Vercel was
+connected before the rename, it is still building `master`, which has not
+moved since - so the site stays frozen on old code while every push to `main`
+appears to do nothing. Nothing errors, which is what makes it hard to spot.
+
+Settings -> Git -> Production Branch should read `main`.
+
+Changing that setting does not rebuild on its own: Vercel keeps serving the
+last successful production deployment until a new one is created. Push a
+commit to `main`, or run `vercel --prod`, to get one.
+
+Two signals that tell you which build is live, without guessing:
+
+```bash
+curl -s https://YOUR-DOMAIN/robots.txt
+```
+
+If it says `Sitemap: http://localhost:3000/sitemap.xml`, then
+`NEXT_PUBLIC_SITE_URL` was unset for that build.
+
+```bash
+curl -s https://YOUR-DOMAIN/admin -o /dev/null -w "%{http_code}
+"
+```
+
+404 means either the admin variables are unset **or** the build predates the
+panel entirely. Check `/icon.png` to tell them apart: it 404s only on builds
+older than the favicon commit.
+
+---
+
 ## How the two halves fit together
 
 | Path                              | Served by                   |
